@@ -1,72 +1,78 @@
 .header {
-  align-items: center;
-  background-color: #8e8e8e2d;
-  backdrop-filter: blur(2vw);
-  display: flex;
-  flex-direction: row;
-  height: 3vw;
-  justify-content: space-between;
-  z-index: 10;
-  padding: 0 6.5vw;
+  background-color: $g-30;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
+  z-index: 15;
+  padding: VW(16);
 
-  @include mq() {
-    height: 14vw;
-    justify-content: space-between;
-    padding: 0 6.3vw;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  &__wrapper {
-    display: flex;
-    align-items: center;
-    gap: 1.8vw;
-    height: 100%;
-
-    @include mq() {
-      display: none;
-    }
+  @include forMobile {
+    padding: VW(12, $mobile);
   }
 
   &__logo {
-    height: 70%;
-    position: relative;
-    z-index: 100;
-
-
-    @include mq() {
-      width: 14.7vw;
-      height: 13.5vw;
-    }
+    width: VW(230);
+    height: VW(22);
   }
 
-  &__list_links {
+  &__center-logo {
+    width: VW(41);
+    height: VW(36);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    mix-blend-mode: darken;
+  }
+
+  &__links {
     display: flex;
     align-items: center;
-    gap: 0.5vw;
-
-    @include mq() {
-      display: none;
-    }
+    gap: VW(16);
   }
 
   &__link {
-    font-size: 1.2vw;
-    padding: 0.5vw 0.7vw;
     position: relative;
-    z-index: 1;
+
+    @include hover {
+      &::after {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+    }
     
-    & > span {
-      position: relative;
-      z-index: 1;  
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0%;
+      width: 100%;
+      height: min(VW(1), 1px);
+      background-color: $c-black;
+      transform-origin: right;
+      transform: scaleX(0);
+      transition: transform .5s $ease-in-out-circ;
     }
   }
 
-  &__nav {
-    @include mq($tablet + 1, ">") {
-      display: none;
+  .mobile-logo {
+    display: flex;
+    gap: VW(6, $mobile);
+    align-items: center;
+    mix-blend-mode: darken;
+
+    &__video {
+      width: VW(41, $mobile);
+      height: VW(36, $mobile);
+    }
+
+    &__logo {
+      width: VW(86, $mobile);
+      height: VW(32, $mobile);
     }
   }
 }

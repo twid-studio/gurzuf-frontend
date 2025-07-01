@@ -1,17 +1,17 @@
 @import "./utils/typography";
 @import "./utils/mixins";
 @import "./utils/variables";
-@import "./utils/responsive-data" ;
+@import "./utils/responsive-data";
 
 .body {
   @extend %body-text;
-  background-color: $c-white;
+  background-color: $g-30;
   color: $c-black;
   overflow-x: hidden;
   opacity: 1;
   ::selection {
-    color: #5f00f9;
-    background: #6929ff1b;
+    color: $blue-100;
+    background: $g-70;
     mix-blend-mode: difference;
   }
 }
@@ -46,8 +46,13 @@
 // #endregion Scrollbar
 
 .container {
-  padding-right: 4vw;
-  padding-left: 4vw;
+  padding-right: VW(16);
+  padding-left: VW(16);
+
+  @include forMobile {
+    padding-right: VW(12, $mobile);
+    padding-left: VW(12, $mobile);
+  }
 }
 
 .shadow {
@@ -61,5 +66,23 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+  }
+}
+
+.sr-only {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.splide {
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
   }
 }

@@ -1,0 +1,32 @@
+  .menu {
+    position: fixed;
+    top: VW(60, $mobile);
+    left: 0;
+    right: 0;
+    padding: VW(20, $mobile) VW(12, $mobile) VW(12, $mobile);
+    background-color: $g-30;
+
+    z-index: 14;
+
+    .list {
+      display: flex;
+      flex-direction: column;
+      gap: VW(20, $mobile);
+    }
+
+    &-background {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      background-color: #52525280;
+    }
+
+    .button {
+      width: auto;
+      display: flex;
+      justify-content: center;
+      padding: .7em 0;
+
+      @extend %h2;
+    }
+  }

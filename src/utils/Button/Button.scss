@@ -1,0 +1,58 @@
+.button {
+  padding: 0.5em 1em;
+  background-color: $c-white;
+  color: $c-black;
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+
+  @include hover {
+    .button__arrow {
+      width: 1em;
+      margin-left: 0.5em;
+      // opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+  
+  &__arrow {
+    width: .0em;
+    height: 1em;
+    margin-left: 0em;
+    overflow: hidden;
+    position: relative;
+    transform: translateX(50%);
+
+    transition: 0.7s $ease-in-out-expo;
+    transition-property: margin-left, width, transform;
+
+    svg {
+      width: 1em;
+      position: absolute;
+      right: 0;
+      fill: $c-black;
+
+      path {
+        fill: inherit;
+      }
+    }
+  }
+
+  &--black {
+    color: $c-white;
+    background-color: $c-black;
+
+    svg {
+      fill: $c-white;
+    }
+  }
+
+  &--yellow {
+    color: $c-black;
+    background-color: $yellow-100;
+
+    svg {
+      fill: $c-black;
+    }
+  }
+}

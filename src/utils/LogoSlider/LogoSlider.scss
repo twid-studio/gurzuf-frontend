@@ -1,0 +1,48 @@
+.logos-slider {
+  overflow: hidden;
+  
+  &-overflow {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    width: max-content;
+  }
+
+  &-wrapper {
+    display: flex;
+    align-items: center;
+    gap: VW(160);
+    padding-left: VW(160);
+    animation: spinAnimation infinite linear;
+    
+    @include forMobile {
+      gap: VW(84, $mobile);
+      padding-left: VW(84, $mobile);
+    }
+  }
+
+  .logo {
+    object-fit: contain;
+    object-position: center;
+    width: 90%;
+    height: VW(44);
+    mix-blend-mode: darken;
+
+    @include forTablet {
+      max-height: 7vw;
+    }
+
+    @include forMobile {
+      height: VW(44, $mobile);
+    }
+  }
+}
+
+@keyframes spinAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

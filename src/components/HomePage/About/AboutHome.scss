@@ -1,0 +1,79 @@
+.home {
+  .about {
+    display: flex;
+    flex-direction: column;
+    gap: VW(90);
+    margin: VW(60) 0;
+
+    @include forMobile {
+      margin: VW(60, $mobile) 0;
+      gap: VW(60, $mobile);
+    }
+
+    .title {
+      display: flex;
+      flex-direction: column;
+      gap: .8em;
+      width: 48%;
+
+      @include forMobile {
+        width: auto;
+      }
+    }
+
+    .trusted {
+      &-list {
+        display: flex;
+        justify-content: space-between;
+        
+        position: relative;
+        border-bottom: .1em solid $g-70;
+
+        @include forMobile {
+          flex-direction: column;
+          border-bottom: none;
+          gap: VW(60, $mobile);
+          border-left: .1em solid $g-70;
+        }
+        
+        .item {
+          position: relative;
+          padding-bottom: VW(40);
+
+          @include forMobile {
+            padding-bottom: VW(0, $mobile);
+            padding-left: VW(40, $mobile);
+          }
+  
+          &__text {
+            display: block;
+            width: 70%;
+
+            @include forMobile {
+              width: 50%;
+              font-size: VW(18, $mobile);
+              line-height: 1.2;
+              transform: translateY(-.2em);
+            }
+          }
+
+          &__line {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: .1em;
+            height: .8em;
+            background-color: $g-70;
+
+            @include forMobile {
+              bottom: auto;
+              top: 0;
+              width: .8em;
+              height: .1em;
+            }
+          }
+        }
+      }
+    }
+  }
+}

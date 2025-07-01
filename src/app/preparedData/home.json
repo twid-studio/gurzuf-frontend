@@ -1,0 +1,275 @@
+{
+  "hero": {
+    "background": "/assets/home/hero-bg.webp",
+    "title": ["Бойові дрони", "для перемоги України"],
+    "text": "Gurzuf Defence виробляє модульні ударні БПЛА, які точково б’ють техніку ворога й бережуть життя наших пілотів. Працюємо, доки не звільнимо всю країну — від Харкова до Криму.",
+    "button": {
+      "text": "Озброїти підрозділ",
+      "href": "/contact"
+    },
+    "video": {
+      "src": "/assets/home/showreel.mp4",
+      "preview": "/assets/home/showreel-preview.mp4"
+    }
+  },
+  "about": {
+    "logos": [
+      {
+        "src": "/assets/home/logos/logo-1.png",
+        "alt": "Logo 1"
+      },
+      {
+        "src": "/assets/home/logos/logo-2.png",
+        "alt": "Logo 2"
+      },
+      {
+        "src": "/assets/home/logos/logo-3.png",
+        "alt": "Logo 3"
+      },
+      {
+        "src": "/assets/home/logos/logo-4.png",
+        "alt": "Logo 4"
+      },
+      {
+        "src": "/assets/home/logos/logo-5.png",
+        "alt": "Logo 5"
+      },
+      {
+        "src": "/assets/home/logos/logo-6.png",
+        "alt": "Logo 6"
+      },
+      {
+        "src": "/assets/home/logos/logo-7.png",
+        "alt": "Logo 7"
+      },
+      {
+        "src": "/assets/home/logos/logo-8.png",
+        "alt": "Logo 8"
+      },
+      {
+        "src": "/assets/home/logos/logo-9.png",
+        "alt": "Logo 9"
+      }
+    ],
+    "title": "Нам довіряють найскладніші місії",
+    "text": "Від розвідки до рейдів за лінією фронту — дрони Gurzuf використовують підрозділи, що працюють там, де потрібна точність і витривалість техніки. 20+ бойових частин уже злітали з нашими безпілотниками, серед них:",
+    "list": [
+      "Сили спеціальних операцій",
+      "Десантно-штурмові війська",
+      "Розвідувальні підрозділи",
+      "Підрозділи ТРО",
+      "Відомі добровольчі формування"
+    ]
+  },
+  "products": {
+    "list": [
+      {
+        "name": "Heavy Shot",
+        "description": "Ударний дрон нового покоління, що несе до 40 кг корисного вантажу й працює на відстані 15 км від оператора. Надійність, перевірена боєм.",
+        "slug": "heavy-shot",
+        "image": "/assets/home/products/heavy-shot.webp",
+        "button": {
+          "text": "Дізнатися більше",
+          "href": "/products/heavy-shot"
+        },
+        "characteristics": [
+          {
+            "title": "Навантаження",
+            "value": "Від 10 до 40 кг"
+          },
+          {
+            "title": "До",
+            "value": "20 км радіус дії"
+          },
+          {
+            "title": "Оснащений",
+            "value": "Високоякісна 2K камера"
+          }
+        ]
+      },
+      {
+        "name": "Aaron",
+        "description": "Мультифункціональна платформа для розвідки, зв’язку та допоміжних завдань. Ідеально для комплексних операцій.",
+        "slug": "aaron",
+        "image": "/assets/home/products/aaron.webp",
+        "button": {
+          "text": "Дізнатися більше",
+          "href": "/products/aaron"
+        },
+        "characteristics": [
+          {
+            "title": "Навантаження",
+            "value": "Від 10 до 40 кг"
+          },
+          {
+            "title": "До",
+            "value": "20 км радіус дії"
+          },
+          {
+            "title": "Оснащений",
+            "value": "Високоякісна 2K камера"
+          }
+        ]
+      }
+    ]
+  },
+  "privilages": {
+    "title": "Розгадали код ефективності",
+    "list": [
+      {
+        "title": "Гнучка модульна архітектура",
+        "text": "Швидка заміна модулів дозволяє адаптувати дрон до конкретного типу боєприпасів, навісного обладнання чи задачі."
+      },
+      {
+        "title": "Живучість під вогнем",
+        "text": "Корпус і електроніка витримують дощ, пил, РЕБ-завади й пряму вогневу атаку. Найдовше зафіксоване використання — 275 бойових вильотів на одному планері."
+      },
+      {
+        "title": "Екіпаж за 3 дні",
+        "text": "Інтуїтивне ПЗ + стандартизовані чек-листи. Три дні тренувань — <br />і оператор готовий до бойового вильоту."
+      },
+      {
+        "title": "Польовий ремонт",
+        "text": "Оперативний ремонт і повне консультування — <br />ми поруч на всіх етапах бойового застосування."
+      }
+    ]
+  },
+  "operations": {
+    "title": "Типи операцій",
+    "text": "Наші дрони адаптуються до будь-яких бойових завдань: від швидкої розвідки до точкових ударів далеко за лінією фронту. Працюємо на землі, над водою і в складному рельєфі.",
+    "list": [
+      {
+        "text": "Розвідка перед ударом",
+        "content": "/assets/home/operations/promo-vid-1.mp4",
+        "characteristics": false
+      },
+      {
+        "text": "Скидання бомб з точністю до метра",
+        "content": "/assets/home/operations/promo-vid-2.mp4",
+        "characteristics": false
+      },
+      {
+        "text": "GPS Jamming Defense",
+        "content": "/assets/home/operations/promo-vid-3.mp4",
+        "characteristics": [
+          {
+            "color": "dark-grey",
+            "text": "В розробці"
+          }
+        ]
+      },
+      {
+        "text": "Захист зв’язку та навігації",
+        "content": "/assets/home/operations/promo-vid-4.mp4",
+        "characteristics": [
+          {
+            "color": "white",
+            "text": "Data Link Anti-Jamming"
+          },
+          {
+            "color": "light-grey",
+            "text": "RTK GNSS"
+          },
+          {
+            "color": "dark-grey",
+            "text": "Опційно, тестуємо"
+          }
+        ]
+      }
+    ]
+  },
+  "quote": {
+    "text": "Ми мріємо відзначати перемогу в офісі з видом на Аю-Даг. Та поки триває боротьба — робимо дрони, що наближають цей день.",
+    "author": {
+      "name": "Павло Фельдблюм",
+      "position": "співзасновник \"Gurzuf Defence\"",
+      "image": "/assets/home/quote/pavlo.webp"
+    },
+    "button": {
+      "active": true,
+      "text": "Про Gurzuf Defence",
+      "href": "/about"
+    }
+  },
+  "news": {
+    "title": "Що нового на передовій Gurzuf",
+    "list": [
+      {
+        "type": {
+          "slug": "news",
+          "text": "Новина"
+        },
+        "link":{
+          "type": "slug",
+          "slug": "1000-heavy-shot"
+        },
+        "title": "Вироблено 1000-й \"Heavy Shot\" — рекорд для українського ринку ударних дронів",
+        "image": "/assets/blog/photo-1.jpg",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-1.jpg"
+        }
+      },
+      {
+        "type": {
+          "slug": "special-project",
+          "text": "Спецпроєкт"
+        },
+        "link":{
+          "type": "slug",
+          "slug": "1000-heavy-shot"
+        },
+        "title": "Успішна операція на Східному напрямку — відзначено ефективність нової модифікації",
+        "image": "/assets/blog/photo-2.jpg",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-2.jpg"
+        }
+      },
+      {
+        "type": {
+          "slug": "interview",
+          "text": "Інтервʼю"
+        },
+        "link":{
+          "type": "slug",
+          "slug": "1000-heavy-shot"
+        },
+        "title": "Початок навчання нових підрозділів ТРО у партнерстві з МОУ",
+        "image": "/assets/blog/photo-3.jpg",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-3.jpg"
+        }
+      }
+    ],
+    "button": {
+      "active": true,
+      "text": "Більше новин",
+      "href": "/news"
+    }
+  },
+  "reviews": {
+    "title": "Що кажуть пілоти Gurzuf",
+    "list": [
+      {
+        "text": "Ці дрони — справжні робочі коні. Простота керування і висока точність. Одне з найкращих рішень, які ми використовували.",
+        "author": {
+          "position": "Командир розвідувального підрозділу ЗСУ"
+        }
+      },
+      {
+        "text": "Надійні, витривалі й з хорошим сервісом. Команда завжди на зв’язку.",
+        "author": {
+          "position": "Представник спецпідрозділу"
+        }
+      },
+       {
+        "text": "Ці дрони — справжні робочі коні. Простота керування і висока точність. Одне з найкращих рішень, які ми використовували.",
+        "author": {
+          "position": "Командир розвідувального підрозділу ЗСУ"
+        }
+      }
+    ]
+  }
+}

@@ -4,7 +4,7 @@ const fallbackData = {
     "nextjs, next.js, creative, creative development, framer-motion",
   documentDescription:
     "the ideal template for creative work, featuring stunning components and fluid functionality on nextjs.",
-  documentImage: "/images/screenshot.png",
+  documentImage: "/assets/screenshot.png",
 };
 
 export async function generatePagesMetadata(endpoint) {

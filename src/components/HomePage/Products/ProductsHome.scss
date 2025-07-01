@@ -1,0 +1,173 @@
+.home {
+  .products {
+    .list {
+      background-color: $g-70;
+      color: $c-white;
+      padding: VW(16);
+      display: flex;
+      gap: VW(20);
+
+      @include forMobile {
+        flex-direction: column;
+        transform: none !important;
+        padding: VW(12, $mobile) VW(12, $mobile) VW(32, $mobile);
+        gap: VW(56, $mobile);
+      }
+
+      .item {
+        width: 50%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2em;
+
+        @include forMobile {
+          width: 100%;
+        }
+
+        &__title {
+          display: flex;
+          flex-direction: column;
+          gap: 0.4em;
+          width: 90%;
+        }
+
+        &__image {
+          &-wrapper {
+            width: 100%;
+            height: VW(600);
+            object-fit: cover;
+            object-position: center;
+
+            position: relative;
+
+            @include forMobile {
+              height: auto;
+              aspect-ratio: 1/ 1;
+            }
+
+            @include hover {
+              .top {
+                opacity: 1;
+              }
+
+              .bottom {
+                opacity: 1;
+              }
+            }
+
+            .top {
+              position: absolute;
+              top: 1em;
+              left: 1em;
+              right: 1em;
+              display: flex;
+              justify-content: space-between;
+              z-index: 2;
+              opacity: 0;
+              transition: opacity 0.2s $ease-in-out-cubic;
+
+              @include forMobile {
+                opacity: 1 !important;
+                left: .6em;
+                right: .6em;
+                top: .6em;
+              }
+            }
+
+            .border {
+              width: 0.8em;
+              height: 0.8em;
+              background-color: $yellow-100;
+              transition: transform 0.2s $ease-out-cubic;
+            }
+
+            .bottom {
+              display: flex;
+              flex-direction: column;
+              gap: 0.5em;
+
+              position: absolute;
+              bottom: 1em;
+              left: 1em;
+              right: 1em;
+              z-index: 2;
+
+              opacity: 0;
+              transition: opacity 0.2s $ease-in-out-cubic;
+
+              @include forMobile {
+                opacity: 1 !important;
+                left: .6em;
+                right: .6em;
+                bottom: .6em;
+              }
+
+              .borders {
+                display: flex;
+                justify-content: space-between;
+              }
+
+              &__button {
+                width: auto;
+                display: flex;
+                text-align: center;
+                justify-content: center;
+              }
+            }
+          }
+        }
+
+        &__characteristics {
+          display: flex;
+
+          @include forMobile {
+            display: none;
+          }
+
+          .characteristic {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2em;
+
+            &-tag {
+              padding: 0.2em 0.4em;
+              background-color: $g-100;
+            }
+
+            &:nth-of-type(2) {
+              .characteristic-tag {
+                background-color: $c-white;
+                color: $c-black;
+              }
+            }
+
+            &:nth-of-type(3) {
+              .characteristic-tag {
+                background-color: $g-30;
+                color: $c-black;
+              }
+            }
+          }
+        }
+
+        &--only-item {
+          width: 100%;
+          flex-direction: row;
+
+          .item__characteristics {
+            position: absolute;
+            bottom: 0;
+          }
+
+          .item__image {
+            &-wrapper {
+              aspect-ratio: 1.2 / 1;
+              height: VW(600);
+            }
+          }
+        }
+      }
+    }
+  }
+}

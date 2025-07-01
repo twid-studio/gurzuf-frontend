@@ -1,0 +1,121 @@
+.home {
+  .quote {
+    width: 100%;
+    aspect-ratio: 16/9.1;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+
+    @include forTablet {
+      aspect-ratio: 4/3.1;
+    }
+
+    @include forMobile {
+      aspect-ratio: 9/17.1;
+    }
+
+    &-background {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+    }
+
+    &-content {
+      padding: 1em;
+      position: relative;
+      background-color: $brown-100;
+      color: $c-white;
+      max-width: VW(660);
+
+      @include forTablet {
+        max-width: VW(500, $tablet);
+      }
+
+      @include forMobile {
+        max-width: none;
+        width: auto;
+        margin: 0 1em;
+      }
+
+      .text {
+        display: flex;
+        gap: 1em;
+
+        @include forMobile {
+          gap: 0.5em;
+        }
+
+        &-quote-icon {
+          width: 1.5em;
+          height: 1.5em;
+          flex-shrink: 0;
+
+          @include forMobile {
+            width: 1.2em;
+            height: 1.2em;
+          }
+        }
+      }
+
+      .author {
+        margin-top: 1.5em;
+        padding-left: 2.2em;
+
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+
+        @include forMobile {
+          padding-left: 2em;
+        }
+
+        &__image {
+          width: 3em;
+          height: 3em;
+          border-radius: 50%;
+          overflow: hidden;
+          flex-shrink: 0;
+        }
+      }
+
+      &-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+
+        @include forMobile {
+          transform: none !important;
+        }
+      }
+    }
+
+    &__button {
+      max-width: VW(650);
+      width: 100%;
+      justify-content: center;
+
+      @extend %h3;
+
+      @include forTablet {
+        max-width: VW(490, $tablet);
+      }
+
+      @include forMobile {
+        max-width: none;
+        width: 83%;
+      }
+
+      .button__arrow {
+        scale: 0.8;
+        transform-origin: bottom left;
+      }
+    }
+  }
+}
