@@ -6,7 +6,12 @@ import { DataContext } from "@/lib/providers/DataProvider/context";
 import { Content } from "@/utils/Content/Content";
 import { Button } from "@/utils/Button/Button";
 import { VideoPlayer } from "@/utils/VideoPlayer/VideoPlayer";
-import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 
 export default function HeroHome() {
   const { data: allData } = useContext(DataContext);
@@ -19,17 +24,9 @@ export default function HeroHome() {
     layoutEffect: true,
   });
 
-  const yBg = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ["0%", "20%"]
-  );
+  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
-  const yTitle = useTransform(
-    scrollYProgress,
-    [0,1],
-    ["0%", "50%"]
-  );
+  const yTitle = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
   return (
     <section className="hero" ref={sectionRef}>
@@ -134,8 +131,12 @@ const ShowReel = ({ url, preview }) => {
           onClick={handleActivate}
           transition={{ ease: [0.12, 0.73, 0.28, 0.99], duration: 0.6 }}
         >
-          <video className="sr-only" src={url}></video>
-
+          <VideoPlayer
+            url={url}
+            autoPlay={false}
+            resetOnClose={!isActive}
+            customClass="sr-only"
+          />
           <div className="hero__showreel-button">
             <svg
               width="44"

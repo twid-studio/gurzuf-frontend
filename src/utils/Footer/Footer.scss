@@ -1,37 +1,90 @@
 .footer {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  height: 70vh;
+  height: calc(100vh - VW(60));
   position: relative;
+  overflow: hidden;
+  border-top: min(0.05em, 1px) solid $g-80;
 
-  .super-text {
-    font-weight: normal;
+  @include forMobile {
+    height: calc(100vh - VW(70, $mobile));
+    border-top: none;
   }
 
-  .micro-text {
-    font-size: 0.8vw; 
-    line-height: 100%;
+  .navigation {
+    background-color: $c-black;
+    width: 100%;
+    // border-right: min(0.05em, 1px) solid $g-80;
+    position: relative;
+    z-index: 4;
+
+    padding: VW(16);
+
+    @include forMobile {
+      padding: VW(20, $mobile) VW(12, $mobile);
+      border-right: none !important;
+      border-top: 1px solid $g-80;
+      width: auto;
+    }
+
+    &:not(:last-of-type) {
+      border-right: max(0.05em, 1px) solid $g-80;
+    }
+
+    &-wrapper {
+      display: flex;
+
+      @include forMobile {
+        flex-direction: column;
+      }
+    }
+
+    .list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6em;
+      margin-top: 0.8em;
+    }
+
+    &__link {
+      position: relative;
+      color: $c-white;
+      width: fit-content;
+
+      @include hover {
+        &::after {
+          transform: scaleX(1);
+          transform-origin: left;
+        }
+      }
+
+      &-made-by {
+        position: absolute;
+        bottom: 0.8em;
+
+        @include forMobile {
+          position: static;
+          margin-top: 1.5em;
+          display: block;
+        }
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0%;
+        width: 100%;
+        height: min(VW(1), 1px);
+        background-color: $c-white;
+        transform-origin: right;
+        transform: scaleX(0);
+        transition: transform 0.5s $ease-in-out-circ;
+      }
+    }
   }
 
-  .bottom {
+  .footer-image {
     position: absolute;
-    bottom: 1vw;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-
-  &__description {
-    width: 15%;
-    text-align: justify;
-  }
-
-  &__logo {
-    width: 6vw;
-    height: 2.3vw;
+    inset: 0;
+    z-index: 1;
   }
 }

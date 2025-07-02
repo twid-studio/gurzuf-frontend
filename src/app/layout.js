@@ -5,6 +5,7 @@ import {
 } from "@/lib/providers/ScrollProvider/ScrollProvider";
 import Header from "@/utils/Header/Header";
 import Footer from "@/utils/Footer/Footer";
+import Contact from "@/utils/Contact/Contact";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic-ext"],
@@ -13,7 +14,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "RTRTS TMPLATE",
+  title: "GURZUF DEFENCE",
 };
 
 export default function RootLayout({ children }) {
@@ -23,6 +24,8 @@ export default function RootLayout({ children }) {
         <ScrollProvider scrollBar></ScrollProvider>
         <Header />
         {children}
+        <Contact />
+        <Footer />
       </body>
     </html>
   );

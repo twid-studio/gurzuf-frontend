@@ -102,3 +102,28 @@ export const OperationsAnim = {
     },
   }
 }
+
+export const FormAnim = {
+  succes: {
+    initial: {
+      scale: 1.1,
+      opacity: 0,
+    },
+    animate: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.7,
+        ease: ease.inOutExpo,
+      },
+    },
+    exit: {
+      scale: 1.1,
+      opacity: 0,
+      transition: {
+        duration: 0.7,
+        ease: ease.inOutExpo,
+      },
+    },
+  }
+}

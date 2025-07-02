@@ -1,0 +1,72 @@
+{
+  "top": {
+    "title": "На зв’язку — Gurzuf Defence",
+    "text": "У нас є досвід реальних бойових операцій. Підкажемо, як ваш підрозділ може ефективно використовувати безпілотники Gurzuf у конкретних завданнях."
+  },
+  "form": {
+    "sucessText": {
+      "text": "Дякуємо за запит!",
+      "subText": "Ми зв’яжемося з вами найближчим часом."
+    },
+    "name": {
+      "text": "Ім’я",
+      "errorText": ""
+    },
+    "company": {
+      "text": "Компанія",
+      "errorText": ""
+    },
+    "country": {
+      "text": "Країна",
+      "errorText": "",
+      "list": [
+        {
+          "text": "Україна",
+          "value": "ukraine"
+        },
+        {
+          "text": "США",
+          "value": "usa"
+        },
+        {
+          "text": "Канада",
+          "value": "canada"
+        },
+        {
+          "text": "Інше",
+          "value": "other"
+        }
+      ]
+    },
+    "industry": {
+      "text": "Індустрія",
+      "errorText": "",
+      "list": [
+        {
+          "text": "Авіація",
+          "value": "aviation"
+        },
+        {
+          "text": "Будівництво",
+          "value": "construction"
+        },
+        {
+          "text": "Енергетика",
+          "value": "energy"
+        }
+      ]
+    },
+    "email": {
+      "text": "Email",
+      "errorText": "Невірно набрано"
+    },
+    "phone": {
+      "text": "Телефон",
+      "errorText": "Невірно набрано"
+    },
+    "message": {
+      "text": "Повідомлення",
+      "errorText": false
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "navigation": {
+    "pages": {
+      "title": "Навігація",
+      "items": [
+        {
+          "text": "Продукти",
+          "href": "/"
+        },
+        {
+          "text": "Про нас",
+          "href": "/about"
+        },
+        {
+          "text": "Блог",
+          "href": "/services"
+        },
+        {
+          "text": "Контакти",
+          "href": "/contact"
+        }
+      ]
+    },
+    "contact": {
+      "title": "Звʼязатись з нами",
+      "items": [
+        {
+          "text": "+380 073 131 32 79",
+          "href": "tel:+380731313279"
+        },
+        {
+          "text": "heavyshot@gurzufdefence.com.ua",
+          "href": "mailto:heavyshot@gurzufdefence.com.ua"
+        }
+      ]
+    },
+    "other": {
+      "title": "Інше",
+      "items": [
+        {
+          "text": "Політика конфіденційності",
+          "href": "/policy/privacy-policy"
+        },
+        {
+          "text": "Умови використання",
+          "href": "/policy/terms-of-use"
+        }
+      ],
+      "madeBy": {
+        "text": "Створили twid",
+        "href": "https://twid.marketing"
+      }
+    }
+  }
+}
