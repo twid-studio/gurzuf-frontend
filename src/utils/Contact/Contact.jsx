@@ -120,8 +120,27 @@ const FormSection = ({ data }) => {
                 {...anim(FormAnim.succes)}
                 className="form-success-message"
               >
-                <h1 className="upperCase">{sucessText?.text}</h1>
+                <h2>{sucessText?.text}</h2>
                 <p>{sucessText?.subText}</p>
+
+                <button
+                  className="form-success-message__button button button--white"
+                  onClick={() => setSubmitted(false)}
+                >
+                  <h3>{sucessText?.buttonText}</h3>
+                  <div className="button__arrow">
+                    <svg
+                      viewBox="0 0 18 17"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M9.58807 16.3153L8.05398 14.7983L13.3807 9.47159H0V7.25568H13.3807L8.05398 1.9375L9.58807 0.411931L17.5398 8.36364L9.58807 16.3153Z"
+                        fill="black"
+                      />
+                    </svg>
+                  </div>
+                </button>
               </motion.div>
             )}
           </AnimatePresence>
