@@ -29,7 +29,7 @@
     mix-blend-mode: darken;
 
     @include forTablet {
-      max-height: 7vw;
+      height: VW(44, $tablet);
     }
 
     @include forMobile {

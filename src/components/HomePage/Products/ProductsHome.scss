@@ -7,6 +7,11 @@
       display: flex;
       gap: VW(20);
 
+      @include forTablet {
+        padding: VW(16, $tablet) VW(16, $tablet) VW(56, $tablet);
+        gap: VW(16, $tablet);
+      }
+
       @include forMobile {
         flex-direction: column;
         transform: none !important;
@@ -56,6 +61,13 @@
               }
             }
 
+            @media (hover: none) {
+              .top,
+              .bottom {
+                opacity: 1 !important;
+              }
+            }
+
             .top {
               position: absolute;
               top: 1em;
@@ -68,7 +80,6 @@
               transition: opacity 0.2s $ease-in-out-cubic;
 
               @include forMobile {
-                opacity: 1 !important;
                 left: .6em;
                 right: .6em;
                 top: .6em;
@@ -97,7 +108,6 @@
               transition: opacity 0.2s $ease-in-out-cubic;
 
               @include forMobile {
-                opacity: 1 !important;
                 left: .6em;
                 right: .6em;
                 bottom: .6em;
@@ -119,10 +129,10 @@
         }
 
         &__characteristics {
-          display: flex;
-
-          @include forMobile {
-            display: none;
+          display: none;
+          
+          @include forDesktop {
+            display: flex;
           }
 
           .characteristic {

@@ -35,7 +35,7 @@ export default function Operations() {
     threshold: 0.3,
   });
 
-   const sectionScrollRef = useRef();
+  const sectionScrollRef = useRef();
 
   const { scrollYProgress } = useScroll({
     target: sectionScrollRef,
@@ -126,7 +126,7 @@ export default function Operations() {
   };
 
   return (
-    <section  ref={sectionRef}>
+    <section ref={sectionRef}>
       <motion.div
         style={{ scale }}
         ref={sectionScrollRef}
@@ -216,39 +216,37 @@ export default function Operations() {
               </motion.div>
             ))}
           </div>
-          <div className="buttons">
-            <div className="operation-list-button">
-              <div
-                className="operation-list-button__arrow operation-list-button__arrow--prev"
-                onClick={() => {
-                  const prevIndex =
-                    (activeItem - 1 + data?.list.length) % data?.list.length;
-                  setActiveItem(prevIndex);
-                }}
+          <div className="operation-list-button">
+            <div
+              className="operation-list-button__arrow operation-list-button__arrow--prev"
+              onClick={() => {
+                const prevIndex =
+                  (activeItem - 1 + data?.list.length) % data?.list.length;
+                setActiveItem(prevIndex);
+              }}
+            >
+              <svg
+                viewBox="0 0 18 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  viewBox="0 0 18 17"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M9.58807 16.3153L8.05398 14.7983L13.3807 9.47159H0V7.25568H13.3807L8.05398 1.9375L9.58807 0.411931L17.5398 8.36364L9.58807 16.3153Z" />
-                </svg>
-              </div>
-              <div
-                className="operation-list-button__arrow"
-                onClick={() => {
-                  const nextIndex = (activeItem + 1) % data?.list.length;
-                  setActiveItem(nextIndex);
-                }}
+                <path d="M9.58807 16.3153L8.05398 14.7983L13.3807 9.47159H0V7.25568H13.3807L8.05398 1.9375L9.58807 0.411931L17.5398 8.36364L9.58807 16.3153Z" />
+              </svg>
+            </div>
+            <div
+              className="operation-list-button__arrow"
+              onClick={() => {
+                const nextIndex = (activeItem + 1) % data?.list.length;
+                setActiveItem(nextIndex);
+              }}
+            >
+              <svg
+                viewBox="0 0 18 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  viewBox="0 0 18 17"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M9.58807 16.3153L8.05398 14.7983L13.3807 9.47159H0V7.25568H13.3807L8.05398 1.9375L9.58807 0.411931L17.5398 8.36364L9.58807 16.3153Z" />
-                </svg>
-              </div>
+                <path d="M9.58807 16.3153L8.05398 14.7983L13.3807 9.47159H0V7.25568H13.3807L8.05398 1.9375L9.58807 0.411931L17.5398 8.36364L9.58807 16.3153Z" />
+              </svg>
             </div>
           </div>
         </div>

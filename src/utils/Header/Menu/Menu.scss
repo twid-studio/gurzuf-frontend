@@ -8,10 +8,19 @@
 
     z-index: 14;
 
+    @include forTablet {
+      top: VW(75, $tablet);
+      padding: VW(20, $tablet) VW(16, $tablet);
+    }
+
     .list {
       display: flex;
       flex-direction: column;
       gap: VW(20, $mobile);
+
+      @include forTablet {
+        gap: VW(24, $tablet);
+      }
     }
 
     &-background {

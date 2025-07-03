@@ -11,22 +11,46 @@
   align-items: center;
   justify-content: space-between;
 
+  @include forTablet {
+    padding: VW(16, $tablet);
+  }
+
   @include forMobile {
     padding: VW(12, $mobile);
+  }
+
+  .logos-wrapper {
+    display: flex;
+    align-items: center;
+    gap: .5em;
   }
 
   &__logo {
     width: VW(230);
     height: VW(22);
+
+    @include forTablet {
+      width: VW(86, $tablet);
+      height: VW(32, $tablet);
+    }
+
+    @include forMobile {
+      width: VW(86, $mobile);
+      height: VW(32, $mobile);
+    }
   }
 
   &__center-logo {
-    width: VW(41);
-    height: VW(36);
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 2.3em;
+    height: 2em;
     mix-blend-mode: darken;
+
+    @include forDesktop {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 
   &__links {
@@ -44,7 +68,7 @@
         transform-origin: left;
       }
     }
-    
+
     &::after {
       content: "";
       display: block;
@@ -55,24 +79,12 @@
       background-color: $c-black;
       transform-origin: right;
       transform: scaleX(0);
-      transition: transform .5s $ease-in-out-circ;
+      transition: transform 0.5s $ease-in-out-circ;
     }
   }
 
-  .mobile-logo {
-    display: flex;
-    gap: VW(6, $mobile);
-    align-items: center;
-    mix-blend-mode: darken;
-
-    &__video {
-      width: VW(41, $mobile);
-      height: VW(36, $mobile);
-    }
-
-    &__logo {
-      width: VW(86, $mobile);
-      height: VW(32, $mobile);
-    }
+  &__menu-button {
+    width: 2.4em;
+    height: 2.4em;
   }
 }

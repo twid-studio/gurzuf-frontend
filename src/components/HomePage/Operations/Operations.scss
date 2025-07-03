@@ -5,6 +5,11 @@
     padding-top: 1em;
     padding-bottom: 1em;
 
+    @include forTablet {
+      padding-top: VW(16, $tablet);
+      padding-bottom: VW(56, $tablet);
+    }
+
     @include forMobile {
       padding-bottom: 3em;
       transform: none !important;
@@ -15,6 +20,10 @@
       display: flex;
       flex-direction: column;
       gap: 0.4em;
+
+      @include forTablet {
+        width: 67%;
+      }
 
       @include forMobile {
         width: auto;
@@ -28,6 +37,11 @@
       gap: 1em;
       position: relative;
 
+      @include forTablet {
+        margin-top: VW(120, $tablet);
+        gap: 2em;
+      }
+
       @include forMobile {
         margin-top: VW(50, $mobile);
         flex-direction: column-reverse;
@@ -38,6 +52,11 @@
         flex-direction: column;
         gap: 1.8em;
         width: 50%;
+
+        @include forTablet {
+          width: 46%;
+          gap: 2em;
+        }
 
         @include forMobile {
           width: 100%;
@@ -75,6 +94,11 @@
 
             transition: color 0.3s ease;
 
+            @include forTablet {
+              align-items: flex-start;
+              gap: .7em;
+            }
+
             @include forMobile {
               gap: 0.5em;
               align-items: flex-start;
@@ -85,6 +109,12 @@
               height: 1em;
               fill: $c-white;
               transition: fill 0.3s ease;
+
+              @include forTablet {
+                margin-top: 0.4em;
+                width: 1.2em;
+                height: 1.2em;
+              }
 
               @include forMobile {
                 margin-top: 0.3em;
@@ -151,6 +181,11 @@
         position: relative;
         overflow: hidden;
 
+        @include forTablet {
+          width: VW(470, $tablet);
+          height: VW(470, $tablet);
+        }
+
         @include forMobile {
           width: auto;
           height: auto;
@@ -171,6 +206,14 @@
         bottom: 0;
         left: 0;
 
+        @include forTablet {
+          bottom: auto;
+          left: auto;
+          top: -1em;
+          right: 0;
+          transform: translateY(-100%);
+        }
+
         @include forMobile {
           position: static;
         }
@@ -186,6 +229,12 @@
 
           @include hover {
             fill: $blue-100;
+          }
+
+          @include forTablet {
+            width: 1.2em;
+            height: 1.2em;
+            padding: 0.8em;
           }
 
           @include forMobile {

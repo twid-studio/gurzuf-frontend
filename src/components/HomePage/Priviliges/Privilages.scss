@@ -5,6 +5,11 @@
     padding-top: VW(16);
     padding-bottom: VW(56);
 
+    @include forTablet {
+      padding-top: VW(16, $tablet);
+      padding-bottom: VW(56, $tablet);
+    }
+
     @include forMobile {
       padding-top: VW(12, $mobile);
       padding-bottom: VW(48, $mobile);
@@ -23,6 +28,11 @@
         padding: 1em 0;
         border-bottom: 0.1em solid $c-white;
 
+        @include forTablet {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
         @include forMobile {
           flex-direction: column;
           align-items: flex-start;
@@ -34,6 +44,13 @@
           align-items: center;
           gap: 1em;
           width: 50%;
+
+          @include forTablet {
+            width: 100%;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 0.8em;
+          }
 
           @include forMobile {
             width: auto;
@@ -50,6 +67,11 @@
         &__text {
           width: 48%;
           margin-right: 2%;
+
+          @include forTablet {
+            width: 70%;
+            margin-right: 0;
+          }
 
           @include forMobile {
             width: auto;

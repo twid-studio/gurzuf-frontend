@@ -29,7 +29,6 @@ const links = [
 ];
 
 export default function Header() {
-  const isMobile = useIsMobile();
   const [isMenuOpened, setIsMenuOpened] = useState(false);
 
   const burger = "M21 18H3V16H21V18ZM21 13H3V11H21V13ZM21 8H3V6H21V8Z";
@@ -39,62 +38,66 @@ export default function Header() {
   return (
     <>
       <header className="header">
-        {isMobile && (
-          <div className="mobile-logo">
-            <Content
-              url="/assets/gsf-logo.mp4"
-              className="mobile-logo__video"
-              lazy={false}
-              sizes={{
-                width: 41,
-                height: 36,
-              }}
-            />
-            <Logo className="mobile-logo__logo" />
-          </div>
-        )}
-        {!isMobile && (
-          <>
-            <LongLogo className="header__logo" />
-            <Content
-              url="/assets/gsf-logo.mp4"
-              className="header__center-logo"
-              lazy={false}
-              sizes={{
-                width: 41,
-                height: 36,
-              }}
-            />
-          </>
-        )}
-        {!isMobile && (
-          <div className="header__links">
-            {links.map((link, index) => (
-              <Link key={index} href={link.href} className="header__link bold">
-                {link.text}
-              </Link>
-            ))}
-          </div>
-        )}
-        {isMobile && (
-          <div
-            className="header__menu-button"
-            onClick={() => setIsMenuOpened(!isMenuOpened)}
+        {/* <div className="mobile-logo">
+          <Content
+            url="/assets/gsf-logo.mp4"
+            className="mobile-logo__video"
+            lazy={false}
+            sizes={{
+              width: 41,
+              height: 36,
+            }}
+          />
+          <Logo className="mobile-logo__logo" />
+        </div> */}
+        {/* <LongLogo className="header__logo" />
+        <Content
+          url="/assets/gsf-logo.mp4"
+          className="header__center-logo"
+          lazy={false}
+          sizes={{
+            width: 41,
+            height: 36,
+          }}
+        /> */}
+        <div className="logos-wrapper">
+          <Content
+            url="/assets/gsf-logo.mp4"
+            className="header__center-logo"
+            lazy={false}
+            sizes={{
+              width: 41,
+              height: 36,
+            }}
+          />
+          <LongLogo className="header__logo" data-only-desktop />
+          <Logo className="header__logo" data-not-desktop />
+        </div>
+        <div className="header__links" data-only-desktop--flex>
+          {links.map((link, index) => (
+            <Link key={index} href={link.href} className="header__link bold">
+              {link.text}
+            </Link>
+          ))}
+        </div>
+        <div
+          className="header__menu-button"
+          onClick={() => setIsMenuOpened(!isMenuOpened)}
+          data-not-desktop
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d={!isMenuOpened ? burger : cross} fill="black" />
-            </svg>
-          </div>
-        )}
+            <path d={!isMenuOpened ? burger : cross} fill="black" />
+          </svg>
+        </div>
       </header>
       <AnimatePresence mode="wait">
-        {(isMenuOpened && isMobile) && <Menu setIsMenuOpen={setIsMenuOpened} data={links} />}
+        {isMenuOpened && (
+          <Menu setIsMenuOpen={setIsMenuOpened} data={links} />
+        )}
       </AnimatePresence>
     </>
   );

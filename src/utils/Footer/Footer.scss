@@ -4,8 +4,13 @@
   overflow: hidden;
   border-top: min(0.05em, 1px) solid $g-80;
 
+  @include forTablet {
+    height: 50vh;
+  }
+
   @include forMobile {
-    height: calc(100vh - VW(70, $mobile));
+    height: auto;
+    aspect-ratio: 9/18;
     border-top: none;
   }
 
@@ -82,9 +87,23 @@
     }
   }
 
-  .footer-image {
+  &-image {
     position: absolute;
     inset: 0;
     z-index: 1;
+
+    background: url("/assets/footer/footer-bg.webp") no-repeat center center;
+    background-size: cover;
+
+    @include forTablet {
+      background: url("/assets/footer/footer-bg-tablet.webp") no-repeat center 0%;
+      background-size: cover;
+      transform: none !important;
+    }
+    
+    @include forMobile {
+      background: url("/assets/footer/footer-bg-mobile.webp") no-repeat center bottom;
+      background-size: contain;
+    }
   }
 }

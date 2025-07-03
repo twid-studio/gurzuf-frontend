@@ -78,13 +78,7 @@ export default function Footer() {
           </Link>
         </div>
       </div>
-      <motion.div style={{ y }} className="footer-image">
-        <Image
-          src="/assets/footer/footer-bg.webp"
-          alt=""
-          fill
-        />
-      </motion.div>
+      <motion.div style={{ y }} className="footer-image" />
     </footer>
   );
 }

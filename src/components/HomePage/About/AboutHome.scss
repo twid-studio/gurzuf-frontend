@@ -5,6 +5,11 @@
     gap: VW(90);
     margin: VW(60) 0;
 
+    @include forTablet {
+      margin: VW(120, $tablet) 0;
+      gap: VW(80, $tablet);
+    }
+
     @include forMobile {
       margin: VW(60, $mobile) 0;
       gap: VW(60, $mobile);
@@ -15,6 +20,10 @@
       flex-direction: column;
       gap: .8em;
       width: 48%;
+
+      @include forTablet {
+        width: 70%;
+      }
 
       @include forMobile {
         width: auto;
@@ -40,6 +49,11 @@
           position: relative;
           padding-bottom: VW(40);
 
+          @include forTablet {
+            width: 100%;
+            padding-bottom: VW(40, $tablet);
+          }
+
           @include forMobile {
             padding-bottom: VW(0, $mobile);
             padding-left: VW(40, $mobile);
@@ -48,6 +62,12 @@
           &__text {
             display: block;
             width: 70%;
+
+            @include forTablet {
+              width: 50%;
+              font-size: VW(20, $tablet);
+              line-height: 1.2;
+            }
 
             @include forMobile {
               width: 50%;

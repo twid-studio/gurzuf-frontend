@@ -12,9 +12,9 @@
       display: flex;
       gap: 1em;
 
-          @include forTablet {
-            margin-top: 5em;
-          }
+      @include forTablet {
+        margin-top: 5em;
+      }
     }
 
     &__button {
@@ -28,8 +28,8 @@
       margin-top: 2.4em;
 
       @include forMobile {
-        padding-top: .7em;
-        padding-bottom: .7em;
+        padding-top: 0.7em;
+        padding-bottom: 0.7em;
         margin-top: 1em;
       }
     }
@@ -38,9 +38,9 @@
       display: flex;
       margin: 2.3em 0 1em;
 
-        @include forTablet {
-          margin: 5em 0 2Sem;
-        }
+      @include forTablet {
+        margin: 5em 0 2em;
+      }
 
       .news__arrow {
         width: 2.5em;
@@ -64,6 +64,10 @@
 
         &--prev {
           rotate: 180deg;
+        }
+
+        @include hover {
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='17' viewBox='0 0 19 17'%3E%3Cpath d='M10.0881 16.8153L8.55398 15.2983L13.8807 9.97159H0.5V7.75568H13.8807L8.55398 2.4375L10.0881 0.911931L18.0398 8.86364L10.0881 16.8153Z' fill='yellow'/%3E%3C/svg%3E");
         }
 
         &[disabled] {

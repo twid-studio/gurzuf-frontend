@@ -6,6 +6,11 @@
 
     overflow: hidden;
 
+    @include forTablet {
+      height: auto;
+      aspect-ratio: 1/1;
+    }
+
     @include forMobile {
       height: auto;
       aspect-ratio: 9/15;
@@ -98,6 +103,11 @@
           z-index: 2;
           margin: 0 0.5em 0 0.8em;
 
+          @include forTablet {
+            width: VW(35, $tablet);
+            height: VW(60, $tablet);
+          }
+
           @include forMobile {
             display: none;
           }
@@ -121,6 +131,10 @@
     &__text {
       width: 50%;
 
+      @include forTablet {
+        width: 70%;
+      }
+
       @include forMobile {
         width: 100%;
       }
@@ -133,10 +147,13 @@
 
       padding: VW(80) VW(20) 0;
 
+      @include forTablet {
+        padding: VW(120, $tablet) VW(20, $tablet) 0;
+      }
+
       @include forMobile {
         padding: VW(90, $mobile) VW(12, $mobile) 0;
         transform: none !important;
-
       }
     }
 
@@ -154,6 +171,13 @@
         bottom: VW(16);
         right: VW(16);
         cursor: pointer;
+
+        @include forTablet {
+          width: VW(340, $tablet);
+          height: VW(190, $tablet);
+          bottom: VW(16, $tablet);
+          right: VW(16, $tablet);
+        }
 
         @include forMobile {
           width: VW(248, $mobile);
