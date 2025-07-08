@@ -88,9 +88,10 @@ const ShowReel = ({ url, preview }) => {
   // Detect touch device
   useEffect(() => {
     const checkTouchDevice = () => {
-      const isTouchSupported = 'ontouchstart' in window || 
-                              navigator.maxTouchPoints > 0 || 
-                              navigator.msMaxTouchPoints > 0;
+      const isTouchSupported =
+        "ontouchstart" in window ||
+        navigator.maxTouchPoints > 0 ||
+        navigator.msMaxTouchPoints > 0;
       setIsTouchDevice(isTouchSupported);
     };
 
@@ -109,7 +110,7 @@ const ShowReel = ({ url, preview }) => {
         document.msFullscreenElement ||
         document.webkitCurrentFullScreenElement
       );
-      
+
       // If we exit fullscreen and video was active, deactivate ShowReel
       if (!isCurrentlyFullscreen && isActive) {
         setIsActive(false);
@@ -118,36 +119,55 @@ const ShowReel = ({ url, preview }) => {
 
     const handleWebkitFullscreenChange = () => {
       // Handle iOS Safari fullscreen changes
-      if (videoRef.current && !videoRef.current.webkitDisplayingFullscreen && isActive) {
+      if (
+        videoRef.current &&
+        !videoRef.current.webkitDisplayingFullscreen &&
+        isActive
+      ) {
         setIsActive(false);
       }
     };
 
-    document.addEventListener('fullscreenchange', handleFullscreenChange);
-    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
-    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
-    document.addEventListener('MSFullscreenChange', handleFullscreenChange);
-    
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    document.addEventListener("mozfullscreenchange", handleFullscreenChange);
+    document.addEventListener("webkitfullscreenchange", handleFullscreenChange);
+    document.addEventListener("MSFullscreenChange", handleFullscreenChange);
+
     // iOS Safari specific event
     if (videoRef.current) {
-      videoRef.current.addEventListener('webkitendfullscreen', handleWebkitFullscreenChange);
+      videoRef.current.addEventListener(
+        "webkitendfullscreen",
+        handleWebkitFullscreenChange
+      );
     }
 
     return () => {
-      document.removeEventListener('fullscreenchange', handleFullscreenChange);
-      document.removeEventListener('mozfullscreenchange', handleFullscreenChange);
-      document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
-      document.removeEventListener('MSFullscreenChange', handleFullscreenChange);
-      
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
+      document.removeEventListener(
+        "mozfullscreenchange",
+        handleFullscreenChange
+      );
+      document.removeEventListener(
+        "webkitfullscreenchange",
+        handleFullscreenChange
+      );
+      document.removeEventListener(
+        "MSFullscreenChange",
+        handleFullscreenChange
+      );
+
       if (videoRef.current) {
-        videoRef.current.removeEventListener('webkitendfullscreen', handleWebkitFullscreenChange);
+        videoRef.current.removeEventListener(
+          "webkitendfullscreen",
+          handleWebkitFullscreenChange
+        );
       }
     };
   }, [isTouchDevice, isActive]);
 
   const handleActivate = () => {
     setIsActive(true);
-    
+
     // For touch devices, immediately try fullscreen on user activation
     if (isTouchDevice) {
       // Use a small timeout to ensure the video element is rendered
@@ -156,16 +176,18 @@ const ShowReel = ({ url, preview }) => {
           // Play the video and request fullscreen together
           const playPromise = videoRef.current.play();
           const fullscreenPromise = requestFullscreen(videoRef.current);
-          
-          Promise.allSettled([playPromise, fullscreenPromise]).then(results => {
-            const [playResult, fullscreenResult] = results;
-            if (playResult.status === 'rejected') {
-              console.warn('Video play failed:', playResult.reason);
+
+          Promise.allSettled([playPromise, fullscreenPromise]).then(
+            (results) => {
+              const [playResult, fullscreenResult] = results;
+              if (playResult.status === "rejected") {
+                console.warn("Video play failed:", playResult.reason);
+              }
+              if (fullscreenResult.status === "rejected") {
+                console.warn("Fullscreen failed:", fullscreenResult.reason);
+              }
             }
-            if (fullscreenResult.status === 'rejected') {
-              console.warn('Fullscreen failed:', fullscreenResult.reason);
-            }
-          });
+          );
         }
       }, 100);
     }
@@ -173,7 +195,7 @@ const ShowReel = ({ url, preview }) => {
 
   // Helper function to request fullscreen
   const requestFullscreen = (videoElement) => {
-    if (!videoElement) return Promise.reject('No video element');
+    if (!videoElement) return Promise.reject("No video element");
 
     if (videoElement.webkitEnterFullscreen) {
       // For iOS Safari - this doesn't return a promise
@@ -188,8 +210,8 @@ const ShowReel = ({ url, preview }) => {
     } else if (videoElement.msRequestFullscreen) {
       return videoElement.msRequestFullscreen();
     }
-    
-    return Promise.reject('Fullscreen not supported');
+
+    return Promise.reject("Fullscreen not supported");
   };
 
   const handleDeactivate = () => {
@@ -232,9 +254,9 @@ const ShowReel = ({ url, preview }) => {
                   setIsActive(false);
                 }}
                 style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover'
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "contain",
                 }}
               />
             ) : (
