@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 15;
+  z-index: 100;
   padding: VW(16);
 
   display: flex;
@@ -84,7 +84,7 @@
   }
 
   &__menu-button {
-    width: 2.4em;
-    height: 2.4em;
+    width: 1.8em;
+    height: 1.8em;
   }
 }

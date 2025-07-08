@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useRef, useState, useEffect } from "react";
 
 import "./HeroHome.scss";
 import { DataContext } from "@/lib/providers/DataProvider/context";
@@ -82,8 +82,114 @@ export default function HeroHome() {
 
 const ShowReel = ({ url, preview }) => {
   const [isActive, setIsActive] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const videoRef = useRef(null);
+
+  // Detect touch device
+  useEffect(() => {
+    const checkTouchDevice = () => {
+      const isTouchSupported = 'ontouchstart' in window || 
+                              navigator.maxTouchPoints > 0 || 
+                              navigator.msMaxTouchPoints > 0;
+      setIsTouchDevice(isTouchSupported);
+    };
+
+    checkTouchDevice();
+  }, []);
+
+  // Handle fullscreen changes for touch devices
+  useEffect(() => {
+    if (!isTouchDevice) return;
+
+    const handleFullscreenChange = () => {
+      const isCurrentlyFullscreen = !!(
+        document.fullscreenElement ||
+        document.mozFullScreenElement ||
+        document.webkitFullscreenElement ||
+        document.msFullscreenElement ||
+        document.webkitCurrentFullScreenElement
+      );
+      
+      // If we exit fullscreen and video was active, deactivate ShowReel
+      if (!isCurrentlyFullscreen && isActive) {
+        setIsActive(false);
+      }
+    };
+
+    const handleWebkitFullscreenChange = () => {
+      // Handle iOS Safari fullscreen changes
+      if (videoRef.current && !videoRef.current.webkitDisplayingFullscreen && isActive) {
+        setIsActive(false);
+      }
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+    
+    // iOS Safari specific event
+    if (videoRef.current) {
+      videoRef.current.addEventListener('webkitendfullscreen', handleWebkitFullscreenChange);
+    }
+
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+      document.removeEventListener('mozfullscreenchange', handleFullscreenChange);
+      document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
+      document.removeEventListener('MSFullscreenChange', handleFullscreenChange);
+      
+      if (videoRef.current) {
+        videoRef.current.removeEventListener('webkitendfullscreen', handleWebkitFullscreenChange);
+      }
+    };
+  }, [isTouchDevice, isActive]);
+
   const handleActivate = () => {
     setIsActive(true);
+    
+    // For touch devices, immediately try fullscreen on user activation
+    if (isTouchDevice) {
+      // Use a small timeout to ensure the video element is rendered
+      setTimeout(() => {
+        if (videoRef.current) {
+          // Play the video and request fullscreen together
+          const playPromise = videoRef.current.play();
+          const fullscreenPromise = requestFullscreen(videoRef.current);
+          
+          Promise.allSettled([playPromise, fullscreenPromise]).then(results => {
+            const [playResult, fullscreenResult] = results;
+            if (playResult.status === 'rejected') {
+              console.warn('Video play failed:', playResult.reason);
+            }
+            if (fullscreenResult.status === 'rejected') {
+              console.warn('Fullscreen failed:', fullscreenResult.reason);
+            }
+          });
+        }
+      }, 100);
+    }
+  };
+
+  // Helper function to request fullscreen
+  const requestFullscreen = (videoElement) => {
+    if (!videoElement) return Promise.reject('No video element');
+
+    if (videoElement.webkitEnterFullscreen) {
+      // For iOS Safari - this doesn't return a promise
+      videoElement.webkitEnterFullscreen();
+      return Promise.resolve();
+    } else if (videoElement.requestFullscreen) {
+      return videoElement.requestFullscreen();
+    } else if (videoElement.mozRequestFullScreen) {
+      return videoElement.mozRequestFullScreen();
+    } else if (videoElement.webkitRequestFullscreen) {
+      return videoElement.webkitRequestFullscreen();
+    } else if (videoElement.msRequestFullscreen) {
+      return videoElement.msRequestFullscreen();
+    }
+    
+    return Promise.reject('Fullscreen not supported');
   };
 
   const handleDeactivate = () => {
@@ -99,30 +205,51 @@ const ShowReel = ({ url, preview }) => {
             className="hero__showreel hero__showreel--visible"
             transition={{ ease: [0.12, 0.73, 0.28, 0.99], duration: 0.6 }}
           >
-            <div className="hero__showreel-button" onClick={handleDeactivate}>
-              <svg
-                width="44"
-                height="44"
-                viewBox="0 0 44 44"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M29.0713 16.3438L23.4141 22L29.0713 27.6572L27.6572 29.0713L22 23.4141L16.3428 29.0713L14.9287 27.6572L20.585 22L14.9287 16.3438L16.3428 14.9287L22 20.5859L27.6572 14.9287L29.0713 16.3438Z"
-                  fill="black"
-                />
-              </svg>
-            </div>
+            {!isTouchDevice && (
+              <div className="hero__showreel-button" onClick={handleDeactivate}>
+                <svg
+                  width="44"
+                  height="44"
+                  viewBox="0 0 44 44"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M29.0713 16.3438L23.4141 22L29.0713 27.6572L27.6572 29.0713L22 23.4141L16.3428 29.0713L14.9287 27.6572L20.585 22L14.9287 16.3438L16.3428 14.9287L22 20.5859L27.6572 14.9287L29.0713 16.3438Z"
+                    fill="black"
+                  />
+                </svg>
+              </div>
+            )}
 
-            <VideoPlayer url={url} autoPlay={true} resetOnClose={!isActive} />
+            {isTouchDevice ? (
+              <video
+                ref={videoRef}
+                src={url}
+                playsInline
+                controls
+                onEnded={() => {
+                  setIsActive(false);
+                }}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover'
+                }}
+              />
+            ) : (
+              <VideoPlayer url={url} autoPlay={true} resetOnClose={!isActive} />
+            )}
           </motion.div>
-          <motion.span
-            className="hero__showreel-bg"
-            onClick={handleDeactivate}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          ></motion.span>
+          {!isTouchDevice && (
+            <motion.span
+              className="hero__showreel-bg"
+              onClick={handleDeactivate}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            ></motion.span>
+          )}
         </div>
       ) : (
         <motion.div

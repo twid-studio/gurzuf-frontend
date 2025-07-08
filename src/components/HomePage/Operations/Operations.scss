@@ -12,21 +12,24 @@
 
     @include forMobile {
       padding-bottom: 3em;
-      transform: none !important;
+      // transform: none !important;
     }
 
     .title {
-      width: 47%;
+      // width: 47%;
+      width: VW(600);
       display: flex;
       flex-direction: column;
       gap: 0.4em;
 
       @include forTablet {
-        width: 67%;
+        // width: 67%;
+        width: VW(600, $tablet);
       }
 
       @include forMobile {
-        width: auto;
+        // width: auto;
+        width: VW(360, $mobile);
       }
     }
 
@@ -132,8 +135,12 @@
 
           .characteristics {
             display: flex;
-            margin-top: 0.7em;
+            margin: 0.7em 0 0 2em;
             flex-wrap: wrap;
+
+            @include forMobile {
+              margin: 0.5em 0 0 1.7em;
+            }
 
             &-item {
               padding: 0.2em 0.3em;
@@ -156,10 +163,33 @@
           }
 
           .timeline {
-            width: 100%;
+            width: auto;
             height: 0.3em;
+            margin-left: 2em;
             background-color: $g-80;
             position: relative;
+            overflow: hidden;
+
+            @include forMobile {
+              margin-left: 1.7em;
+            }
+
+            &::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(
+                90deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0.1) 50%,
+                transparent 100%
+              );
+              transform: translateX(-100%);
+              animation: shimmer 2s infinite ease-in-out;
+            }
 
             .line {
               position: absolute;
@@ -167,9 +197,38 @@
               left: 0;
               width: 0%;
               height: 100%;
-              background-color: $yellow-100;
-              // clip-path: inset(0 50% 0 0);
-              // transition: .5s linear;
+              background: linear-gradient(
+                90deg,
+                $yellow-100 0%,
+                lighten($yellow-100, 10%) 50%,
+                $yellow-100 100%
+              );
+              transform: translateZ(0); // Hardware acceleration
+              will-change: width;
+              box-shadow: 0 0 0.5em rgba($yellow-100, 0.4);
+
+              &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 0.3em;
+                height: 100%;
+                background: lighten($yellow-100, 20%);
+                opacity: 0.8;
+              }
+            }
+
+            @keyframes shimmer {
+              0% {
+                transform: translateX(-100%);
+              }
+              50% {
+                transform: translateX(0%);
+              }
+              100% {
+                transform: translateX(100%);
+              }
             }
           }
         }

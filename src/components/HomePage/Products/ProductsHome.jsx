@@ -4,32 +4,22 @@ import React, { useContext, useRef } from "react";
 import "./ProductsHome.scss";
 import { DataContext } from "@/lib/providers/DataProvider/context";
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/utils/Button/Button";
 import clsx from "clsx";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
+import useIsMobile from "@/lib/helpers/useIsMobile";
+import { sectionScrollAnim } from "@/lib/helpers/sectionScrollAnim";
 
 export default function ProductsHome() {
   const { data: allData } = useContext(DataContext);
   const { products: data } = allData;
-
   const sectionRef = useRef();
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-    layoutEffect: true,
-  });
-
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [0.97, 1, 1, 0.97]
-  );
+  const margin = sectionScrollAnim(sectionRef);
 
   return (
     <section className="products" ref={sectionRef}>
-      <motion.div style={{ scale }} className="list">
+      <motion.div style={{ margin }} className="list">
         {data?.list.map((product, i) => (
           <div
             className={clsx("item", {
@@ -55,7 +45,7 @@ export default function ProductsHome() {
                   text={product?.button?.text}
                   href={product?.button?.href}
                   color="yellow"
-                  classes="bottom__button"
+                  fullWidth
                 />
               </div>
               <Image

@@ -39,7 +39,8 @@
       @include forMobile {
         max-width: none;
         width: auto;
-        margin: 0 1em;
+        margin: 0;
+        // padding: 0 1em;
       }
 
       .text {
@@ -92,6 +93,7 @@
 
         @include forMobile {
           transform: none !important;
+          padding: 0 .7em;
         }
       }
     }
@@ -100,8 +102,6 @@
       max-width: VW(650);
       width: 100%;
       justify-content: center;
-
-      @extend %h3;
 
       @include forTablet {
         max-width: VW(490, $tablet);
@@ -112,10 +112,6 @@
         width: 83%;
       }
 
-      .button__arrow {
-        scale: 0.8;
-        transform-origin: bottom left;
-      }
     }
   }
 }

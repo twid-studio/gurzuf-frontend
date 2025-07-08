@@ -81,7 +81,8 @@ export default function QuoteHome() {
             text={data?.button?.text}
             href={data?.button?.href}
             color="black"
-            classes="quote__button"
+            // classes="quote__button"
+            fullWidth
           />
         )}
       </motion.div>

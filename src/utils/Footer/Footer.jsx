@@ -24,6 +24,7 @@ export default function Footer() {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], ["-50%", "10%"]);
+  const filter = useTransform(scrollYProgress, [0, 1], ["brightness(0)", "brightness(1)"]);
 
   return (
     <footer className="footer">
@@ -78,7 +79,7 @@ export default function Footer() {
           </Link>
         </div>
       </div>
-      <motion.div style={{ y }} className="footer-image" />
+      <motion.div style={{ y, filter }} className="footer-image" />
     </footer>
   );
 }

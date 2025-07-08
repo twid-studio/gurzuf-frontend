@@ -1,19 +1,14 @@
 "use client";
 import React, { useContext, useState, useRef, useEffect } from "react";
 import { DataContext } from "@/lib/providers/DataProvider/context";
+import OperationLinkItem from "./OperationLinkItem";
 
 import "./Operations.scss";
 import clsx from "clsx";
-import {
-  AnimatePresence,
-  motion,
-  useMotionValue,
-  useScroll,
-  useSpring,
-  useTransform,
-} from "framer-motion";
-import { anim, OperationsAnim } from "@/lib/helpers/anim";
+import { motion } from "framer-motion";
+import { OperationsAnim } from "@/lib/helpers/anim";
 import { useInView } from "react-intersection-observer";
+import { sectionScrollAnim } from "@/lib/helpers/sectionScrollAnim";
 
 export default function Operations() {
   const { data: allData } = useContext(DataContext);
@@ -22,32 +17,17 @@ export default function Operations() {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [videoProgress, setVideoProgress] = useState(0);
 
   const videoRefs = useRef([]);
-  const progressMotionValue = useMotionValue(0);
-  const lineProgress = useTransform(
-    progressMotionValue,
-    [0, 1],
-    ["0%", "100%"]
-  );
 
   const { ref: sectionRef, inView } = useInView({
     threshold: 0.3,
   });
 
   const sectionScrollRef = useRef();
+  const margin = sectionScrollAnim(sectionScrollRef);
 
-  const { scrollYProgress } = useScroll({
-    target: sectionScrollRef,
-    offset: ["start end", "end start"],
-    layoutEffect: true,
-  });
-
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [0.97, 1, 1, 0.97]
-  );
 
   useEffect(() => {
     const currentVideo = videoRefs.current[activeItem];
@@ -80,7 +60,7 @@ export default function Operations() {
     if (currentVideo && inView) {
       currentVideo.currentTime = 0;
       setCurrentTime(0);
-      progressMotionValue.set(0);
+      setVideoProgress(0);
 
       currentVideo
         .play()
@@ -89,7 +69,7 @@ export default function Operations() {
         })
         .catch(console.error);
     }
-  }, [activeItem, progressMotionValue, inView]);
+  }, [activeItem, inView]);
 
   const handleTimeUpdate = (videoElement, index) => {
     if (index === activeItem) {
@@ -101,7 +81,7 @@ export default function Operations() {
 
       if (total > 0) {
         const progress = current / total;
-        progressMotionValue.set(progress);
+        setVideoProgress(progress);
 
         // Auto-advance to next item when video ends
         if (progress >= 0.98) {
@@ -120,15 +100,15 @@ export default function Operations() {
   };
 
   const handleItemClick = (index) => {
-    // Fast reset when manually selecting
-    progressMotionValue.set(0);
     setActiveItem(index);
+    setCurrentTime(0);
+    setVideoProgress(0);
   };
 
   return (
     <section ref={sectionRef}>
       <motion.div
-        style={{ scale }}
+        style={{ margin }}
         ref={sectionScrollRef}
         className="operations container"
       >
@@ -139,53 +119,14 @@ export default function Operations() {
         <div className="operation-list">
           <div className="links">
             {data?.list.map((item, index) => (
-              <div
-                className={clsx("links-item", {
-                  "links-item--active": activeItem === index,
-                })}
+              <OperationLinkItem
                 key={index}
-                onClick={() => handleItemClick(index)}
-              >
-                <div className="top">
-                  <div className="top__arrow">
-                    <svg
-                      viewBox="0 0 18 17"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M9.58807 16.3153L8.05398 14.7983L13.3807 9.47159H0V7.25568H13.3807L8.05398 1.9375L9.58807 0.411931L17.5398 8.36364L9.58807 16.3153Z" />
-                    </svg>
-                  </div>
-                  <h2>{item?.text}</h2>
-                </div>
-                {item?.characteristics && (
-                  <div className="characteristics">
-                    {item.characteristics.map((char, charIndex) => (
-                      <div
-                        className={`characteristics-item characteristics-item--${char.color} `}
-                        key={charIndex}
-                      >
-                        {char.text}
-                      </div>
-                    ))}
-                  </div>
-                )}
-                <AnimatePresence mode="wait">
-                  {activeItem === index && (
-                    <motion.div
-                      className="timeline"
-                      {...anim(OperationsAnim.timeline)}
-                    >
-                      <motion.span
-                        className="line"
-                        style={{
-                          width: lineProgress,
-                        }}
-                      ></motion.span>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
+                item={item}
+                index={index}
+                isActive={activeItem === index}
+                onClick={handleItemClick}
+                videoProgress={activeItem === index ? videoProgress : 0}
+              />
             ))}
           </div>
           <div className="operation-video">

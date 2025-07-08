@@ -97,12 +97,12 @@
         @extend %h3;
         padding: 0.3em 1.2em 0.3em 0.3em;
         background-color: $g-80;
+        color: $g-70;
 
         border-radius: 0 !important;
         border: none;
         outline: none;
 
-        color: $c-white;
         line-height: 1.2;
 
         transition: background-color 0.3s ease, opacity 0.3s ease;
@@ -118,18 +118,36 @@
         }
 
         @include hover {
-          opacity: 0.8;
+          // opacity: 0.8;
+          background-color: $g-75;
+        }
+
+        &:valid:not(:placeholder-shown) {
+          color: $c-white;
+        }
+
+        &::placeholder {
+          color: $g-70;
+          opacity: 1;
         }
 
         &:focus {
           background-color: $g-70;
           opacity: 1 !important;
+          color: $c-white !important;
+
+          &::placeholder {
+            color: $c-white !important;
+          }
         }
 
         &--error {
-          background-color: $red-100-10;
+          background-color: $red-10;
           color: $red-80;
-          color: $red-80;
+
+          &::placeholder {
+            color: $red-80;
+          }
         }
 
         &__error {
@@ -150,6 +168,7 @@
 
         &:focus {
           background-color: $g-70;
+          color: $c-white;
           opacity: 1 !important;
 
           + .select-input__arrow {
@@ -158,10 +177,18 @@
             fill: $c-white;
           }
         }
+  
+        option {
+          color: $c-white;
+        }
 
         &--error {
-          background-color: $red-100-10;
-          // color: $red-80;
+          background-color: $red-10;
+          color: $red-80;
+        }
+
+        &--placeholder {
+          color: $g-70 !important;
         }
 
         &__arrow {

@@ -192,6 +192,7 @@ const FormSection = ({ data }) => {
                       className={clsx("select-input", {
                         "select-input--error":
                           errors.country && touched.country,
+                        "select-input--placeholder": !field.value,
                       })}
                     >
                       <option value="" disabled>
@@ -232,7 +233,8 @@ const FormSection = ({ data }) => {
                     <select
                       {...field}
                       className={clsx("select-input", {
-                        "input--error": errors.industry && touched.industry,
+                        "select-input--error": errors.industry && touched.industry,
+                        "select-input--placeholder": !field.value,
                       })}
                     >
                       <option value="" disabled>

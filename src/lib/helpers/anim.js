@@ -24,7 +24,7 @@ export const MenuAnim = {
     exit: {
       clipPath: "inset(0% 0% 100% 0%)",
       transition: {
-        duration: .5,
+        duration: 1,
         ease: ease.outExpo,
       },
     },
@@ -37,14 +37,13 @@ export const MenuAnim = {
       opacity: 1,
       transition: {
         duration: 1,
-        ease: ease.inOutExpo,
       },
     },
     exit: {
       opacity: 0,
       transition: {
         duration: .5,
-        ease: ease.outExpo,
+        delay: 0.2,
       },
     },
   },
@@ -65,7 +64,7 @@ export const OperationsAnim = {
       y: "0%",
       transition: {
         duration: 0.7,
-        ease: ease.inOutExpo,
+        ease: ease.outExpo,
       },
     },
     exit: {
@@ -75,7 +74,7 @@ export const OperationsAnim = {
       y: "-50%",
       transition: {
         duration: 0.7,
-        ease: ease.inOutExpo,
+        ease: ease.outExpo,
       },
     },
   },
@@ -89,7 +88,7 @@ export const OperationsAnim = {
       scale: 1,
       transition: {
         duration: 0.7,
-        ease: ease.inOutExpo,
+        ease: ease.outExpo,
       },
     },
     exit: {
@@ -97,7 +96,7 @@ export const OperationsAnim = {
       scale: 1.1,
       transition: {
         duration: 0.7,
-        ease: ease.inOutExpo,
+        ease: ease.outExpo,
       },
     },
   }

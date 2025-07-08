@@ -6,6 +6,33 @@
   align-items: center;
   width: fit-content;
 
+  @include forTablet {
+    padding: 0.4em 0.8em;
+  }
+
+  @include forMobile {
+    padding: 0.7em 1em;
+
+    h3 {
+      line-height: 1 !important;
+    }
+  }
+
+  &--full-width {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0.5em 0;
+
+    @include forTablet {
+      padding: 0.4em 0;
+    }
+
+    @include forMobile {
+      padding: 0.7em 0;
+    }
+  }
+
   @include hover {
     .button__arrow {
       width: 1em;
@@ -14,9 +41,9 @@
       transform: translateX(0%);
     }
   }
-  
+
   &__arrow {
-    width: .0em;
+    width: 0em;
     height: 1em;
     margin-left: 0em;
     overflow: hidden;

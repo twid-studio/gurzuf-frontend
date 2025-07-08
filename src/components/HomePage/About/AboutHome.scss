@@ -62,6 +62,7 @@
           &__text {
             display: block;
             width: 70%;
+            font-size: VW(21);
 
             @include forTablet {
               width: 50%;

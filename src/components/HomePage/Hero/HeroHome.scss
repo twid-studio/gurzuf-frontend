@@ -93,6 +93,14 @@
         display: flex;
         flex-wrap: wrap;
 
+        &:nth-of-type(1) {
+          .title-wrapper:nth-last-of-type(1) {
+            @include forMobile {
+              padding: 0.3em 1.05em 0em 0.4em;
+            }
+          }
+        }
+
         .flag {
           width: VW(35);
           height: VW(60);
@@ -145,10 +153,10 @@
       flex-direction: column;
       gap: 1.2em;
 
-      padding: VW(80) VW(20) 0;
+      padding: VW(80) VW(16) 0;
 
       @include forTablet {
-        padding: VW(120, $tablet) VW(20, $tablet) 0;
+        padding: VW(120, $tablet) VW(16, $tablet) 0;
       }
 
       @include forMobile {
@@ -162,7 +170,7 @@
     }
 
     &__showreel {
-      border: .1em solid $g-100;
+      border: 0.1em solid $g-100;
 
       &--hidden {
         width: VW(340);
@@ -184,7 +192,7 @@
           height: VW(140, $mobile);
           bottom: VW(12, $mobile);
           left: VW(12, $mobile);
-          right: auto;  
+          right: auto;
         }
 
         @include hover {
@@ -208,8 +216,8 @@
         position: absolute;
         top: 0;
         right: 0;
-        width: VW(30);
-        height: VW(30);
+        width: VW(44);
+        height: VW(44);
         background-color: $c-white;
         z-index: 4;
         cursor: pointer;

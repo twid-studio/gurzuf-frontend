@@ -13,7 +13,7 @@
     @include forMobile {
       padding-top: VW(12, $mobile);
       padding-bottom: VW(48, $mobile);
-      transform: none !important;
+      // transform: none !important;
     }
 
     .list {
@@ -43,17 +43,20 @@
           display: flex;
           align-items: center;
           gap: 1em;
-          width: 50%;
+          // width: 50%;
+          width: VW(600);
 
           @include forTablet {
-            width: 100%;
+            // width: 100%;
+            width: VW(600, $tablet);
             flex-direction: column;
             align-items: flex-start;
             margin-bottom: 0.8em;
           }
 
           @include forMobile {
-            width: auto;
+            // width: auto;
+            width: VW(320, $mobile);
             flex-direction: column;
             gap: 1em;
             align-items: flex-start;
@@ -65,16 +68,19 @@
         }
 
         &__text {
-          width: 48%;
-          margin-right: 2%;
-
+          // width: 48%;
+          // margin-right: 2%;
+          width: VW(600);
+          
+          
           @include forTablet {
-            width: 70%;
+            width: VW(600, $tablet);
+            // width: 70%;
             margin-right: 0;
           }
 
           @include forMobile {
-            width: auto;
+            width: VW(360, $mobile);
           }
         }
       }

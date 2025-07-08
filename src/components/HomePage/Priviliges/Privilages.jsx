@@ -3,28 +3,18 @@ import React, { useContext, useRef } from "react";
 import "./Privilages.scss";
 import { DataContext } from "@/lib/providers/DataProvider/context";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { sectionScrollAnim } from "@/lib/helpers/sectionScrollAnim";
 
 export default function Privilages() {
   const { data: allData } = useContext(DataContext);
   const { privilages: data } = allData;
   const sectionRef = useRef();
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-    layoutEffect: true,
-  });
-
-  const scale = useTransform(
-    scrollYProgress,
-    [0, 0.3, 0.7, 1],
-    [0.97, 1, 1, 0.97]
-  );
+  const margin = sectionScrollAnim(sectionRef);
 
   return (
     <motion.section
       className="privilages container"
-      style={{ scale }}
+      style={{ margin }}
       ref={sectionRef}
     >
       <h1>{data?.title}</h1>

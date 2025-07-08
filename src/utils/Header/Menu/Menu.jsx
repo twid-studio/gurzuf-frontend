@@ -25,6 +25,7 @@ export default function Menu({ setIsMenuOpen, data }) {
             text={data[data.length - 1].text}
             href={data[data.length - 1].href}
             color="black"
+            fullWidth
             onClick={() => setIsMenuOpen(false)}
           />
         </div>
