@@ -9,12 +9,7 @@
     z-index: 9;
 
     @include forTablet {
-      top: VW(60, $tablet);
-      padding: VW(24, $tablet) VW(16, $tablet) VW(16, $tablet);
-    }
-
-    @include forTablet {
-      top: VW(75, $tablet);
+      top: VW(50, $tablet);
       padding: VW(20, $tablet) VW(16, $tablet);
     }
 
