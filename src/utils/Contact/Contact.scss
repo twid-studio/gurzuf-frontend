@@ -40,6 +40,11 @@
       opacity: 0;
     }
 
+    &--loading {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
     &-success-message {
       position: absolute;
       top: 0;
@@ -64,7 +69,6 @@
         left: 0;
         display: flex;
         justify-content: center;
-        padding: 0.6em 0;
         width: 100%;
       }
     }

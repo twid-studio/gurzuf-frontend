@@ -7,7 +7,7 @@
   width: fit-content;
 
   @include forTablet {
-    padding: 0.4em 0.8em;
+    padding: 0.7em 0.8em;
   }
 
   @include forMobile {
@@ -25,7 +25,7 @@
     padding: 0.5em 0;
 
     @include forTablet {
-      padding: 0.4em 0;
+      padding: 0.7em 0;
     }
 
     @include forMobile {

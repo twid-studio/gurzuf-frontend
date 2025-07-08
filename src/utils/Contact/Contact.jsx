@@ -27,6 +27,7 @@ export default function Contact() {
 
 const FormSection = ({ data }) => {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false)
 
   const {
     sucessText,
@@ -66,6 +67,7 @@ const FormSection = ({ data }) => {
   };
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
+    setLoading(true);
     try {
       // Find the text labels for country and industry
       const countryText =
@@ -91,6 +93,7 @@ const FormSection = ({ data }) => {
 
       if (result.success) {
         console.log("Email sent successfully");
+        setLoading(false);
         setSubmitted(true);
         resetForm();
       } else {
@@ -147,6 +150,7 @@ const FormSection = ({ data }) => {
           <Form
             className={clsx("form", {
               "form--submitted": submitted,
+              "form--loading": loading,
             })}
           >
             <div className="form__row">

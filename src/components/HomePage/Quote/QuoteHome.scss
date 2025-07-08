@@ -61,6 +61,12 @@
             height: 1.2em;
           }
         }
+
+        &-quote {
+          @include forTablet {
+            font-size: VW(26, $tablet);
+          }
+        }
       }
 
       .author {
@@ -91,7 +97,13 @@
         justify-content: center;
         gap: 1em;
 
+        @include forTablet {
+          gap: 0.5em;
+          transform: translateY(-5%);
+        }
+        
         @include forMobile {
+          gap: 0.5em;
           transform: none !important;
           padding: 0 .7em;
         }
