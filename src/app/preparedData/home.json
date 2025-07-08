@@ -149,32 +149,12 @@
         "characteristics": false
       },
       {
-        "text": "GPS Jamming Defense",
-        "content": "/assets/home/operations/promo-vid-3.mp4",
-        "characteristics": [
-          {
-            "color": "dark-grey",
-            "text": "В розробці"
-          }
-        ]
+        "text": "Мінування",
+        "content": "/assets/home/operations/promo-vid-3.mp4"
       },
       {
-        "text": "Захист зв’язку та навігації",
-        "content": "/assets/home/operations/promo-vid-4.mp4",
-        "characteristics": [
-          {
-            "color": "white",
-            "text": "Data Link Anti-Jamming"
-          },
-          {
-            "color": "light-grey",
-            "text": "RTK GNSS"
-          },
-          {
-            "color": "dark-grey",
-            "text": "Опційно, тестуємо"
-          }
-        ]
+        "text": "Виконання завдань в умовах стійкого подавлення зв’язку та відсутності GPS",
+        "content": "/assets/home/operations/promo-vid-4.mp4"
       }
     ]
   },
