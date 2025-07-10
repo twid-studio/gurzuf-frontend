@@ -70,6 +70,7 @@
         display: flex;
         justify-content: center;
         width: 100%;
+        border-top: 0.2em solid $c-black;
       }
     }
 
@@ -232,6 +233,15 @@
       .textarea {
         @extend .input;
         resize: none;
+        height: calc(100% - 0.6em);
+
+        @include forTablet {
+          height: calc(100% - 1em);
+        }
+
+        @include forMobile {
+          height: calc(100% - 1.2em);
+        }
       }
     }
 

@@ -16,8 +16,8 @@
     animation: spinAnimation infinite linear;
     
     @include forMobile {
-      gap: VW(20, $mobile);
-      padding-left: VW(20, $mobile);
+      gap: VW(64, $mobile);
+      padding-left: VW(64, $mobile);
     }
   }
 

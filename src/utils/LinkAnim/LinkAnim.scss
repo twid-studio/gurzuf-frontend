@@ -1,0 +1,30 @@
+.link-anim {
+  position: relative;
+  width: fit-content;
+
+  @include hover {
+    &::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    height: max(VW(2), 2px);
+    background-color: $c-black;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.5s $ease-in-out-circ;
+  }
+
+  &--white {
+    &::after {
+      background-color: $c-white;
+    }
+  }
+}

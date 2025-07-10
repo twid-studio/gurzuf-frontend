@@ -96,8 +96,8 @@ export default function NewsHome() {
   }
 
   return (
-    <section className="news container">
-      <div className="top">
+    <section className="news">
+      <div className="top container">
         <h1>{data?.title}</h1>
         <div className="news__arrows">
           <button
@@ -175,7 +175,7 @@ export default function NewsHome() {
           text={data?.button.text}
           href={data?.button.href}
           color="black"
-          classes="news__button"
+          classes="news__button news__button--margins"
           fullWidth
         />
       )}

@@ -114,5 +114,23 @@
         padding-left: 2.2em;
       }
     }
+
+        .splide {
+      &__track {
+        padding-right: VW(16) !important;
+        padding-left: VW(16) !important;
+
+        @include forTablet {
+          padding-right: VW(16, $tablet) !important;
+          padding-left: VW(16, $tablet) !important;
+        }
+
+        @include forMobile {
+          padding-right: VW(12, $mobile) !important;
+          padding-left: VW(12, $mobile) !important;
+        }
+      }
+    }
+
   }
 }

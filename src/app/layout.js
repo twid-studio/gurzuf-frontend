@@ -15,11 +15,27 @@ const inter = Inter({
 
 export const metadata = {
   title: "GURZUF DEFENCE",
+  openGraph: {
+    title: "GURZUF DEFENCE",
+    description: "",
+    url: "https://gurzuf-defence.com",
+    siteName: "GURZUF DEFENCE",
+    images: [
+      {
+        url: "/assets/OPENGRAPH.webp",
+        width: 1200,
+        height: 630,
+        alt: "GURZUF Logo",
+      },
+    ],
+    locale: "ua_UA",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="html">
+    <html lang="ua" className="html">
       <body className={`${inter.variable} body`}>
         <ScrollProvider scrollBar></ScrollProvider>
         <Header />

@@ -6,6 +6,7 @@ import "./Header.scss";
 import Link from "next/link";
 import { Content } from "../Content/Content";
 import MenuWrapper from "./Menu/MenuWrapper";
+import { LinkAnim } from "../LinkAnim/LinkAnim";
 
 const links = [
   {
@@ -45,9 +46,14 @@ export default function Header() {
         </div>
         <div className="header__links" data-only-desktop--flex>
           {links.map((link, index) => (
-            <Link key={index} href={link.href} className="header__link bold">
-              {link.text}
-            </Link>
+            // <Link key={index} href={link.href} className="header__link bold">
+            //   {link.text}
+            // </Link>
+            <LinkAnim
+              text={link.text}
+              href={link.href}
+              key={index}
+            />
           ))}
         </div>
         <MenuWrapper links={links} />

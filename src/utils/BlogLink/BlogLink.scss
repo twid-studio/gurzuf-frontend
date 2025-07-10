@@ -1,5 +1,5 @@
 .blog-link {
-  width: VW(450);
+  width: VW(480);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -44,7 +44,7 @@
         position: absolute;
         bottom: 0%;
         width: 100%;
-        height: min(VW(1), 1px);
+        height: max(VW(1), 1px);
         background-color: $c-black;
         transform-origin: right;
         transform: scaleX(0);

@@ -18,10 +18,22 @@
     }
 
     &__button {
+      width: auto;
       margin-top: 2.4em;
 
       @include forMobile {
-        margin-top: 1em;
+        margin-top: 1.2em;
+      }
+      &--margins {
+        margin: 2.4em VW(16) 0;
+
+        @include forTablet {
+          margin: 2.4em VW(16, $tablet) 0;
+        }
+
+        @include forMobile {
+          margin: 1em VW(12, $mobile) 0;
+        }
       }
     }
 
@@ -30,7 +42,7 @@
       margin: 2.3em 0 1em;
 
       @include forTablet {
-        margin: 5em 0 2em;
+        margin: 3em 0 0.7em;
       }
     }
 
@@ -69,6 +81,23 @@
         pointer-events: none;
         svg {
           fill: $g-70 !important;
+        }
+      }
+    }
+
+    .splide {
+      &__track {
+        padding-right: VW(16) !important;
+        padding-left: VW(16) !important;
+
+        @include forTablet {
+          padding-right: VW(16, $tablet) !important;
+          padding-left: VW(16, $tablet) !important;
+        }
+
+        @include forMobile {
+          padding-right: VW(12, $mobile) !important;
+          padding-left: VW(12, $mobile) !important;
         }
       }
     }

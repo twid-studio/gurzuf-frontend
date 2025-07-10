@@ -59,30 +59,6 @@
     gap: VW(16);
   }
 
-  &__link {
-    position: relative;
-
-    @include hover {
-      &::after {
-        transform: scaleX(1);
-        transform-origin: left;
-      }
-    }
-
-    &::after {
-      content: "";
-      display: block;
-      position: absolute;
-      bottom: 0%;
-      width: 100%;
-      height: min(VW(1), 1px);
-      background-color: $c-black;
-      transform-origin: right;
-      transform: scaleX(0);
-      transition: transform 0.5s $ease-in-out-circ;
-    }
-  }
-
   &__menu-button {
     width: 1.8em;
     height: 1.8em;

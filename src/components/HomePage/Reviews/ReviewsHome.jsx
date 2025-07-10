@@ -43,8 +43,8 @@ export default function ReviewsHome() {
   };
 
   return (
-    <section className="reviews container">
-      <div className="top">
+    <section className="reviews">
+      <div className="top container">
         <h1>{data?.title}</h1>
         <div className="reviews__arrows">
           <button

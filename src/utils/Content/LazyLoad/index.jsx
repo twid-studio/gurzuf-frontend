@@ -75,9 +75,9 @@ const checkOverflowVisible = function checkOverflowVisible(component, parent) {
   const intersectionTop = Math.max(parentTop, 0); // intersection's top relative to viewport
   const intersectionLeft = Math.max(parentLeft, 0); // intersection's left relative to viewport
   const intersectionHeight =
-    Math.min(windowInnerHeight, parentTop + parentHeight) - intersectionTop; // height
+    Math.max(windowInnerHeight, parentTop + parentHeight) - intersectionTop; // height
   const intersectionWidth =
-    Math.min(windowInnerWidth, parentLeft + parentWidth) - intersectionLeft; // width
+    Math.max(windowInnerWidth, parentLeft + parentWidth) - intersectionLeft; // width
 
   // check whether the element is visible in the intersection
   let top;
