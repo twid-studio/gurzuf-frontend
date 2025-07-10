@@ -32,6 +32,24 @@
           "text": "heavyshot@gurzufdefence.com.ua",
           "href": "mailto:heavyshot@gurzufdefence.com.ua"
         }
+      ],
+      "socials": [
+        {
+          "icon": "/assets/socials/fb.svg",
+          "href": ""
+        },
+        {
+          "icon": "/assets/socials/instagram.svg",
+          "href": ""
+        },
+        {
+          "icon": "/assets/socials/linkedin.svg",
+          "href": ""
+        },
+        {
+          "icon": "/assets/socials/x.svg",
+          "href": ""
+        }
       ]
     },
     "other": {

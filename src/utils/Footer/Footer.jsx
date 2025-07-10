@@ -47,14 +47,6 @@ export default function Footer() {
           <p className="shadow">{pages.title}</p>
           <div className="list">
             {pages.items.map((item, index) => (
-              // <Link
-              //   key={index}
-              //   href={item.href}
-              //   className="navigation__link"
-              //   // target={item.link.type === "href" ? "_blank" : "_self"}
-              // >
-              //   {item.text}
-              // </Link>
               <LinkAnim
                 text={item.text}
                 href={item.href}
@@ -69,14 +61,6 @@ export default function Footer() {
           <p className="shadow">{contact.title}</p>
           <div className="list">
             {contact.items.map((item, index) => (
-              // <Link
-              //   key={index}
-              //   href={item.href}
-              //   className="navigation__link"
-              //   // target={item.link.type === "href" ? "_blank" : "_self"}
-              // >
-              //   {item.text}
-              // </Link>
               <LinkAnim
                 text={item.text}
                 href={item.href}
@@ -86,19 +70,17 @@ export default function Footer() {
               />
             ))}
           </div>
+
+          <div className="socials">
+            {contact.socials.map((social, index) => (
+              <SocialsLink href={social.href} icon={social.icon} key={index} />
+            ))}
+          </div>
         </div>
         <div className="navigation">
           <p className="shadow">{other.title}</p>
           <div className="list">
             {other.items.map((item, index) => (
-              // <Link
-              //   key={index}
-              //   href={item.href}
-              //   className="navigation__link"
-              //   // target={item.link.type === "href" ? "_blank" : "_self"}
-              // >
-              //   {item.text}
-              // </Link>
               <LinkAnim
                 text={item.text}
                 href={item.href}
@@ -121,17 +103,37 @@ export default function Footer() {
             href={other.madeBy.href}
             color="white"
             classes="navigation__link navigation__link-made-by"
-            />
+          />
         </div>
       </div>
       <div className="footer-image__wrapper" ref={footerRef}>
         <motion.div
-        style={{
-          y: isMobile ? yMob : y,
-          filter: isMobile ? filterMob : filter,
-        }}
-        className="footer-image" />
+          style={{
+            y: isMobile ? yMob : y,
+            filter: isMobile ? filterMob : filter,
+          }}
+          className="footer-image"
+        />
       </div>
     </footer>
   );
 }
+
+const SocialsLink = ({ href, icon }) => {
+  return (
+    <Link
+      className="socials-link"
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Image
+        src={icon}
+        alt="social icon"
+        width={24}
+        height={24}
+        className="socials-link__icon"
+      />
+    </Link>
+  );
+};
