@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Content } from "../Content/Content";
 import MenuWrapper from "./Menu/MenuWrapper";
 import { LinkAnim } from "../LinkAnim/LinkAnim";
+import { usePathname } from "next/navigation";
 
 const links = [
   {
@@ -28,10 +29,16 @@ const links = [
 ];
 
 export default function Header() {
+  const path = usePathname();
+
   return (
     <>
       <header className="header">
-        <div className="logos-wrapper">
+        <Link
+          href={path === "/" ? "#hero" : "/"}
+          className="logos-wrapper"
+          {...(path === "/" ? { "data-scroll-anchor": "#hero" } : {})}
+        >
           <Content
             url="/assets/gsf-logo.mp4"
             className="header__center-logo"
@@ -43,7 +50,7 @@ export default function Header() {
           />
           <LongLogo className="header__logo" data-only-desktop />
           <Logo className="header__logo" data-not-desktop />
-        </div>
+        </Link>
         <div className="header__links" data-only-desktop--flex>
           {links.map((link, index) => (
             // <Link key={index} href={link.href} className="header__link bold">

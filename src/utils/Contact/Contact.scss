@@ -29,7 +29,7 @@
     gap: 0.2em;
     opacity: 1;
     transform-origin: center;
-    transition: scale 0.7s $ease-in-out-expo, opacity 0.7s ease;
+    transition: scale 0.7s $ease-out-expo, opacity 0.7s ease;
 
     @include forTablet {
       gap: 0.3em;
@@ -187,13 +187,18 @@
           color: $c-white;
         }
 
-        &--error {
-          background-color: $red-10;
-          color: $red-80;
-        }
-
+        
         &--placeholder {
           color: $g-70 !important;
+        }
+
+        &--error {
+          background-color: $red-10 !important;
+          color: $red-80 !important;
+
+          + .select-input__arrow {
+            fill: $red-80 !important;
+          }
         }
 
         &__arrow {

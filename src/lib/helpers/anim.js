@@ -113,7 +113,7 @@ export const FormAnim = {
       opacity: 1,
       transition: {
         duration: 0.7,
-        ease: ease.inOutExpo,
+        ease: ease.outExpo,
       },
     },
     exit: {
@@ -121,7 +121,7 @@ export const FormAnim = {
       opacity: 0,
       transition: {
         duration: 0.7,
-        ease: ease.inOutExpo,
+        ease: ease.outExpo,
       },
     },
   }

@@ -29,7 +29,7 @@ export default function HeroHome() {
   const yTitle = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
   return (
-    <section className="hero" ref={sectionRef}>
+    <section className="hero" ref={sectionRef} id="hero">
       <motion.div style={{ y: yTitle }} className="hero__content">
         <div className="title">
           <h1 className="sr-only">{`${data.title[0]} ${data.title[1]}`}</h1>
