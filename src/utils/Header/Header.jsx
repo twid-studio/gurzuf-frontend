@@ -24,7 +24,7 @@ const links = [
   },
   {
     text: "Озброїти підрозділ",
-    href: "/contact",
+    href: "#contact",
   },
 ];
 

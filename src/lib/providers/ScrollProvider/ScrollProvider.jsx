@@ -1,8 +1,5 @@
-"use client"
-import React, {
-  useEffect,
-  useState,
-} from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { ScrollContext } from "./context";
 import { ScrollBar } from "@/utils/ScrollBar/ScrollBar";
 
@@ -14,6 +11,10 @@ function easeInOutExpo(x) {
     : x < 0.5
     ? Math.pow(2, 20 * x - 10) / 2
     : (2 - Math.pow(2, -20 * x + 10)) / 2;
+}
+
+function easeOutExpo(x) {
+  return x === 1 ? 1 : 1 - Math.pow(2, -10 * x);
 }
 
 export const ScrollProvider = ({ children, scrollBar = false, wrapper }) => {
@@ -49,13 +50,13 @@ export const ScrollProvider = ({ children, scrollBar = false, wrapper }) => {
   // Add click event listener for data-scroll-anchor elements
   useEffect(() => {
     const handleClick = (e) => {
-      const scrollTrigger = e.target.closest('[data-scroll-anchor]');
+      const scrollTrigger = e.target.closest("[data-scroll-anchor]");
       if (scrollTrigger) {
         // Prevent default behavior and event propagation
         e.preventDefault();
         e.stopPropagation();
-        
-        const targetSection = scrollTrigger.getAttribute('data-scroll-anchor');
+
+        const targetSection = scrollTrigger.getAttribute("data-scroll-anchor");
         const targetElement = document.querySelector(targetSection);
         if (targetElement) {
           scrollTo(targetElement);
@@ -64,15 +65,16 @@ export const ScrollProvider = ({ children, scrollBar = false, wrapper }) => {
     };
 
     // Use capture phase to ensure we handle the event before other listeners
-    document.addEventListener('click', handleClick, true);
-    return () => document.removeEventListener('click', handleClick, true);
+    document.addEventListener("click", handleClick, true);
+    return () => document.removeEventListener("click", handleClick, true);
   }, [lenis]);
 
   const scrollTo = (target) => {
     if (lenis) {
       lenis.scrollTo(target, {
-        duration: 1.7,
-        easing: (x) => easeInOutExpo(x),
+        duration: 1.3,
+        easing: (x) => easeOutExpo(x),
+        offset: -50,
       });
     }
   };

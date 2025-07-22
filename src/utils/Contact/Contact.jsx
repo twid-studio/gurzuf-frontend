@@ -15,7 +15,7 @@ import { anim, FormAnim } from "@/lib/helpers/anim";
 export default function Contact() {
   const { top, form } = data;
   return (
-    <section className="contact container">
+    <section className="contact container" id="contact">
       <div className="top">
         <h1>{top.title}</h1>
         <p className="subtitle">{top.text}</p>

@@ -11,12 +11,15 @@ export const LinkAnim = ({
   color = "black",
   ...rest
 }) => {
+  const isAnchorLink = href.startsWith("#");
+  
   return (
     <Link
       href={href}
       className={`link-anim bold ${classes || ""} link-anim--${color}`}
       {...rest}
-      target={getLinkTarget(href)}
+      target={isAnchorLink ? undefined : getLinkTarget(href)}
+      {...(isAnchorLink && { "data-scroll-anchor": href })}
     >
       {text}
     </Link>

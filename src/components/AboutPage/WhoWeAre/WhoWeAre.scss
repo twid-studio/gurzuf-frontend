@@ -1,0 +1,47 @@
+.about {
+  .who-we-are {
+    background-color: $g-80;
+    color: $c-white;
+    padding-top: 1em;
+    padding-bottom: 3em;
+
+    &__list {
+      display: flex;
+      margin-top: 7em;
+      
+      @include forMobile {
+        flex-direction: column;
+        margin-top: 3.5em;
+        gap: 3em;
+      }
+
+      .item {
+        width: 100%;
+        padding: 0 1em;
+        border-left: .1em solid $c-white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        height: 8em;
+
+        @include forTablet {
+          height: 10em;
+        }
+
+        @include forMobile {
+          flex-direction: column-reverse;
+          gap: 1em;
+          padding: 0.8em 0;
+          height: auto;
+          border-left: none;
+          border-bottom: .1em solid $c-white;
+
+          h2 {
+            font-size: VW(32, $mobile);
+          }
+        }
+      }
+    }
+  }
+}

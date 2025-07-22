@@ -168,6 +168,11 @@
         &--only-item {
           width: 100%;
           flex-direction: row;
+          justify-content: space-between;
+
+          @include forMobile {
+            flex-direction: column;
+          }
 
           .item__characteristics {
             position: absolute;
@@ -178,6 +183,12 @@
             &-wrapper {
               aspect-ratio: 1.2 / 1;
               height: VW(600);
+              width: auto;
+
+              @include forMobile {
+                height: auto;
+                aspect-ratio: 1 / 1;
+              }
             }
           }
         }

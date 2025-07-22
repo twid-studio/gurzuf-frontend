@@ -1,6 +1,3 @@
-import { Content } from "@/utils/Content/Content";
-
-import "./HomePage.scss";
 import HeroHome from "./Hero/HeroHome";
 import AboutHome from "./About/AboutHome";
 import ProductsHome from "./Products/ProductsHome";

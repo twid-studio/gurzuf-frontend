@@ -1,0 +1,58 @@
+.about {
+  .hero {
+    &__content {
+      background-color: $brown-100;
+      color: $c-white;
+      padding-top: 8em;
+      padding-bottom: 2.5em;
+
+      display: flex;
+      flex-direction: column;
+      gap: 0.8em;
+
+      .title {
+        width: 68%;
+        line-height: 1;
+
+        @include forTablet {
+          width: 100%;
+        }
+
+        @include forMobile {
+          width: auto;
+        }
+      }
+
+      .text {
+        width: 37%;
+
+        @include forTablet {
+          width: 70%;
+        }
+
+        @include forMobile {
+          width: auto;
+        }
+      }
+    }
+
+    &__background {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+
+      scale: 1.25;
+
+      @include forMobile {
+        transform: none !important;
+      }
+
+      &-wrapper {
+        position: relative;
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        overflow: hidden;
+      }
+    }
+  }
+}

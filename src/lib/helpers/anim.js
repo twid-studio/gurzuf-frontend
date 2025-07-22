@@ -126,3 +126,28 @@ export const FormAnim = {
     },
   }
 }
+
+export const WhereWeGoingAnim = {
+  title: {
+    initial: {
+      opacity: 0,
+      filter: "blur(1vw)",
+    },
+    animate: {
+      opacity: 1,
+      filter: "blur(0)",
+      transition: {
+        duration: 1,
+        ease: ease.outExpo,
+      },
+    },
+    exit: {
+      opacity: 0,
+      filter: "blur(1vw)",
+      transition: {
+        duration: 2,
+        ease: ease.outExpo,
+      },
+    },
+  },
+}

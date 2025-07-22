@@ -17,7 +17,7 @@
         },
         {
           "text": "Контакти",
-          "href": "/contact"
+          "href": "#contact"
         }
       ]
     },
@@ -29,8 +29,8 @@
           "href": "tel:+380731313279"
         },
         {
-          "text": "heavyshot@gurzufdefence.com.ua",
-          "href": "mailto:heavyshot@gurzufdefence.com.ua"
+          "text": "heavyshot@gsf.com.ua",
+          "href": "mailto:heavyshot@gsf.com.ua"
         }
       ],
       "socials": [
