@@ -133,7 +133,9 @@ export default function ReviewsHome() {
               />
             </div>
 
-            <p className="review-item__text">{item.author?.position}</p>
+            {item.author?.position && (
+              <p className="review-item__text">{item.author?.position}</p>
+            )}
           </SplideSlide>
         ))}
       </Splide>

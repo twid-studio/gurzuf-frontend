@@ -156,27 +156,27 @@
           "text": "Новина"
         },
         "link": {
-          "type": "slug",
-          "slug": "1000-heavy-shot"
+          "type": "link",
+          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
         },
-        "title": "Вироблено 1000-й \"Heavy Shot\" — рекорд для українського ринку ударних дронів",
-        "image": "/assets/blog/photo-1.jpg",
+        "title": "Воїни “Хартії” 13-ї бригади оперативного призначення Національної гвардії України влаштовують ворогові пекло",
+        "image": "/assets/blog/photo-1.webp",
         "source": {
           "active": true,
-          "image": "/assets/blog/logo-1.jpg"
+          "image": "/assets/blog/logo-3.jpg"
         }
       },
       {
         "type": {
-          "slug": "special-project",
-          "text": "Спецпроєкт"
+          "slug": "viyskovi-hovoryat",
+          "text": "Військові говорять"
         },
         "link": {
-          "type": "slug",
-          "slug": "1000-heavy-shot"
+          "type": "href",
+          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
         },
-        "title": "Успішна операція на Східному напрямку — відзначено ефективність нової модифікації",
-        "image": "/assets/blog/photo-2.jpg",
+        "title": "Азовські спецпризначенці зачищають міську забудову від окупантів. Архівні кадри Торецького напрямку",
+        "image": "/assets/blog/photo-2.webp",
         "source": {
           "active": true,
           "image": "/assets/blog/logo-2.jpg"
@@ -184,18 +184,18 @@
       },
       {
         "type": {
-          "slug": "interview",
-          "text": "Інтервʼю"
+          "slug": "viyskovi-hovoryat",
+          "text": "Військові говорять"
         },
         "link": {
-          "type": "slug",
-          "slug": "1000-heavy-shot"
+          "type": "href",
+          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
         },
-        "title": "Початок навчання нових підрозділів ТРО у партнерстві з МОУ",
-        "image": "/assets/blog/photo-3.jpg",
+        "title": "Heavy Shot у Вовчанську. Ворогу нема де сховатись",
+        "image": "/assets/blog/photo-3.webp",
         "source": {
           "active": true,
-          "image": "/assets/blog/logo-3.jpg"
+          "image": "/assets/blog/logo-1.jpg"
         }
       }
     ],
@@ -209,22 +209,16 @@
     "title": "Що кажуть пілоти Gurzuf",
     "list": [
       {
-        "text": "Ці дрони — справжні робочі коні. Простота керування і висока точність. Одне з найкращих рішень, які ми використовували.",
-        "author": {
-          "position": "Командир розвідувального підрозділу ЗСУ"
-        }
+        "text": "Цей дрон несе серйозне навантаження — за ніч ми піднімали до 100 кг БК. З новим боєкомплектом за 1–2 вильоти можна вибивати ворога навіть з бетонних укріплень.",
+        "author": false
       },
       {
-        "text": "Надійні, витривалі й з хорошим сервісом. Команда завжди на зв’язку.",
-        "author": {
-          "position": "Представник спецпідрозділу"
-        }
+        "text": "На нашому напрямку Heavy Shot — найкращий у логістиці: доставляв все — від генераторів до зброї, навіть евакуації проводили. У межах 9 км ще не було задачі, яку він не виконав.",
+        "author": false
       },
       {
-        "text": "Ці дрони — справжні робочі коні. Простота керування і висока точність. Одне з найкращих рішень, які ми використовували.",
-        "author": {
-          "position": "Командир розвідувального підрозділу ЗСУ"
-        }
+        "text": "Heavy Shot показав себе як один із найпотужніших дронів для логістики, мінування та ударів.",
+        "author": false
       }
     ]
   }

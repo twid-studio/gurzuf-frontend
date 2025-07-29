@@ -1,0 +1,347 @@
+.contact {
+  background-color: $c-black;
+  color: $c-white;
+  padding-top: 0.8em;
+  padding-bottom: 3em;
+
+  .top {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+
+    @include forTablet {
+      width: 70%;
+    }
+
+    @include forMobile {
+      width: 90%;
+
+      h1 {
+        width: 70%;
+      }
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2em;
+    opacity: 1;
+    transform-origin: center;
+    transition: scale 0.7s $ease-out-expo, opacity 0.7s ease;
+
+    @include forTablet {
+      gap: 0.3em;
+    }
+
+    &--submitted {
+      scale: 0.9;
+      opacity: 0;
+    }
+
+    &--loading {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    &-success-message {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8em;
+      padding: 1em;
+      z-index: 10;
+      background-color: $g-80;
+
+      text-align: center;
+
+      &__button {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        border-top: 0.2em solid $c-black;
+      }
+    }
+
+    &-wrapper {
+      margin-top: 5em;
+      position: relative;
+    }
+
+    &__row {
+      width: 100%;
+      display: flex;
+      gap: 0.2em;
+
+      @include forTablet {
+        gap: 0.3em;
+      }
+
+      @include forMobile {
+        flex-direction: column;
+      }
+    }
+
+    &__field {
+      width: 100%;
+      position: relative;
+
+      .input {
+        width: calc(100% - 1.5em);
+        @extend %h3;
+        padding: 0.3em 1.2em 0.3em 0.3em;
+        background-color: $g-80;
+        color: $g-70;
+
+        border-radius: 0 !important;
+        border: none;
+        outline: none;
+
+        line-height: 1.2;
+
+        transition: background-color 0.3s ease, opacity 0.3s ease;
+
+        @include forTablet {
+          width: calc(100% - 3.3em);
+          padding: 0.5em 3em 0.5em 0.3em;
+        }
+
+        @include forMobile {
+          width: calc(100% - 3.4em);
+          padding: 0.6em 3em 0.6em 0.4em;
+        }
+
+        @include hover {
+          // opacity: 0.8;
+          background-color: $g-75;
+        }
+
+        &:valid:not(:placeholder-shown) {
+          color: $c-white;
+        }
+
+        &::placeholder {
+          color: $g-70;
+          opacity: 1;
+        }
+
+        &:focus {
+          background-color: $g-70;
+          opacity: 1 !important;
+          color: $c-white !important;
+
+          &::placeholder {
+            color: $c-white !important;
+          }
+        }
+
+        &--error {
+          background-color: $red-10;
+          color: $red-80;
+
+          &::placeholder {
+            color: $red-80;
+          }
+        }
+
+        &__error {
+          position: absolute;
+          top: 50%;
+          right: 0.5em;
+          transform: translateY(-50%);
+          color: $red-80;
+          pointer-events: none;
+        }
+      }
+
+      .select-input {
+        width: 100%;
+        @extend .input;
+        appearance: none;
+        position: relative;
+
+        &:focus {
+          background-color: $g-70;
+          color: $c-white;
+          opacity: 1 !important;
+
+          + .select-input__arrow {
+            // rotate: 180deg;
+            transform: translateY(-50%) rotate(180deg);
+            fill: $c-white;
+          }
+        }
+  
+        option {
+          color: $c-white;
+        }
+
+        
+        &--placeholder {
+          color: $g-70 !important;
+        }
+
+        &--error {
+          background-color: $red-10 !important;
+          color: $red-80 !important;
+
+          + .select-input__arrow {
+            fill: $red-80 !important;
+          }
+        }
+
+        &__arrow {
+          position: absolute;
+          top: 50%;
+          right: 0.6em;
+          transform: translateY(-50%);
+          width: 1.4em;
+          height: 1.4em;
+          pointer-events: none;
+          fill: $g-70;
+          transition: transform 0.7s $ease-in-out-expo, fill 0.3s ease;
+          z-index: 3;
+
+          @include forTablet {
+            right: 1em;
+          }
+
+          @include forMobile {
+            right: 1em;
+          }
+        }
+
+        &__error {
+          right: 2em !important;
+
+          @include forTablet {
+            right: 3em !important;
+          }
+
+          @include forMobile {
+            right: 3em !important;
+          }
+        }
+      }
+
+      .textarea {
+        @extend .input;
+        resize: none;
+        height: calc(100% - 0.6em);
+
+        @include forTablet {
+          height: calc(100% - 1em);
+        }
+
+        @include forMobile {
+          height: calc(100% - 1.2em);
+        }
+      }
+
+      .file-input-wrapper {
+        position: relative;
+        width: 100%;
+      }
+
+      .file-input {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+
+        &--error + .file-input-label {
+          background-color: $red-10;
+          color: $red-80;
+          border-color: $red-80;
+
+          .file-input-icon {
+            stroke: $red-80;
+          }
+        }
+      }
+
+      .file-input-label {
+        @extend %h3;
+        width: 100%;
+        padding: 0.3em 1.2em 0.3em 0.3em;
+        background-color: $g-80;
+        color: $g-70;
+        border: none;
+        outline: none;
+        line-height: 1.2;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: background-color 0.3s ease, opacity 0.3s ease;
+
+        @include forTablet {
+          padding: 0.5em 3em 0.5em 0.3em;
+        }
+
+        @include forMobile {
+          padding: 0.6em 3em 0.6em 0.4em;
+        }
+
+        @include hover {
+          background-color: $g-75;
+        }
+
+        &:focus {
+          background-color: $g-70;
+          opacity: 1 !important;
+          color: $c-white !important;
+
+          .file-input-icon {
+            stroke: $c-white;
+          }
+        }
+      }
+
+      .file-input-text {
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .file-input-icon {
+        width: 1.4em;
+        height: 1.4em;
+        stroke: $g-70;
+        transition: stroke 0.3s ease;
+        flex-shrink: 0;
+        margin-left: 0.5em;
+      }
+    }
+
+    &__button {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      transition: opacity 0.3s ease, color 0.3s ease;
+
+      @include forMobile {
+        padding: 0.8em 0;
+      }
+
+      &--disabled {
+        opacity: 0.5;
+        pointer-events: none;
+        color: $g-70;
+      }
+    }
+  }
+}

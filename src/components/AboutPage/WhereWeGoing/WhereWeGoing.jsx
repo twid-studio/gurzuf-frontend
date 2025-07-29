@@ -16,7 +16,7 @@ import { anim, WhereWeGoingAnim } from "@/lib/helpers/anim";
 export default function WhereWeGoing() {
   // const images = Array.from({ length: 19 }, (_, i) => `/assets/about/frames/frame (${i + 1}).webp`);
   const images = Array.from(
-    { length: 38 },
+    { length: 58 },
     (_, i) => `/assets/about/ezgif-split/ezgif-frame-0${i + 1}.jpg`
   );
 

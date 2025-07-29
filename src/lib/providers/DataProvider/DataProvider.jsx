@@ -5,9 +5,14 @@ import { DataContext } from "./context";
 
 
 export const DataProvider = ({ children, data }) => {
-  return data ? (
+  return (
     <DataContext.Provider value={{ data }}>
       {children}
     </DataContext.Provider>
-  ) : null;
+  );
+  // return data ? (
+  //   <DataContext.Provider value={{ data }}>
+  //     {children}
+  //   </DataContext.Provider>
+  // ) : null;
 };
