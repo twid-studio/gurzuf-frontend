@@ -99,4 +99,10 @@ export const HOME_QUERY = `*[_type == "homePage"][0]{
       }
     }
   }
-}`
+}`;
+
+export const PRIVACY_POLICY_QUERY = `*[_type == "privacyPolicyPage"][0]{
+  title,
+  changedDate,
+  blockContent
+}`;

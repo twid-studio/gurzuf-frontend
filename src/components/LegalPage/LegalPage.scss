@@ -1,0 +1,53 @@
+.legal-page {
+
+  .top {
+    width: 100%;
+    padding-top: 10em;
+    padding-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+    background-color: $g-30;
+  }
+
+  .content {
+    margin: 0 auto;
+    padding: 10rem 20rem;
+    background-color: $c-white;
+
+    .block-content {
+      .paragraph {
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+        color: $g-90;
+
+        &.strong {
+          font-weight: 600;
+          color: $g-100;
+          margin-bottom: 2rem;
+          margin-top: 3rem;
+
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+
+        .bold {
+          font-weight: 600;
+          color: $g-100;
+        }
+      }
+
+      .bullet-list {
+        margin: 1rem 0 2rem 1.5rem;
+        padding: 0;
+
+        .list-item {
+          margin-bottom: 0.8rem;
+          line-height: 1.6;
+          color: $g-90;
+        }
+      }
+    }
+  }
+}

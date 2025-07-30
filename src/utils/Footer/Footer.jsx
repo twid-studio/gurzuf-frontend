@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useRef } from "react";
-import { Logo } from "../Logo/Logo";
 
 import "./Footer.scss";
 
@@ -43,7 +42,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="navigation-wrapper">
-        <div className="navigation">
+        {/* <div className="navigation">
           <p className="shadow">{pages.title}</p>
           <div className="list">
             {pages.items.map((item, index) => (
@@ -56,7 +55,7 @@ export default function Footer() {
               />
             ))}
           </div>
-        </div>
+        </div> */}
         <div className="navigation">
           <p className="shadow">{contact.title}</p>
           <div className="list">
