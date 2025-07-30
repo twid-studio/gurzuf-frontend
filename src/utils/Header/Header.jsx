@@ -8,20 +8,21 @@ import { Content } from "../Content/Content";
 import MenuWrapper from "./Menu/MenuWrapper";
 import { LinkAnim } from "../LinkAnim/LinkAnim";
 import { usePathname } from "next/navigation";
+import { Button } from "../Button/Button";
 
 const links = [
-  {
-    text: "Продукти",
-    href: "/products",
-  },
-  {
-    text: "Про нас",
-    href: "/about",
-  },
-  {
-    text: "Блог",
-    href: "/blog",
-  },
+  // {
+  //   text: "Продукти",
+  //   href: "/products",
+  // },
+  // {
+  //   text: "Про нас",
+  //   href: "/about",
+  // },
+  // {
+  //   text: "Блог",
+  //   href: "/blog",
+  // },
   {
     text: "Озброїти підрозділ",
     href: "#contact",
@@ -51,19 +52,19 @@ export default function Header() {
           <LongLogo className="header__logo" data-only-desktop />
           <Logo className="header__logo" data-not-desktop />
         </Link>
-        <div className="header__links" data-only-desktop--flex>
+        <div
+          className="header__links"
+          //data-only-desktop--flex
+        >
           {links.map((link, index) => (
             // <Link key={index} href={link.href} className="header__link bold">
             //   {link.text}
             // </Link>
-            <LinkAnim
-              text={link.text}
-              href={link.href}
-              key={index}
-            />
+            <LinkAnim text={link.text} href={link.href} key={index} />
           ))}
         </div>
-        <MenuWrapper links={links} />
+
+        {/* <MenuWrapper links={links} /> */}
       </header>
     </>
   );
