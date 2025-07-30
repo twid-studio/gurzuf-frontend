@@ -51,7 +51,7 @@ const FormSection = ({ data }) => {
       .email("Невірний формат email")
       .required("Це поле є обов'язковим"),
     phone: Yup.string()
-      .matches(/^[\+]?[1-10][\d]{0,15}$/, "Невірний формат телефону")
+      .matches(/[1-10][\d]{0,15}$/, "Невірний формат телефону")
       .required("Це поле є обов'язковим"),
     message: Yup.string(),
   });

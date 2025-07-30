@@ -10,12 +10,20 @@
   @include forDesktop() {
     display: block;
   }
+
+  @include forPortraitTablet() {
+    display: block;
+  }
 }
 
 [data-only-desktop--flex] {
   display: none;
 
   @include forDesktop() {
+    display: flex;
+  }
+
+  @include forPortraitTablet() {
     display: flex;
   }
 }
@@ -26,12 +34,20 @@
   @include forDesktop() {
     display: none;
   }
+
+  @include forPortraitTablet() {
+    display: none;
+  }
 }
 
 [data-not-desktop--flex] {
   display: flex;
 
   @include forDesktop() {
+    display: none;
+  }
+
+  @include forPortraitTablet() {
     display: none;
   }
 }

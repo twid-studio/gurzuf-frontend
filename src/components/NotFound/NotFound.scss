@@ -1,0 +1,74 @@
+.not-found {
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $g-80;
+  padding-top: 3.2em;
+
+  color: $c-white;
+
+  .visuals {
+    position: absolute;
+    inset: 3.5em .5em .5em;
+    pointer-events: none;
+
+    @include forMobile {
+      inset: 4em .5em .5em;
+    }
+
+    .visual {
+      width: 12em;
+      height: 12em;
+      background: url("/assets/visual-404.svg") no-repeat center center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+
+      @include forMobile {
+        width: 10em;
+        height: 10em;
+      }
+
+      &--top-left {
+        top: 0;
+        left: 0;
+      }
+      &--top-right {
+        top: 0;
+        right: 0;
+        rotate: 90deg;
+      }
+      &--bottom-left {
+        bottom: 0;
+        left: 0;
+        rotate: -90deg;
+      }
+      &--bottom-right {
+        bottom: 0;
+        right: 0;
+        rotate: 180deg;
+      }
+    }
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.3em;
+    width: 60%;
+
+    @include forMobile {
+      width: 100%;
+      padding: 0 1em;
+    }
+
+    .button {
+      margin-top: 1em;
+    }
+  }
+}

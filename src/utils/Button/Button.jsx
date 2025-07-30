@@ -1,25 +1,31 @@
 import Link from "next/link";
 import React from "react";
+import clsx from "clsx";
+
+import { getLinkTarget } from "@/lib/helpers/getLinkTarget";
 
 import "./Button.scss";
-import clsx from "clsx";
 
 export const Button = ({
   text,
-  href,
+  href = "",
   color = "white",
   classes,
   fullWidth = false,
   ...rest
 }) => {
+  const isAnchorLink = href.startsWith("#");
+
   return (
     <Link
       href={href || ""}
-      className={clsx('bold button', {
+      className={clsx("bold button", {
         [classes]: classes,
         [`button--${color}`]: color,
-        ['button--full-width']: fullWidth,
+        ["button--full-width"]: fullWidth,
       })}
+      target={isAnchorLink ? undefined : getLinkTarget(href)}
+      {...(isAnchorLink && { "data-scroll-anchor": href })}
       {...rest}
     >
       <h3>{text}</h3>
