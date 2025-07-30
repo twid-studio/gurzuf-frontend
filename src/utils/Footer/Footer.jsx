@@ -70,7 +70,7 @@ export default function Footer() {
             ))}
           </div>
 
-          <div className="socials">
+          <div className="socials" style={{ display: "none" }}>
             {contact.socials.map((social, index) => (
               <SocialsLink href={social.href} icon={social.icon} key={index} />
             ))}
