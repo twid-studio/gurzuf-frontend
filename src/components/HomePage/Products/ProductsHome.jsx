@@ -32,7 +32,7 @@ export default function ProductsHome() {
               <p dangerouslySetInnerHTML={{ __html: product?.description }} />
             </div>
             <div className="item__image-wrapper">
-              <div className="top">
+              {/* <div className="top">
                 <span className="border"></span>
                 <span className="border"></span>
               </div>
@@ -47,7 +47,7 @@ export default function ProductsHome() {
                   color="yellow"
                   fullWidth
                 />
-              </div>
+              </div> */}
               <Image
                 className="item__image"
                 src={product.image}
