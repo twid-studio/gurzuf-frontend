@@ -81,11 +81,9 @@
         padding-left: VW(28);
         display: flex;
         flex-direction: column;
-        gap: VW(20);
         
         @include forMobile {
           padding-left: VW(20, $mobile);
-          gap: VW(20, $mobile);
         }    
       }
     }
