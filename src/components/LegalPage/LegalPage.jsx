@@ -1,141 +1,65 @@
-import React from 'react'
-import './LegalPage.scss'
+import React from "react";
+import "./LegalPage.scss";
+import SanityBlockContent from "@sanity/block-content-to-react";
 
-export default function LegalPage({data}) {
-  const renderBlockContent = (blockContent) => {
-    if (!blockContent || !Array.isArray(blockContent)) {
-      return null;
-    }
+const serializers = {
+  types: {
+    block: (props) => {
+      const { style = "normal" } = props.node;
 
-    const elements = [];
-    let currentList = [];
-
-    blockContent.forEach((block, index) => {
-      if (block._type === 'block') {
-        // Skip empty blocks
-        const text = block.children?.map(child => child.text).join('') || '';
-        if (!text.trim()) {
-          return;
-        }
-        
-        // Handle list items
-        if (block.listItem === 'bullet') {
-          currentList.push(
-            <li key={block._key || index} className="list-item">
-              {block.children?.map((child, childIndex) => (
-                <span 
-                  key={child._key || childIndex}
-                  className={child.marks?.includes('strong') ? 'bold' : ''}
-                >
-                  {child.text}
-                </span>
-              ))}
-            </li>
+      switch (style) {
+        case "h1":
+          return <h1 className="heading-1">{props.children}</h1>;
+        case "h2":
+          return <h2 className="heading-2">{props.children}</h2>;
+        case "h3":
+          return <h3 className="heading-3">{props.children}</h3>;
+        case "h4":
+          return <h4 className="heading-4">{props.children}</h4>;
+        case "blockquote":
+          return (
+            <blockquote className="blockquote">
+              {props.children}
+            </blockquote>
           );
-          return;
-        }
-        
-        // If we have accumulated list items, render them as a ul
-        if (currentList.length > 0) {
-          elements.push(
-            <ul key={`list-${index}`} className="bullet-list">
-              {currentList}
-            </ul>
-          );
-          currentList = [];
-        }
-        
-        // Render content based on style
-        const renderChildren = () => {
-          return block.children?.map((child, childIndex) => (
-            <span 
-              key={child._key || childIndex}
-              className={child.marks?.includes('strong') ? 'bold' : ''}
-            >
-              {child.text}
-            </span>
-          ));
-        };
-
-        // Handle different block styles
-        switch (block.style) {
-          case 'h1':
-            elements.push(
-              <h1 key={block._key || index} className="heading-1">
-                {renderChildren()}
-              </h1>
-            );
-            break;
-          case 'h2':
-            elements.push(
-              <h2 key={block._key || index} className="heading-2">
-                {renderChildren()}
-              </h2>
-            );
-            break;
-          case 'h3':
-            elements.push(
-              <h3 key={block._key || index} className="heading-3">
-                {renderChildren()}
-              </h3>
-            );
-            break;
-          case 'h4':
-            elements.push(
-              <h4 key={block._key || index} className="heading-4">
-                {renderChildren()}
-              </h4>
-            );
-            break;
-          case 'h5':
-            elements.push(
-              <h5 key={block._key || index} className="heading-5">
-                {renderChildren()}
-              </h5>
-            );
-            break;
-          case 'h6':
-            elements.push(
-              <h6 key={block._key || index} className="heading-6">
-                {renderChildren()}
-              </h6>
-            );
-            break;
-          case 'blockquote':
-            elements.push(
-              <blockquote key={block._key || index} className="blockquote">
-                {renderChildren()}
-              </blockquote>
-            );
-            break;
-          default:
-            // Normal paragraph
-            const hasStrong = block.children?.some(child => 
-              child.marks?.includes('strong')
-            );
-            
-            elements.push(
-              <p key={block._key || index} className={hasStrong ? "paragraph strong" : "paragraph"}>
-                {renderChildren()}
-              </p>
-            );
-            break;
-        }
+        default:
+          return <p className="paragraph">{props.children}</p>;
       }
-    });
-
-    // Handle any remaining list items
-    if (currentList.length > 0) {
-      elements.push(
-        <ul key="final-list" className="bullet-list">
-          {currentList}
-        </ul>
-      );
+    },
+  },
+  list: (props) => {
+    const { type } = props;
+    if (type === "bullet") {
+      return <ul className="bullet-list">{props.children}</ul>;
     }
+    return (
+      <ol className="bullet-list">
+        {props.children}
+      </ol>
+    );
+  },
+  listItem: (props) => (
+    <li className="list-item">{props.children}</li>
+  ),
+  marks: {
+    strong: (props) => (
+      <strong className="bold">{props.children}</strong>
+    ),
+    em: (props) => <em className="italic">{props.children}</em>,
+    link: (props) => (
+      <a
+        href={props.mark.href}
+        className="link"
+        target={props.mark.blank ? "_blank" : "_self"}
+        rel={props.mark.blank ? "noopener noreferrer" : undefined}
+      >
+        {props.children}
+      </a>
+    ),
+  },
+};
 
-    return elements;
-  };
-
+export default function LegalPage({ data }) {
   return (
     <div className="legal-page">
       <div className="top container">
@@ -145,11 +69,15 @@ export default function LegalPage({data}) {
 
       <div className="content">
         {data?.blockContent && (
-          <div className="block-content">
-            {renderBlockContent(data.blockContent)}
-          </div>
+          <SanityBlockContent
+            dataset={process.env.NEXT_PUBLIC_SANITY_DATASET || "production"}
+            projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
+            blocks={data.blockContent}
+            serializers={serializers}
+            className="block-content"
+          />
         )}
       </div>
     </div>
-  )
+  );
 }

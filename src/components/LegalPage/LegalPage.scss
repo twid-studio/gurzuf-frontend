@@ -1,5 +1,4 @@
 .legal-page {
-
   .top {
     width: 100%;
     padding-top: 10em;
@@ -21,11 +20,23 @@
     padding: 1em 17em;
     background-color: $c-white;
 
+    @include forTablet {
+      padding: 1em 7em;
+    }
+
     @include forMobile {
       padding: 1em .8em 4em;
     }
 
     .block-content {
+      .link {
+        text-decoration: underline;
+        transition: color 0.2s ease-in-out;
+
+        @include hover {
+          color: $blue-100;
+        }
+      }
       .paragraph {
         margin-bottom: 1.5em;
         line-height: 1.6;
@@ -61,6 +72,7 @@
 
       .heading-2 {
         margin-top: 2em;
+        margin-bottom: 1em;
       }
     }
   }

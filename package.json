@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sanity/block-content-to-react": "^3.0.0",
     "@splidejs/react-splide": "^0.7.12",
     "clsx": "^2.1.1",
     "formik": "^2.4.6",
