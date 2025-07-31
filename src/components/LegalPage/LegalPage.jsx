@@ -63,7 +63,7 @@ export default function LegalPage({ data }) {
   return (
     <div className="legal-page">
       <div className="top container">
-        <p className="date shadow">{data?.date}</p>
+        <p className="date shadow">{data?.changedDate}</p>
         <h1 className="title">{data?.title}</h1>
       </div>
 
