@@ -13,7 +13,7 @@ export default function AboutPage() {
       <TextAbout />
       <WhoWeAre />
       <ImportantToUs />
-      <WhereWeGoing />
+      {/* <WhereWeGoing /> */}
       {/* <div style={{ height: "100vh", border: "1px solid red" }}></div> */}
     </main>
   )
