@@ -14,10 +14,14 @@ import { sectionScrollAnim } from "@/lib/helpers/sectionScrollAnim";
 import { anim, WhereWeGoingAnim } from "@/lib/helpers/anim";
 
 export default function WhereWeGoing() {
-  // const images = Array.from({ length: 19 }, (_, i) => `/assets/about/frames/frame (${i + 1}).webp`);
+  // const images = Array.from(
+  //   { length: 58 },
+  //   (_, i) => `/assets/about/ezgif-split/ezgif-frame-0${i + 1}.jpg`
+  // );
+
   const images = Array.from(
-    { length: 58 },
-    (_, i) => `/assets/about/ezgif-split/ezgif-frame-0${i + 1}.jpg`
+    { length: 90 },
+    (_, i) => `/assets/about/frames/${String(i + 1).padStart(5, '0')}.jpg`
   );
 
   const [currentFrame, setCurrentFrame] = useState(0);
@@ -162,7 +166,7 @@ export default function WhereWeGoing() {
       drawFrame(clampedFrame);
 
       // Set textChange to true after frame 30
-      if (clampedFrame >= 30) {
+      if (clampedFrame >= 60) {
         setTextChange(true);
       } else {
         setTextChange(false);

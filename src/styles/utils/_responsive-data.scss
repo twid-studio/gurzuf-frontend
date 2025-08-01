@@ -56,7 +56,7 @@
   display: block;
 
   @include forMobile() {
-    display: none;
+    display: none !important;
   }
 }
 

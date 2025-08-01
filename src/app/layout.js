@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
         <ScrollProvider scrollBar></ScrollProvider>
         <Header />
         {children}
-        <Contact />
+        {/* <Contact /> */}
         <Footer />
       </body>
     </html>

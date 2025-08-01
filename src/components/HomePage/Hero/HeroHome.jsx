@@ -47,7 +47,6 @@ export default function HeroHome() {
               </div>
             ))}
           </div>
-          <h1>preview</h1>
           <div className="title-line">
             {data.title[1].split(" ").map((word, index) => (
               <div className="title-wrapper" key={index}>

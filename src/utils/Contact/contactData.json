@@ -54,6 +54,10 @@
         {
           "text": "Енергетика",
           "value": "energy"
+        },
+        {
+          "text": "Інше",
+          "value": "other"
         }
       ]
     },
