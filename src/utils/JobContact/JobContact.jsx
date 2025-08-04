@@ -27,7 +27,9 @@ export default function JobContact() {
 
 const FormSection = ({ data }) => {
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [filename, setFilename] = useState("");
+  const [fileError, setFileError] = useState("");
 
   const {
     sucessText,
@@ -40,6 +42,40 @@ const FormSection = ({ data }) => {
     message,
   } = data;
 
+  // File validation helper function
+  const validateFile = (file) => {
+    if (!file) {
+      return "CV файл є обов'язковим";
+    }
+    
+    // Check file size (2MB limit)
+    if (file.size > 2 * 1024 * 1024) {
+      return "Файл занадто великий (максимум 2MB)";
+    }
+    
+    // Check file type
+    const fileName = file.name.toLowerCase();
+    const fileExtension = fileName.split('.').pop();
+    
+    const supportedMimeTypes = [
+      'application/pdf', 
+      'application/msword', 
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+    ];
+    
+    const supportedExtensions = ['pdf', 'doc', 'docx'];
+    
+    // Check both MIME type and file extension
+    const hasValidMimeType = supportedMimeTypes.includes(file.type);
+    const hasValidExtension = supportedExtensions.includes(fileExtension);
+    
+    if (!hasValidMimeType && !hasValidExtension) {
+      return "Підтримуються тільки файли PDF, DOC, DOCX";
+    }
+    
+    return null; // No error
+  };
+
   const validationSchema = Yup.object().shape({
     name: Yup.string()
       .min(2, "Ім'я повинно містити щонайменше 2 символи")
@@ -51,21 +87,35 @@ const FormSection = ({ data }) => {
       .email("Невірний формат email")
       .required("Це поле є обов'язковим"),
     phone: Yup.string()
-      .matches(/^[\+]?[1-10][\d]{0,15}$/, "Невірний формат телефону")
+      .matches(/^[\+]?[1-9][\d]{0,15}$/, "Невірний формат телефону")
       .required("Це поле є обов'язковим"),
     position: Yup.string()
       .required("Це поле є обов'язковим"),
     cvFile: Yup.mixed()
       .required("CV файл є обов'язковим")
-      .test("fileSize", "Файл занадто великий (максимум 2MB)", function (value) {
-        if (!value) return false; // File is required
-        return value.size <= 2 * 1024 * 1024; // 2MB in bytes
-      })
-      .test("fileType", "Підтримуються тільки файли PDF, DOC, DOCX", function (value) {
-        if (!value) return false; // File is required
-        const supportedFormats = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-        return supportedFormats.includes(value.type);
-      }),
+      .test(
+        "fileSize",
+        "Файл занадто великий (максимум 2MB)",
+        (value) => value && value.size <= 2 * 1024 * 1024
+      )
+      .test(
+        "fileFormat",
+        "Підтримуються тільки файли PDF, DOC, DOCX",
+        (value) => {
+          if (!value) return false;
+          const fileName = value.name.toLowerCase();
+          const fileExtension = fileName.split('.').pop();
+          const supportedMimeTypes = [
+            'application/pdf', 
+            'application/msword', 
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+          ];
+          const supportedExtensions = ['pdf', 'doc', 'docx'];
+          const hasValidMimeType = supportedMimeTypes.includes(value.type);
+          const hasValidExtension = supportedExtensions.includes(fileExtension);
+          return hasValidMimeType || hasValidExtension;
+        }
+      ),
     message: Yup.string(),
   });
 
@@ -265,63 +315,43 @@ const FormSection = ({ data }) => {
                   {({ field, form }) => (
                     <div className="file-input-wrapper">
                       <input
-                        type="file"
                         id="cvFile"
+                        name="cvFile"
+                        type="file"
                         accept=".pdf,.doc,.docx"
-                        className={clsx("file-input", {
-                          "file-input--error": errors.cvFile && touched.cvFile,
-                        })}
-                        onChange={(event) => {
-                          const file = event.currentTarget.files[0];
-                          
-                          // Validate file immediately when selected
-                          if (file) {
-                            // Check file size
-                            if (file.size > 2 * 1024 * 1024) {
-                              form.setFieldTouched("cvFile", true);
-                              form.setFieldError("cvFile", "Файл занадто великий (максимум 2MB)");
+                        style={{ display: "none" }}
+                        onChange={(e) => {
+                          if (e.currentTarget.files.length > 0) {
+                            const file = e.currentTarget.files[0];
+                            const error = validateFile(file);
+                            if (!error) {
+                              setFilename(file.name);
+                              setFileError("");
+                              form.setFieldValue("cvFile", file);
+                            } else {
+                              setFileError(error);
+                              setFilename("");
                               form.setFieldValue("cvFile", null);
-                              event.target.value = ""; // Clear file input
-                              return;
                             }
-                            
-                            // Check file type
-                            const supportedFormats = [
-                              'application/pdf', 
-                              'application/msword', 
-                              'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
-                            ];
-                            
-                            if (!supportedFormats.includes(file.type)) {
-                              form.setFieldTouched("cvFile", true);
-                              form.setFieldError("cvFile", "Підтримуються тільки файли PDF, DOC, DOCX");
-                              form.setFieldValue("cvFile", null);
-                              event.target.value = ""; // Clear file input
-                              return;
-                            }
-                            
-                            // Clear any previous errors if file is valid
-                            form.setFieldError("cvFile", undefined);
+                          } else {
+                            setFilename("");
+                            setFileError("");
+                            form.setFieldValue("cvFile", null);
                           }
-                          
-                          form.setFieldValue("cvFile", file);
-                          form.setFieldTouched("cvFile", true);
                         }}
                       />
-                      <label htmlFor="cvFile" className={clsx("file-input-label", {
-                        "file-input-label--error": errors.cvFile && touched.cvFile,
-                        "file-input-label--active": form.values.cvFile && form.values.cvFile.name
-                      })}>
+                      <label
+                        htmlFor="cvFile"
+                        className={clsx("file-input-label", {
+                          "file-input-label--error": fileError,
+                          "file-input-label--active": filename
+                        })}
+                      >
                         <span className="file-input-text">
-                          {form.values.cvFile ? 
-                            form.values.cvFile.name : 
-                            (errors.cvFile && touched.cvFile ? cvFile.text : cvFile.text)
-                          }
+                          {fileError ? fileError : (filename || cvFile.text)}
                         </span>
-                        <span className={clsx("file-input-button", {
-                          "file-input-button--error": errors.cvFile && touched.cvFile
-                        })} data-hide-for-mobile>
-                          {errors.cvFile && touched.cvFile ? errors.cvFile : cvFile.buttonText}
+                        <span className="file-input-button" data-hide-for-mobile>
+                          {cvFile.buttonText}
                         </span>
                       </label>
                     </div>

@@ -4,9 +4,10 @@ import HeroAbout from './Hero/HeroAbout'
 import TextAbout from './TextAbout/TextAbout'
 import WhoWeAre from './WhoWeAre/WhoWeAre'
 import ImportantToUs from './ImportantToUs/ImportantToUs'
-import WhereWeGoing from './WhereWeGoing/WhereWeGoing'
+// import WhereWeGoing from './WhereWeGoing/WhereWeGoing'
 import { motion } from 'framer-motion'
 import { anim, PageAnim } from '@/lib/helpers/anim'
+import NewWhereWeGoing from './NewWhereWeGoing/NewWhereWeGoing'
 
 export default function AboutPage() {
   useEffect(() => {
@@ -20,6 +21,7 @@ export default function AboutPage() {
       <TextAbout />
       <WhoWeAre />
       <ImportantToUs />
+      <NewWhereWeGoing />
       {/* <WhereWeGoing /> */}
       {/* <div style={{ height: "100vh", border: "1px solid red" }}></div> */}
     </motion.main>

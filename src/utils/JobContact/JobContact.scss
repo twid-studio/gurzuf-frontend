@@ -23,16 +23,6 @@
         width: 0;
         height: 0;
         overflow: hidden;
-
-        &--error + .file-input-label {
-          background-color: $red-10;
-          color: $red-80;
-          border-color: $red-80;
-
-          .file-input-icon {
-            stroke: $red-80;
-          }
-        }
       }
 
       .file-input-label {
@@ -73,6 +63,17 @@
 
         &--active {
           color: $c-white !important;
+        }
+
+        &--error {
+          background-color: $red-10;
+          color: $red-80;
+          border-color: $red-80;
+
+          .file-input-button {
+            background-color: $red-10;
+            border-left: 1px solid #000;
+          }
         }
       }
 
