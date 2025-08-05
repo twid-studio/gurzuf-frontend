@@ -15,7 +15,7 @@ import { anim, FormAnim } from "@/lib/helpers/anim";
 export default function JobContact() {
   const { top, form } = data;
   return (
-    <section className="contact container" id="contact-job">
+    <section className="contact container" id="contact">
       <div className="top">
         <h1>{top.title}</h1>
         <p className="subtitle">{top.text}</p>
@@ -31,48 +31,40 @@ const FormSection = ({ data }) => {
   const [filename, setFilename] = useState("");
   const [fileError, setFileError] = useState("");
 
-  const {
-    sucessText,
-    name,
-    surname,
-    email,
-    phone,
-    position,
-    cvFile,
-    message,
-  } = data;
+  const { sucessText, name, surname, email, phone, position, cvFile, message } =
+    data;
 
   // File validation helper function
   const validateFile = (file) => {
     if (!file) {
       return "CV файл є обов'язковим";
     }
-    
+
     // Check file size (2MB limit)
     if (file.size > 2 * 1024 * 1024) {
       return "Файл занадто великий (максимум 2MB)";
     }
-    
+
     // Check file type
     const fileName = file.name.toLowerCase();
-    const fileExtension = fileName.split('.').pop();
-    
+    const fileExtension = fileName.split(".").pop();
+
     const supportedMimeTypes = [
-      'application/pdf', 
-      'application/msword', 
-      'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+      "application/pdf",
+      "application/msword",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
     ];
-    
-    const supportedExtensions = ['pdf', 'doc', 'docx'];
-    
+
+    const supportedExtensions = ["pdf", "doc", "docx"];
+
     // Check both MIME type and file extension
     const hasValidMimeType = supportedMimeTypes.includes(file.type);
     const hasValidExtension = supportedExtensions.includes(fileExtension);
-    
+
     if (!hasValidMimeType && !hasValidExtension) {
       return "Підтримуються тільки файли PDF, DOC, DOCX";
     }
-    
+
     return null; // No error
   };
 
@@ -87,10 +79,9 @@ const FormSection = ({ data }) => {
       .email("Невірний формат email")
       .required("Це поле є обов'язковим"),
     phone: Yup.string()
-      .matches(/^[\+]?[1-9][\d]{0,15}$/, "Невірний формат телефону")
+      .matches(/[1-10][\d]{0,15}$/, "Невірний формат телефону")
       .required("Це поле є обов'язковим"),
-    position: Yup.string()
-      .required("Це поле є обов'язковим"),
+    position: Yup.string().required("Це поле є обов'язковим"),
     cvFile: Yup.mixed()
       .required("CV файл є обов'язковим")
       .test(
@@ -104,13 +95,13 @@ const FormSection = ({ data }) => {
         (value) => {
           if (!value) return false;
           const fileName = value.name.toLowerCase();
-          const fileExtension = fileName.split('.').pop();
+          const fileExtension = fileName.split(".").pop();
           const supportedMimeTypes = [
-            'application/pdf', 
-            'application/msword', 
-            'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+            "application/pdf",
+            "application/msword",
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
           ];
-          const supportedExtensions = ['pdf', 'doc', 'docx'];
+          const supportedExtensions = ["pdf", "doc", "docx"];
           const hasValidMimeType = supportedMimeTypes.includes(value.type);
           const hasValidExtension = supportedExtensions.includes(fileExtension);
           return hasValidMimeType || hasValidExtension;
@@ -136,12 +127,12 @@ const FormSection = ({ data }) => {
       let fileData = null;
       if (values.cvFile) {
         const fileBuffer = await values.cvFile.arrayBuffer();
-        const base64String = Buffer.from(fileBuffer).toString('base64');
+        const base64String = Buffer.from(fileBuffer).toString("base64");
         fileData = {
           name: values.cvFile.name,
           data: base64String,
           contentType: values.cvFile.type,
-          size: values.cvFile.size
+          size: values.cvFile.size,
         };
       }
 
@@ -344,13 +335,16 @@ const FormSection = ({ data }) => {
                         htmlFor="cvFile"
                         className={clsx("file-input-label", {
                           "file-input-label--error": fileError,
-                          "file-input-label--active": filename
+                          "file-input-label--active": filename,
                         })}
                       >
                         <span className="file-input-text">
-                          {fileError ? fileError : (filename || cvFile.text)}
+                          {fileError ? fileError : filename || cvFile.text}
                         </span>
-                        <span className="file-input-button" data-hide-for-mobile>
+                        <span
+                          className="file-input-button"
+                          data-hide-for-mobile
+                        >
                           {cvFile.buttonText}
                         </span>
                       </label>
