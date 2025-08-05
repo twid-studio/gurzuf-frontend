@@ -18,7 +18,7 @@ export const metadata = {
   openGraph: {
     title: "GURZUF DEFENCE",
     description: "",
-    url: "https://gurzuf-defence.com",
+    url: "https://www.gurzufdefence.com.ua",
     siteName: "GURZUF DEFENCE",
     images: [
       {
@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
         <ScrollProvider scrollBar></ScrollProvider>
         <Header />
         {children}
-        <Contact />
+        {/* <Contact /> */}
         <Footer />
       </body>
     </html>

@@ -1,0 +1,89 @@
+.about {
+  .where-we-going {
+    position: relative;
+    height: 400vh;
+    margin: 1em;
+    contain: paint;
+
+    @include forTablet {
+      height: 300vh;
+    }
+
+    @include forMobile {
+      height: 300vw;
+    }
+
+    .sticky-container {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      @include forMobile {
+        top: 3em;
+        height: auto;
+        aspect-ratio: 9/16;
+      }
+
+      .background {
+        width: 100%;
+        height: auto;
+        background: url("/assets/about/crimea.webp") no-repeat center center;
+        background-size: cover;
+        position: absolute;
+        aspect-ratio: 1920 / 2278;
+        top: -95%;
+        // transform: translateY(-100%);
+
+        transition: top 1.5s cubic-bezier(0.61, 0, 0.05, 1.03);
+
+        @include forMobile {
+          top: 0% !important;
+          transform-origin: center;
+          // left: -50%;
+          width: 100%;
+          height: 100%;
+          background-position: 50% 50%;
+        }
+
+        &--active {
+          // transform: translateY(0%);
+          top: 0;
+        }
+
+        &-wrapper {
+          position: absolute;
+          z-index: -1;
+          inset: 0;
+          width: 100%;
+          height: 100vh;
+          // aspect-ratio: 1920 / 2278;÷\
+          // overflow: hidden;
+
+          @include forMobile {
+            height: auto;
+            aspect-ratio: 9/16;
+          }
+        }
+      }
+
+      .title {
+        padding: 0 10em;
+        position: absolute;
+
+        @include forTablet {
+          padding: 0 5em;
+        }
+
+        @include forMobile {
+          padding: 0 0.6em;
+        }
+      }
+    }
+  }
+}

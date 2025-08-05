@@ -155,7 +155,9 @@ const TextLink = ({ data }) => {
           <p className="small-text">{data?.text}</p>
         </div>
 
+        {data?.button && data?.button.active && (
         <Button text={data?.button.text} url={data?.button.link} fullWidth />
+        )}
       </motion.div>
     </div>
   );

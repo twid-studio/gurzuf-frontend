@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
-import { sendEmail } from "@/app/actions";
+import { sendJobApplication } from "@/app/actions";
 
 import data from "./jobContactData.json";
 import { AnimatePresence, motion } from "framer-motion";
@@ -15,7 +15,7 @@ import { anim, FormAnim } from "@/lib/helpers/anim";
 export default function JobContact() {
   const { top, form } = data;
   return (
-    <section className="contact container" id="contact-job">
+    <section className="contact container" id="contact">
       <div className="top">
         <h1>{top.title}</h1>
         <p className="subtitle">{top.text}</p>
@@ -27,18 +27,46 @@ export default function JobContact() {
 
 const FormSection = ({ data }) => {
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
+  const [filename, setFilename] = useState("");
+  const [fileError, setFileError] = useState("");
 
-  const {
-    sucessText,
-    name,
-    surname,
-    email,
-    phone,
-    position,
-    cvFile,
-    message,
-  } = data;
+  const { sucessText, name, surname, email, phone, position, cvFile, message } =
+    data;
+
+  // File validation helper function
+  const validateFile = (file) => {
+    if (!file) {
+      return "CV файл є обов'язковим";
+    }
+
+    // Check file size (2MB limit)
+    if (file.size > 2 * 1024 * 1024) {
+      return "Файл занадто великий (максимум 2MB)";
+    }
+
+    // Check file type
+    const fileName = file.name.toLowerCase();
+    const fileExtension = fileName.split(".").pop();
+
+    const supportedMimeTypes = [
+      "application/pdf",
+      "application/msword",
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    ];
+
+    const supportedExtensions = ["pdf", "doc", "docx"];
+
+    // Check both MIME type and file extension
+    const hasValidMimeType = supportedMimeTypes.includes(file.type);
+    const hasValidExtension = supportedExtensions.includes(fileExtension);
+
+    if (!hasValidMimeType && !hasValidExtension) {
+      return "Підтримуються тільки файли PDF, DOC, DOCX";
+    }
+
+    return null; // No error
+  };
 
   const validationSchema = Yup.object().shape({
     name: Yup.string()
@@ -51,20 +79,34 @@ const FormSection = ({ data }) => {
       .email("Невірний формат email")
       .required("Це поле є обов'язковим"),
     phone: Yup.string()
-      .matches(/^[\+]?[1-10][\d]{0,15}$/, "Невірний формат телефону")
+      .matches(/[1-10][\d]{0,15}$/, "Невірний формат телефону")
       .required("Це поле є обов'язковим"),
-    position: Yup.string()
-      .required("Це поле є обов'язковим"),
+    position: Yup.string().required("Це поле є обов'язковим"),
     cvFile: Yup.mixed()
-      .test("fileSize", "Файл занадто великий (максимум 2MB)", function (value) {
-        if (!value) return true; // File is optional
-        return value.size <= 2 * 1024 * 1024; // 2MB in bytes
-      })
-      .test("fileType", "Підтримуються тільки файли PDF, DOC, DOCX", function (value) {
-        if (!value) return true; // File is optional
-        const supportedFormats = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-        return supportedFormats.includes(value.type);
-      }),
+      .required("CV файл є обов'язковим")
+      .test(
+        "fileSize",
+        "Файл занадто великий (максимум 2MB)",
+        (value) => value && value.size <= 2 * 1024 * 1024
+      )
+      .test(
+        "fileFormat",
+        "Підтримуються тільки файли PDF, DOC, DOCX",
+        (value) => {
+          if (!value) return false;
+          const fileName = value.name.toLowerCase();
+          const fileExtension = fileName.split(".").pop();
+          const supportedMimeTypes = [
+            "application/pdf",
+            "application/msword",
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+          ];
+          const supportedExtensions = ["pdf", "doc", "docx"];
+          const hasValidMimeType = supportedMimeTypes.includes(value.type);
+          const hasValidExtension = supportedExtensions.includes(fileExtension);
+          return hasValidMimeType || hasValidExtension;
+        }
+      ),
     message: Yup.string(),
   });
 
@@ -81,6 +123,19 @@ const FormSection = ({ data }) => {
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     setLoading(true);
     try {
+      // Convert file to base64 if exists
+      let fileData = null;
+      if (values.cvFile) {
+        const fileBuffer = await values.cvFile.arrayBuffer();
+        const base64String = Buffer.from(fileBuffer).toString("base64");
+        fileData = {
+          name: values.cvFile.name,
+          data: base64String,
+          contentType: values.cvFile.type,
+          size: values.cvFile.size,
+        };
+      }
+
       // Format data for the email service
       const emailData = {
         name: values.name,
@@ -88,24 +143,26 @@ const FormSection = ({ data }) => {
         email: values.email,
         phone: values.phone,
         position: values.position,
-        cvFile: values.cvFile?.name || "No file attached",
+        cvFile: fileData,
         message: values.message,
       };
 
       // Use the server action directly instead of fetch
-      const result = await sendEmail(emailData);
+      const result = await sendJobApplication(emailData);
 
       if (result.success) {
-        console.log("Email sent successfully");
+        console.log("Job application email sent successfully");
         setLoading(false);
         setSubmitted(true);
         resetForm();
       } else {
-        console.error("Failed to send email:", result.error);
+        console.error("Failed to send job application email:", result.error);
+        setLoading(false);
         // You might want to show an error message to the user here
       }
     } catch (error) {
-      console.error("Error sending email:", error);
+      console.error("Error sending job application email:", error);
+      setLoading(false);
       // Handle error (you might want to show an error message to the user)
     } finally {
       setSubmitting(false);
@@ -249,51 +306,51 @@ const FormSection = ({ data }) => {
                   {({ field, form }) => (
                     <div className="file-input-wrapper">
                       <input
-                        type="file"
                         id="cvFile"
+                        name="cvFile"
+                        type="file"
                         accept=".pdf,.doc,.docx"
-                        className={clsx("file-input", {
-                          "file-input--error": errors.cvFile && touched.cvFile,
-                        })}
-                        onChange={(event) => {
-                          const file = event.currentTarget.files[0];
-                          form.setFieldValue("cvFile", file);
+                        style={{ display: "none" }}
+                        onChange={(e) => {
+                          if (e.currentTarget.files.length > 0) {
+                            const file = e.currentTarget.files[0];
+                            const error = validateFile(file);
+                            if (!error) {
+                              setFilename(file.name);
+                              setFileError("");
+                              form.setFieldValue("cvFile", file);
+                            } else {
+                              setFileError(error);
+                              setFilename("");
+                              form.setFieldValue("cvFile", null);
+                            }
+                          } else {
+                            setFilename("");
+                            setFileError("");
+                            form.setFieldValue("cvFile", null);
+                          }
                         }}
                       />
-                      <label htmlFor="cvFile" className="file-input-label">
+                      <label
+                        htmlFor="cvFile"
+                        className={clsx("file-input-label", {
+                          "file-input-label--error": fileError,
+                          "file-input-label--active": filename,
+                        })}
+                      >
                         <span className="file-input-text">
-                          {form.values.cvFile ? form.values.cvFile.name : cvFile.text}
+                          {fileError ? fileError : filename || cvFile.text}
                         </span>
-                        <svg
-                          className="file-input-icon"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
+                        <span
+                          className="file-input-button"
+                          data-hide-for-mobile
                         >
-                          <path
-                            d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                          <polyline
-                            points="14,2 14,8 20,8"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
+                          {cvFile.buttonText}
+                        </span>
                       </label>
                     </div>
                   )}
                 </Field>
-                <ErrorMessage
-                  name="cvFile"
-                  component="div"
-                  className="input__error"
-                />
               </div>
             </div>
 

@@ -1,3 +1,4 @@
+"use client"
 import HeroHome from "./Hero/HeroHome";
 import AboutHome from "./About/AboutHome";
 import ProductsHome from "./Products/ProductsHome";
@@ -6,10 +7,17 @@ import Operations from "./Operations/Operations";
 import QuoteHome from "./Quote/QuoteHome";
 import NewsHome from "./News/NewsHome";
 import ReviewsHome from "./Reviews/ReviewsHome";
+import { motion } from "framer-motion";
+import { anim, PageAnim } from "@/lib/helpers/anim";
+import { useEffect } from "react";
 
 const HomePage = () => {
+  useEffect(() => {
+      document.documentElement.scrollTo(0, 0);
+    }, []);
+    
   return (
-    <main className="home">
+    <motion.main className="home" {...anim(PageAnim)}>
       <HeroHome />
       <AboutHome />
       <ProductsHome />
@@ -18,7 +26,7 @@ const HomePage = () => {
       <QuoteHome />
       <NewsHome />
       <ReviewsHome />
-    </main>
+    </motion.main>
   );
 };
 

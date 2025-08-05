@@ -15,10 +15,10 @@ const links = [
   //   text: "Продукти",
   //   href: "/products",
   // },
-  // {
-  //   text: "Про нас",
-  //   href: "/about",
-  // },
+  {
+    text: "Про нас",
+    href: "/about",
+  },
   // {
   //   text: "Блог",
   //   href: "/blog",
@@ -54,7 +54,7 @@ export default function Header() {
         </Link>
         <div
           className="header__links"
-          //data-only-desktop--flex
+          data-only-desktop--flex
         >
           {links.map((link, index) => (
             // <Link key={index} href={link.href} className="header__link bold">
@@ -64,7 +64,7 @@ export default function Header() {
           ))}
         </div>
 
-        {/* <MenuWrapper links={links} /> */}
+        <MenuWrapper links={links} />
       </header>
     </>
   );
