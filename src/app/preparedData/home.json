@@ -142,7 +142,7 @@
       "image": "/assets/home/quote/pavlo.webp"
     },
     "button": {
-      "active": false,
+      "active": true,
       "text": "Про Gurzuf Defence",
       "href": "/about"
     }
