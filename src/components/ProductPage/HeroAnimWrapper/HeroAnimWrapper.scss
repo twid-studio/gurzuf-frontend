@@ -1,0 +1,38 @@
+.hero-anim-wrapper {
+  position: relative;
+
+  .drone-wrapper {
+    position: absolute;
+    top: -2em;
+    left: 0;
+    right: 0;
+    height: 126vw;
+    z-index: 0;
+    contain: paint;
+
+    @include forPortraitTablet {
+      top: 4em;
+      height: 125vw;
+    }
+
+    @include forTablet {
+      top: 3em;
+      height: 150vw;
+    }
+
+    .drone {
+      position: sticky;
+      top: 0;
+      z-index: -1;
+
+      margin-bottom: 0vh;
+
+      @include forTablet {
+        top: 10em;
+        scale: 1.2;
+        // margin-bottom: 10em;
+      }
+
+    }
+  }
+}

@@ -14,14 +14,10 @@ import { sectionScrollAnim } from "@/lib/helpers/sectionScrollAnim";
 import { anim, WhereWeGoingAnim } from "@/lib/helpers/anim";
 
 export default function WhereWeGoing() {
-  // const images = Array.from(
-  //   { length: 58 },
-  //   (_, i) => `/assets/about/ezgif-split/ezgif-frame-0${i + 1}.jpg`
-  // );
 
   const images = Array.from(
     { length: 90 },
-    (_, i) => `/assets/about/frames/${String(i + 1).padStart(5, '0')}.jpg`
+    (_, i) => `/assets/about/frames/${String(i + 1).padStart(5, "0")}.jpg`
   );
 
   const [currentFrame, setCurrentFrame] = useState(0);
@@ -68,13 +64,13 @@ export default function WhereWeGoing() {
 
     // Clear canvas and draw the new frame
     ctx.clearRect(0, 0, displayWidth, displayHeight);
-    
+
     // Calculate object-fit: cover behavior
     const imgAspectRatio = img.naturalWidth / img.naturalHeight;
     const canvasAspectRatio = displayWidth / displayHeight;
-    
+
     let drawWidth, drawHeight, offsetX, offsetY;
-    
+
     if (imgAspectRatio > canvasAspectRatio) {
       // Image is wider - fit to height, crop width
       drawHeight = displayHeight;
@@ -88,7 +84,7 @@ export default function WhereWeGoing() {
       offsetX = 0;
       offsetY = (displayHeight - drawHeight) / 2;
     }
-    
+
     ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
   };
 
@@ -192,7 +188,9 @@ export default function WhereWeGoing() {
         />
         <AnimatePresence mode="wait">
           {!textChange ? (
-            <motion.h1 {...anim(WhereWeGoingAnim.title)} className="title">Куди ми йдемо</motion.h1>
+            <motion.h1 {...anim(WhereWeGoingAnim.title)} className="title">
+              Куди ми йдемо
+            </motion.h1>
           ) : (
             <motion.h2 {...anim(WhereWeGoingAnim.title)} className="title">
               Ми хочемо, щоб назва Gurzuf Defence асоціювалася не тільки з
