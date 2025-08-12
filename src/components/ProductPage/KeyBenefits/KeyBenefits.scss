@@ -3,7 +3,12 @@
     position: relative;
     z-index: 2;
     margin-top: 5em;
+    padding-bottom: 8em;
     overflow: hidden;
+
+    @include forMobile {
+      padding-bottom: 6em;
+    }
 
     &__title {
       &-wrapper {
@@ -73,15 +78,16 @@
     &__image{
       &-wrapper {
         position: absolute;
-        width: VW(600);
-        height: VW(600);
-        top: 2em;
-        right: 0;
+        width: VW(710);
+        height: VW(710);
+        top: -2em;
+        right: 0em;
         z-index: -1;
 
         @include forTablet {
           width: VW(600, $tablet);
           height: VW(600, $tablet);
+          top: 4em;
           right: -15%;
         }
 

@@ -17,7 +17,7 @@ export default function Equipment() {
       </div>
 
       <div className="list">
-        {data?.list.map((item, index) => (
+        {data?.list && data?.list.map((item, index) => (
           <div className="list__item" key={index}>
             <Image src={item.image} width={316} height={263} alt={item.title} className="list__item-image" />
             <p className="list__item-title">{item.title}</p>

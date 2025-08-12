@@ -92,7 +92,7 @@ export default function Gallery() {
     if (splideRef.current && splideRef.current.splide) {
       setTimeout(() => {
         splideRef.current.splide.go("+1");
-      }, 200)
+      }, 200);
     }
   }, [splideRef]);
 
@@ -239,7 +239,7 @@ const SlideItem = ({
         )}
       </div>
 
-      <p className="slider__text">{item.title}</p>
+      {item.title && <p className="slider__text">{item.title}</p>}
 
       {/* Video Timeline - only show for active video slides */}
       {item.content.endsWith(".mp4") && (
