@@ -46,16 +46,22 @@
     "title": "Heavy Shot 3 в дії",
     "list": [
       {
-        "content": "/assets/products/heavy-shot/gallery/promo-vid-1.mp4"
+        "content": "/assets/products/heavy-shot/gallery/1.mp4"
       },
       {
-        "content": "/assets/products/heavy-shot/gallery/promo-vid-2.mp4"
+        "content": "/assets/products/heavy-shot/gallery/2.mp4"
       },
       {
-        "content": "/assets/products/heavy-shot/gallery/promo-vid-3.mp4"
+        "content": "/assets/products/heavy-shot/gallery/3.mp4"
       },
       {
-        "content": "/assets/products/heavy-shot/gallery/promo-vid-4.mp4"
+        "content": "/assets/products/heavy-shot/gallery/4.mp4"
+      },
+      {
+        "content": "/assets/products/heavy-shot/gallery/5.mp4"
+      },
+      {
+        "content": "/assets/products/heavy-shot/gallery/6.mp4"
       }
     ]
   },
