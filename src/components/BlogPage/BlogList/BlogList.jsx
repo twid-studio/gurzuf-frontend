@@ -6,8 +6,11 @@ import { Button } from "@/utils/Button/Button";
 import "./BlogList.scss";
 import useIsDesktop from "@/lib/helpers/useIsDesktop";
 import useIsMobile from "@/lib/helpers/useIsMobile";
+import { AnimatePresence, motion } from "framer-motion";
+import clsx from "clsx";
+import { anim, fadeIn, PageAnim } from "@/lib/helpers/anim";
 
-export default function BlogList({ data }) {
+export default function BlogList({ data, activeFilters }) {
   const isDesktop = useIsDesktop();
   const itemsPerLoad = isDesktop ? 15 : 10;
 
@@ -33,33 +36,52 @@ export default function BlogList({ data }) {
   };
 
   return (
-    <section className="blog-list container">
-      <div className="blog-list__wrapper">
-        {visibleItems.map((item, index) => (
-          <BlogLink key={index} data={item} index={index+1} />
-        ))}
-      </div>
-
-      {showLoadMoreButton && hasMoreItems && (
-        <button
-          className="button button--black blog-list__load-more"
-          onClick={handleLoadMore}
+    <AnimatePresence mode="wait">
+      <motion.section
+        className="blog-list container"
+        {...anim(fadeIn(0.1, 0.1))}
+        key={`${data?.list.length}--${activeFilters}`}
+      >
+        <motion.div
+          className={clsx("blog-list__wrapper", {
+            "blog-list__wrapper--default": activeFilters === "all",
+          })}
         >
-          <h3>Більше новин</h3>
-          <div className="button__arrow">
-            <svg
-              viewBox="0 0 18 17"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+          {visibleItems.map((item, index) => (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className="blog-list__link-wrapper"
+              key={index}
             >
-              <path
-                d="M9.58807 16.3153L8.05398 14.7983L13.3807 9.47159H0V7.25568H13.3807L8.05398 1.9375L9.58807 0.411931L17.5398 8.36364L9.58807 16.3153Z"
-                fill="black"
-              />
-            </svg>
-          </div>
-        </button>
-      )}
-    </section>
+              <BlogLink data={item} />
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {showLoadMoreButton && hasMoreItems && (
+          <button
+            className="button button--black blog-list__load-more"
+            onClick={handleLoadMore}
+          >
+            <h3>Більше новин</h3>
+            <div className="button__arrow">
+              <svg
+                viewBox="0 0 18 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.58807 16.3153L8.05398 14.7983L13.3807 9.47159H0V7.25568H13.3807L8.05398 1.9375L9.58807 0.411931L17.5398 8.36364L9.58807 16.3153Z"
+                  fill="black"
+                />
+              </svg>
+            </div>
+          </button>
+        )}
+      </motion.section>
+    </AnimatePresence>
   );
 }

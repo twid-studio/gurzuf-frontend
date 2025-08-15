@@ -10,25 +10,30 @@ export default function Hero({ activeFilters, setActiveFilters }) {
   const { hero: data } = allData;
 
   return (
-    <section className="hero container">
-      <div className="hero__title">
-        <p className="super-text">{data?.title}</p>
-        <p>{data?.text}</p>
-      </div>
-
+    <>
+      <section className="hero container">
+        <div className="hero__title">
+          <p className="super-text">{data?.title}</p>
+          <p>{data?.text}</p>
+        </div>
+        <span className="scroll-section" id="scroll-section"></span>
+      </section>
       <div className="filters">
-        {data?.filters.map((filter, index) => (
-          <button
-            key={index}
-            className={clsx(`filter`, {
-              "filter--active": activeFilters === filter.slug,
-            })}
-            onClick={() => setActiveFilters(filter.slug)}
-          >
-            {filter.title}
-          </button>
-        ))}
+        <div className="filters-wrapper container">
+          {data?.filters.map((filter, index) => (
+            <button
+              key={index}
+              className={clsx(`filter`, {
+                "filter--active": activeFilters === filter.slug,
+              })}
+              onClick={() => setActiveFilters(filter.slug)}
+              data-scroll-anchor="#scroll-section"
+            >
+              {filter.title}
+            </button>
+          ))}
+        </div>
       </div>
-    </section>
+    </>
   );
 }

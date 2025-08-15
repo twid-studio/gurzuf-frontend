@@ -1,28 +1,27 @@
-import Image from 'next/image';
-import Link from 'next/link'
-import React, { useEffect, useRef } from 'react'
-import { SplitText } from 'gsap/SplitText';
-import { gsap } from 'gsap';
-import { formatDate } from '@/lib/helpers/formatDate';
+import Image from "next/image";
+import Link from "next/link";
+import React, { useEffect, useRef } from "react";
+import { SplitText } from "gsap/SplitText";
+import { gsap } from "gsap";
+import { formatDate } from "@/lib/helpers/formatDate";
 
-import './BlogLink.scss';
+import "./BlogLink.scss";
 
-export const BlogLink = ({ data, index=false }) => {
+export const BlogLink = ({ data }) => {
   if (!data) return null;
 
   const { type, link, title, image, source, date } = data;
   const textRef = useRef(null);
 
-
   useEffect(() => {
     if (textRef.current) {
       // Register SplitText plugin
       gsap.registerPlugin(SplitText);
-      
+
       // Split text by lines
       const splitText = new SplitText(textRef.current, {
         type: "lines",
-        linesClass: "blog-link__text-line"
+        linesClass: "blog-link__text-line",
       });
 
       // Cleanup function to revert split text
@@ -63,13 +62,12 @@ export const BlogLink = ({ data, index=false }) => {
         />
       </div>
       <div className="blog-link__bottom">
-        {date && (
-            <p className="shadow small-text">
-              {formatDate(date)}
-            </p>
-          )}
-        <p className="bold blog-link__text" ref={textRef}> {index} - {title}</p>
+        {date && <p className="shadow small-text">{formatDate(date)}</p>}
+        <p className="bold blog-link__text" ref={textRef}>
+          {" "}
+          {title}
+        </p>
       </div>
     </Link>
-  )
-}
+  );
+};

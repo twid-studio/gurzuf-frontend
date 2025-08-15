@@ -6,22 +6,27 @@ import Link from "next/link";
 import gsap from "gsap";
 import { SplitText } from "gsap/all";
 import { formatDate } from "@/lib/helpers/formatDate";
+import { motion } from "framer-motion";
+import { anim, BlogPageAnim } from "@/lib/helpers/anim";
 
 export default function HotNews({ data }) {
   return (
-    <section className="hot-news container">
-      {data?.titleHotNews && <h1>{data?.titleHotNews}</h1>}
+    <motion.section
+      {...anim(BlogPageAnim.hotNews)}
+      className="hot-news container"
+    >
+      {data?.titleHotNews && <h1 className="title">{data?.titleHotNews}</h1>}
 
       <div className="list">
         <BigNewsItem item={data?.list[0]} />
 
         <div className="list-right">
-          {data?.list.slice(1,3).map((item, index) => (
+          {data?.list.slice(1, 3).map((item, index) => (
             <SmallNewsItem item={item} key={index} />
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

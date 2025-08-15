@@ -7,11 +7,54 @@
   &__wrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.8em;
+    gap: 3em 0.8em;
+
+    @include forMobile {
+      flex-direction: column;
+      gap: 3em;
+    }
+
+    &--default {
+      .blog-list__link-wrapper {
+        &:nth-of-type(1) {
+          display: none;
+        }
+        &:nth-of-type(2) {
+          display: none;
+        }
+        &:nth-of-type(3) {
+          display: none;
+        }
+      }
+    }
   }
 
-  .blog-link {
+  &__link-wrapper {
     width: calc(33% - 0.4em);
+
+    @include forTablet {
+      width: calc(50% - 0.4em);
+
+      &:nth-of-type(3) {
+        display: block;
+      }
+    }
+
+    @include forMobile {
+      width: 100%;
+
+      &:nth-of-type(2) {
+        display: block;
+      }
+
+      &:nth-of-type(3) {
+        display: block;
+      }
+    }
+
+    .blog-link {
+      width: 100%;
+    }
   }
 
   &__load-more {

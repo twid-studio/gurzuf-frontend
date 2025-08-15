@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import Hero from "./Hero/Hero";
 import { AnimatePresence } from "framer-motion";
@@ -9,20 +9,34 @@ import { DataContext } from "@/lib/providers/DataProvider/context";
 import BlogList from "./BlogList/BlogList";
 
 export default function BlogPage() {
-  const [activeFilters, setActiveFilters] = useState("all");
   const { data } = useContext(DataContext);
+
+  const [activeFilters, setActiveFilters] = useState("all");
+  const [blogList, setBlogList] = useState(data?.blogList);
+
+  useEffect(() => {
+    if (activeFilters === "all") {
+      setBlogList(data?.blogList);
+    } else {
+      const filteredList = {
+        ...data?.blogList,
+        list: data?.blogList?.list?.filter(
+          (item) => item.type.slug === activeFilters
+        ) || []
+      };
+      setBlogList(filteredList);
+    }
+  }, [data?.blogList, activeFilters]);
 
   return (
     <main className="blog">
       <Hero activeFilters={activeFilters} setActiveFilters={setActiveFilters} />
 
-      <AnimatePresence mode="wait">
-        {activeFilters === "all" && <HotNews data={data?.blogList} />}
+      <AnimatePresence mode="wait" initial={false}>
+        {activeFilters === "all" && <HotNews data={blogList} />}
       </AnimatePresence>
 
-      <AnimatePresence mode="wait">
-        <BlogList data={data?.blogList} />
-      </AnimatePresence>
+        <BlogList data={blogList} activeFilters={activeFilters}/>
 
       <div style={{ height: "100vh" }}></div>
     </main>
