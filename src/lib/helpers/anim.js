@@ -9,6 +9,24 @@ export const anim = (variants) => {
   };
 };
 
+export const fadeIn = (durationAnim = 0.5, durationExit = 0.3 ) => ({
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: durationAnim,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: durationExit,
+    },
+  },
+});
+
 export const MenuAnim = {
   wrapper: {
     initial: {
@@ -171,3 +189,40 @@ export const PageAnim = {
     },
   },
 }
+
+export const BlogPageAnim = {
+  hotNews: {
+    initial: {
+      opacity: 0,
+      height: 0,
+    },
+    animate: {
+      opacity: 1,
+      height: "auto",
+      transition: {
+        duration: .01,
+        delay: 0.2,
+        ease: ease.outExpo,
+        opacity: {
+          duration: 0.5,
+          delay: 0.35,
+        },
+      },
+    },
+    exit: {
+      opacity: 0,
+      height: 0,
+      transition: {
+        duration: 0.2,
+        delay: 0.2,
+
+        ease: ease.outExpo,
+        opacity: {
+          duration: 0.2,
+        },
+      },
+    },
+  }
+}
+
+
