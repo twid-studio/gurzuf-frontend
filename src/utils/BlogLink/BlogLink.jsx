@@ -3,12 +3,16 @@ import Link from 'next/link'
 import React, { useEffect, useRef } from 'react'
 import { SplitText } from 'gsap/SplitText';
 import { gsap } from 'gsap';
+import { formatDate } from '@/lib/helpers/formatDate';
 
 import './BlogLink.scss';
 
-export const BlogLink = ({ data }) => {
-  const { type, link, title, image, source } = data;
+export const BlogLink = ({ data, index=false }) => {
+  if (!data) return null;
+
+  const { type, link, title, image, source, date } = data;
   const textRef = useRef(null);
+
 
   useEffect(() => {
     if (textRef.current) {
@@ -58,7 +62,14 @@ export const BlogLink = ({ data }) => {
           className="blog-link__image"
         />
       </div>
-      <p className="bold blog-link__text" ref={textRef}>{title}</p>
+      <div className="blog-link__bottom">
+        {date && (
+            <p className="shadow small-text">
+              {formatDate(date)}
+            </p>
+          )}
+        <p className="bold blog-link__text" ref={textRef}> {index} - {title}</p>
+      </div>
     </Link>
   )
 }

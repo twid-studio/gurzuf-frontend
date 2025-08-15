@@ -1,0 +1,24 @@
+.blog-list {
+  margin-top: 2.5em;
+  background-color: $c-white;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8em;
+  }
+
+  .blog-link {
+    width: calc(33% - 0.4em);
+  }
+
+  &__load-more {
+    width: 100%;
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

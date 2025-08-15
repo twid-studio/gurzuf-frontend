@@ -68,6 +68,7 @@
   &__top {
     width: 100%;
     position: relative;
+    z-index: 1;
     overflow: hidden;
     aspect-ratio: 16 / 9;
   }
@@ -103,5 +104,11 @@
       background-color: $sand-100;
       color: $c-black;
     }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
   }
 }

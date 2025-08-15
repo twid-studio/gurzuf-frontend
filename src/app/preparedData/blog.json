@@ -25,9 +25,111 @@
       }
     ]
   },
-  "hotNews": {
-    "title": "Гаряче",
+  "blogList": {
+    "titleHotNews": "Гаряче",
     "list": [
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
+        },
+        "title": "Азовські спецпризначенці зачищають міську забудову від окупантів. Архівні кадри Торецького напрямку",
+        "image": "/assets/blog/photo-2.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-2.jpg"
+        },
+        "date": "2025-01-15T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
+        },
+        "title": "Heavy Shot у Вовчанську. Ворогу нема де сховатись",
+        "image": "/assets/blog/photo-3.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-1.jpg"
+        },
+        "date": "2024-08-25T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "news",
+          "text": "Новина"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
+        },
+        "title": "Воїни “Хартії” 13-ї бригади оперативного призначення Національної гвардії України влаштовують ворогові пекло",
+        "image": "/assets/blog/photo-1.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-3.jpg"
+        },
+        "date": "2025-10-05T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
+        },
+        "title": "Азовські спецпризначенці зачищають міську забудову від окупантів. Архівні кадри Торецького напрямку",
+        "image": "/assets/blog/photo-2.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-2.jpg"
+        },
+        "date": "2024-01-15T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
+        },
+        "title": "Heavy Shot у Вовчанську. Ворогу нема де сховатись",
+        "image": "/assets/blog/photo-3.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-1.jpg"
+        },
+        "date": "2025-08-25T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "news",
+          "text": "Новина"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
+        },
+        "title": "Воїни “Хартії” 13-ї бригади оперативного призначення Національної гвардії України влаштовують ворогові пекло",
+        "image": "/assets/blog/photo-1.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-3.jpg"
+        },
+        "date": "2025-10-05T12:00:00Z"
+      },
       {
         "type": {
           "slug": "military-speak",
@@ -78,7 +180,772 @@
           "image": "/assets/blog/logo-3.jpg"
         },
         "date": "2025-10-05T12:00:00Z"
-      }
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
+        },
+        "title": "Азовські спецпризначенці зачищають міську забудову від окупантів. Архівні кадри Торецького напрямку",
+        "image": "/assets/blog/photo-2.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-2.jpg"
+        },
+        "date": "2025-01-15T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
+        },
+        "title": "Heavy Shot у Вовчанську. Ворогу нема де сховатись",
+        "image": "/assets/blog/photo-3.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-1.jpg"
+        },
+        "date": "2024-08-25T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "news",
+          "text": "Новина"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
+        },
+        "title": "Воїни “Хартії” 13-ї бригади оперативного призначення Національної гвардії України влаштовують ворогові пекло",
+        "image": "/assets/blog/photo-1.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-3.jpg"
+        },
+        "date": "2025-10-05T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
+        },
+        "title": "Азовські спецпризначенці зачищають міську забудову від окупантів. Архівні кадри Торецького напрямку",
+        "image": "/assets/blog/photo-2.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-2.jpg"
+        },
+        "date": "2024-01-15T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
+        },
+        "title": "Heavy Shot у Вовчанську. Ворогу нема де сховатись",
+        "image": "/assets/blog/photo-3.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-1.jpg"
+        },
+        "date": "2025-08-25T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "news",
+          "text": "Новина"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
+        },
+        "title": "Воїни “Хартії” 13-ї бригади оперативного призначення Національної гвардії України влаштовують ворогові пекло",
+        "image": "/assets/blog/photo-1.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-3.jpg"
+        },
+        "date": "2025-10-05T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
+        },
+        "title": "Азовські спецпризначенці зачищають міську забудову від окупантів. Архівні кадри Торецького напрямку",
+        "image": "/assets/blog/photo-2.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-2.jpg"
+        },
+        "date": "2025-01-15T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
+        },
+        "title": "Heavy Shot у Вовчанську. Ворогу нема де сховатись",
+        "image": "/assets/blog/photo-3.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-1.jpg"
+        },
+        "date": "2025-08-25T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "news",
+          "text": "Новина"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
+        },
+        "title": "Воїни “Хартії” 13-ї бригади оперативного призначення Національної гвардії України влаштовують ворогові пекло",
+        "image": "/assets/blog/photo-1.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-3.jpg"
+        },
+        "date": "2025-10-05T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
+        },
+        "title": "Азовські спецпризначенці зачищають міську забудову від окупантів. Архівні кадри Торецького напрямку",
+        "image": "/assets/blog/photo-2.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-2.jpg"
+        },
+        "date": "2025-01-15T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
+        },
+        "title": "Heavy Shot у Вовчанську. Ворогу нема де сховатись",
+        "image": "/assets/blog/photo-3.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-1.jpg"
+        },
+        "date": "2024-08-25T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "news",
+          "text": "Новина"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
+        },
+        "title": "Воїни “Хартії” 13-ї бригади оперативного призначення Національної гвардії України влаштовують ворогові пекло",
+        "image": "/assets/blog/photo-1.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-3.jpg"
+        },
+        "date": "2025-10-05T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
+        },
+        "title": "Азовські спецпризначенці зачищають міську забудову від окупантів. Архівні кадри Торецького напрямку",
+        "image": "/assets/blog/photo-2.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-2.jpg"
+        },
+        "date": "2024-01-15T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
+        },
+        "title": "Heavy Shot у Вовчанську. Ворогу нема де сховатись",
+        "image": "/assets/blog/photo-3.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-1.jpg"
+        },
+        "date": "2025-08-25T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "news",
+          "text": "Новина"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
+        },
+        "title": "Воїни “Хартії” 13-ї бригади оперативного призначення Національної гвардії України влаштовують ворогові пекло",
+        "image": "/assets/blog/photo-1.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-3.jpg"
+        },
+        "date": "2025-10-05T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
+        },
+        "title": "Азовські спецпризначенці зачищають міську забудову від окупантів. Архівні кадри Торецького напрямку",
+        "image": "/assets/blog/photo-2.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-2.jpg"
+        },
+        "date": "2025-01-15T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
+        },
+        "title": "Heavy Shot у Вовчанську. Ворогу нема де сховатись",
+        "image": "/assets/blog/photo-3.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-1.jpg"
+        },
+        "date": "2025-08-25T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "news",
+          "text": "Новина"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
+        },
+        "title": "Воїни “Хартії” 13-ї бригади оперативного призначення Національної гвардії України влаштовують ворогові пекло",
+        "image": "/assets/blog/photo-1.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-3.jpg"
+        },
+        "date": "2025-10-05T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
+        },
+        "title": "Азовські спецпризначенці зачищають міську забудову від окупантів. Архівні кадри Торецького напрямку",
+        "image": "/assets/blog/photo-2.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-2.jpg"
+        },
+        "date": "2025-01-15T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
+        },
+        "title": "Heavy Shot у Вовчанську. Ворогу нема де сховатись",
+        "image": "/assets/blog/photo-3.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-1.jpg"
+        },
+        "date": "2024-08-25T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "news",
+          "text": "Новина"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
+        },
+        "title": "Воїни “Хартії” 13-ї бригади оперативного призначення Національної гвардії України влаштовують ворогові пекло",
+        "image": "/assets/blog/photo-1.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-3.jpg"
+        },
+        "date": "2025-10-05T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
+        },
+        "title": "Азовські спецпризначенці зачищають міську забудову від окупантів. Архівні кадри Торецького напрямку",
+        "image": "/assets/blog/photo-2.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-2.jpg"
+        },
+        "date": "2024-01-15T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
+        },
+        "title": "Heavy Shot у Вовчанську. Ворогу нема де сховатись",
+        "image": "/assets/blog/photo-3.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-1.jpg"
+        },
+        "date": "2025-08-25T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "news",
+          "text": "Новина"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
+        },
+        "title": "Воїни “Хартії” 13-ї бригади оперативного призначення Національної гвардії України влаштовують ворогові пекло",
+        "image": "/assets/blog/photo-1.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-3.jpg"
+        },
+        "date": "2025-10-05T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
+        },
+        "title": "Азовські спецпризначенці зачищають міську забудову від окупантів. Архівні кадри Торецького напрямку",
+        "image": "/assets/blog/photo-2.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-2.jpg"
+        },
+        "date": "2025-01-15T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
+        },
+        "title": "Heavy Shot у Вовчанську. Ворогу нема де сховатись",
+        "image": "/assets/blog/photo-3.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-1.jpg"
+        },
+        "date": "2025-08-25T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "news",
+          "text": "Новина"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
+        },
+        "title": "Воїни “Хартії” 13-ї бригади оперативного призначення Національної гвардії України влаштовують ворогові пекло",
+        "image": "/assets/blog/photo-1.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-3.jpg"
+        },
+        "date": "2025-10-05T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
+        },
+        "title": "Азовські спецпризначенці зачищають міську забудову від окупантів. Архівні кадри Торецького напрямку",
+        "image": "/assets/blog/photo-2.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-2.jpg"
+        },
+        "date": "2025-01-15T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
+        },
+        "title": "Heavy Shot у Вовчанську. Ворогу нема де сховатись",
+        "image": "/assets/blog/photo-3.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-1.jpg"
+        },
+        "date": "2024-08-25T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "news",
+          "text": "Новина"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
+        },
+        "title": "Воїни “Хартії” 13-ї бригади оперативного призначення Національної гвардії України влаштовують ворогові пекло",
+        "image": "/assets/blog/photo-1.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-3.jpg"
+        },
+        "date": "2025-10-05T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
+        },
+        "title": "Азовські спецпризначенці зачищають міську забудову від окупантів. Архівні кадри Торецького напрямку",
+        "image": "/assets/blog/photo-2.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-2.jpg"
+        },
+        "date": "2024-01-15T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
+        },
+        "title": "Heavy Shot у Вовчанську. Ворогу нема де сховатись",
+        "image": "/assets/blog/photo-3.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-1.jpg"
+        },
+        "date": "2025-08-25T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "news",
+          "text": "Новина"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
+        },
+        "title": "Воїни “Хартії” 13-ї бригади оперативного призначення Національної гвардії України влаштовують ворогові пекло",
+        "image": "/assets/blog/photo-1.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-3.jpg"
+        },
+        "date": "2025-10-05T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
+        },
+        "title": "Азовські спецпризначенці зачищають міську забудову від окупантів. Архівні кадри Торецького напрямку",
+        "image": "/assets/blog/photo-2.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-2.jpg"
+        },
+        "date": "2025-01-15T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
+        },
+        "title": "Heavy Shot у Вовчанську. Ворогу нема де сховатись",
+        "image": "/assets/blog/photo-3.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-1.jpg"
+        },
+        "date": "2025-08-25T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "news",
+          "text": "Новина"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
+        },
+        "title": "Воїни “Хартії” 13-ї бригади оперативного призначення Національної гвардії України влаштовують ворогові пекло",
+        "image": "/assets/blog/photo-1.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-3.jpg"
+        },
+        "date": "2025-10-05T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
+        },
+        "title": "Азовські спецпризначенці зачищають міську забудову від окупантів. Архівні кадри Торецького напрямку",
+        "image": "/assets/blog/photo-2.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-2.jpg"
+        },
+        "date": "2025-01-15T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
+        },
+        "title": "Heavy Shot у Вовчанську. Ворогу нема де сховатись",
+        "image": "/assets/blog/photo-3.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-1.jpg"
+        },
+        "date": "2024-08-25T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "news",
+          "text": "Новина"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
+        },
+        "title": "Воїни “Хартії” 13-ї бригади оперативного призначення Національної гвардії України влаштовують ворогові пекло",
+        "image": "/assets/blog/photo-1.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-3.jpg"
+        },
+        "date": "2025-10-05T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
+        },
+        "title": "Азовські спецпризначенці зачищають міську забудову від окупантів. Архівні кадри Торецького напрямку",
+        "image": "/assets/blog/photo-2.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-2.jpg"
+        },
+        "date": "2024-01-15T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
+        },
+        "title": "Heavy Shot у Вовчанську. Ворогу нема де сховатись",
+        "image": "/assets/blog/photo-3.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-1.jpg"
+        },
+        "date": "2025-08-25T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "news",
+          "text": "Новина"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
+        },
+        "title": "Воїни “Хартії” 13-ї бригади оперативного призначення Національної гвардії України влаштовують ворогові пекло",
+        "image": "/assets/blog/photo-1.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-3.jpg"
+        },
+        "date": "2025-10-05T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
+        },
+        "title": "Азовські спецпризначенці зачищають міську забудову від окупантів. Архівні кадри Торецького напрямку",
+        "image": "/assets/blog/photo-2.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-2.jpg"
+        },
+        "date": "2025-01-15T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
+        },
+        "title": "Heavy Shot у Вовчанську. Ворогу нема де сховатись",
+        "image": "/assets/blog/photo-3.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-1.jpg"
+        },
+        "date": "2025-08-25T12:00:00Z"
+      },
+      {
+        "type": {
+          "slug": "news",
+          "text": "Новина"
+        },
+        "link": {
+          "type": "href",
+          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
+        },
+        "title": "Воїни “Хартії” 13-ї бригади оперативного призначення Національної гвардії України влаштовують ворогові пекло",
+        "image": "/assets/blog/photo-1.webp",
+        "source": {
+          "active": true,
+          "image": "/assets/blog/logo-3.jpg"
+        },
+        "date": "2025-10-05T12:00:00Z"
+      } 
     ]
   }
 }
