@@ -20,7 +20,7 @@ export default function ProductPage() {
       <Gallery />
       <KeyBenefits />
       <Characteristics />
-      <Equipment />
+      {/* <Equipment /> */}
     </main>
   );
 }
