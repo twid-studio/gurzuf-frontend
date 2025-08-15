@@ -10,6 +10,7 @@ export default function page() {
   return (
     <DataProvider data={data}>
       <BlogPage />
+      <Contact />
     </DataProvider>
   )
 }
