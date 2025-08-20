@@ -38,7 +38,6 @@ export default function BlogPage() {
 
         <BlogList data={blogList} activeFilters={activeFilters}/>
 
-      <div style={{ height: "100vh" }}></div>
     </main>
   );
 }
