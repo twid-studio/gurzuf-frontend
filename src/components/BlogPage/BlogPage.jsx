@@ -20,9 +20,10 @@ export default function BlogPage() {
     } else {
       const filteredList = {
         ...data?.blogList,
-        list: data?.blogList?.list?.filter(
-          (item) => item.type.slug === activeFilters
-        ) || []
+        list:
+          data?.blogList?.list?.filter(
+            (item) => item.type.slug === activeFilters
+          ) || [],
       };
       setBlogList(filteredList);
     }
@@ -36,8 +37,7 @@ export default function BlogPage() {
         {activeFilters === "all" && <HotNews data={blogList} />}
       </AnimatePresence>
 
-        <BlogList data={blogList} activeFilters={activeFilters}/>
-
+      <BlogList data={blogList} activeFilters={activeFilters} />
     </main>
   );
 }
