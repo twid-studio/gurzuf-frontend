@@ -34,8 +34,8 @@
           "text": "Військові говорять"
         },
         "link": {
-          "type": "href",
-          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
+          "type": "slug",
+          "slug": "azov-special-forces"
         },
         "title": "ГАРЯЧІ - Азовські спецпризначенці зачищають міську забудову від окупантів. Архівні кадри Торецького напрямку",
         "image": "/assets/blog/photo-2.webp",
