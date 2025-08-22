@@ -104,7 +104,7 @@ const SliderSection = ({ data }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const handlePrevClick = () => {
-    if (splideRef.current && currentSlide > 0) {
+    if (splideRef.current) {
       splideRef.current.splide.go("<");
     }
   };
