@@ -68,21 +68,38 @@ export const HOME_QUERY = `*[_type == "homePage"][0]{
   },
   "news": {
     "title": news.title,
-    "list": news.list[]{
+    "list": news.list[]-> {
       "type": {
-        "slug": type.slug,
-        "text": type.text
+        "slug": preview.type,
+        "text": select(
+          preview.type == "news" => "Новини",
+          preview.type == "interview" => "Інтерв'ю",
+          preview.type == "special-project" => "Спецпроєкти",
+          preview.type == "military-speak" => "Військові говорять",
+          "Невідомий тип"
+        )
       },
-      "link": {
-        "type": link.type,
-        "slug": link.slug
-      },
-      "title": title,
-      "image": image.asset->url,
+      "link": select(
+        preview.linkType == "internal" => {
+          "type": "slug",
+          "slug": preview.slug.current
+        },
+        preview.linkType == "external" => {
+          "type": "href",
+          "href": preview.externalLink
+        },
+        {
+          "type": "slug",
+          "slug": preview.slug.current
+        }
+      ),
+      "title": preview.title,
+      "image": preview.mainImage.asset->url,
       "source": {
-        "active": source.active,
-        "image": source.image.asset->url
-      }
+        "active": defined(preview.sourceLogo),
+        "image": preview.sourceLogo.asset->url
+      },
+      "date": preview.publishedAt
     },
     "button": {
       "active": news.button.active,
