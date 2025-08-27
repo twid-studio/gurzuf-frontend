@@ -5,7 +5,6 @@ import { Button } from "@/utils/Button/Button";
 
 import "./BlogList.scss";
 import useIsDesktop from "@/lib/helpers/useIsDesktop";
-import useIsMobile from "@/lib/helpers/useIsMobile";
 import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
 import { anim, fadeIn, PageAnim } from "@/lib/helpers/anim";
@@ -21,6 +20,12 @@ export default function BlogList({ data, activeFilters }) {
     const initialCount = isDesktop ? 15 : 10;
     setVisibleCount(initialCount);
   }, [isDesktop]);
+
+  // Reset visible count when filter changes
+  useEffect(() => {
+    const initialCount = isDesktop ? 15 : 10;
+    setVisibleCount(initialCount);
+  }, [activeFilters, isDesktop]);
 
   const totalItems = data?.list?.length || 0;
 

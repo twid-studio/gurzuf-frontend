@@ -35,7 +35,7 @@ const postSection = (section, index) => {
 
 export default function PostSections() {
   const { data: allData } = useContext(DataContext);
-  const { sections: data } = allData;
+  const data = allData.content?.sections;
 
   return (
     <div className="post-sections">
@@ -47,7 +47,7 @@ export default function PostSections() {
 const RichTextSection = ({ data }) => {
   return (
     <div className="rich-text-section">
-      <PreparedBlockContent content={data.text} />
+      <BlockContent content={data.text} />
     </div>
   );
 };
@@ -58,7 +58,7 @@ const VideoSection = ({ data }) => {
       <VideoPlayer url={data.video.src} preview={data.video?.preview} />
       {data.text.active && (
         <div className="video-section__text">
-          <PreparedBlockContent content={data.text.content} />
+          <BlockContent content={data.text.content} />
         </div>
       )}
     </div>
@@ -186,7 +186,7 @@ const SliderSection = ({ data }) => {
 
       {data.text.active && (
         <div className="slider-section__text">
-          <PreparedBlockContent content={data.text.content} />
+          <BlockContent content={data.text.content} />
         </div>
       )}
     </section>

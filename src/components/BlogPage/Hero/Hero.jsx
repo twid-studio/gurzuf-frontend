@@ -5,7 +5,7 @@ import clsx from "clsx";
 import "./Hero.scss";
 import { DataContext } from "@/lib/providers/DataProvider/context";
 
-export default function Hero({ activeFilters, setActiveFilters }) {
+export default function Hero({ filtersData, activeFilters, setActiveFilters }) {
   const { data: allData } = useContext(DataContext);
   const { hero: data } = allData;
 
@@ -20,13 +20,17 @@ export default function Hero({ activeFilters, setActiveFilters }) {
       </section>
       <div className="filters">
         <div className="filters-wrapper container">
-          {data?.filters.map((filter, index) => (
+          {filtersData.map((filter, index) => (
             <button
               key={index}
               className={clsx(`filter`, {
                 "filter--active": activeFilters === filter.slug,
               })}
-              onClick={() => setActiveFilters(filter.slug)}
+              onClick={() =>
+                setActiveFilters((activeFilter) =>
+                  activeFilter === filter.slug ? "all" : filter.slug
+                )
+              }
               data-scroll-anchor="#scroll-section"
             >
               {filter.title}

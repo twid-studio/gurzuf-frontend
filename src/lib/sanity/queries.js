@@ -37,9 +37,9 @@ export const HOME_QUERY = `*[_type == "homePage"][0]{
       }
     }
   },
-  "privileges": {
-    "title": privileges.title,
-    "list": privileges.list[]{
+  "privilages": {
+    "title": privilages.title,
+    "list": privilages.list[]{
       "title": title,
       "text": text
     }
@@ -105,4 +105,124 @@ export const PRIVACY_POLICY_QUERY = `*[_type == "privacyPolicyPage"][0]{
   title,
   changedDate,
   blockContent
+}`;
+
+export const BLOG_LIST_QUERY = `{
+  "hero": *[_type == "blogsPage"][0].hero {
+    title,
+    text,
+    filters[] {
+      title,
+      slug
+    }
+  },
+  "blogList": {
+    "titleHotNews": *[_type == "blogsPage"][0].blogList.titleHotNews,
+    "list": *[_type == "blogPost" && isVisible == true] | order(preview.publishedAt desc) {
+      _id,
+      "type": {
+        "slug": preview.type,
+        "text": select(
+          preview.type == "news" => "Новини",
+          preview.type == "interview" => "Інтерв'ю",
+          preview.type == "special-project" => "Спецпроєкти",
+          preview.type == "military-speak" => "Військові говорять",
+          "Невідомий тип"
+        )
+      },
+      "link": select(
+        preview.linkType == "internal" => {
+          "type": "slug",
+          "slug": preview.slug.current
+        },
+        preview.linkType == "external" => {
+          "type": "href",
+          "href": preview.externalLink
+        }
+      ),
+      "title": preview.title,
+      "image": preview.mainImage.asset->url,
+      "source": {
+        "active": defined(preview.sourceLogo),
+        "image": preview.sourceLogo.asset->url
+      },
+      "date": preview.publishedAt
+    }
+  }
+}
+`;
+
+export const POST_QUERY = (
+  slug
+) => `*[_type == "blogPost" && preview.slug.current == "${slug}"][0]{
+  _id,
+  isVisible,
+  "hero": {
+    "title": preview.title,
+    "type": {
+      "slug": preview.type,
+      "text": select(
+        preview.type == "news" => "Новини",
+        preview.type == "interview" => "Інтерв'ю",
+        preview.type == "special-project" => "Спецпроєкти",
+        preview.type == "military-speak" => "Військові говорять",
+        "Невідомий тип"
+      )
+    },
+    "date": coalesce(preview.publishedAt, _createdAt),
+    "image": {
+      "active": defined(content.hero.image) && defined(content.hero.image.src),
+      "src": content.hero.image.src.asset->url,
+      "alt": coalesce(content.hero.image.alt, content.hero.image.src.alt, "")
+    }
+  },
+  preview {
+    title,
+    "slug": slug.current,
+    linkType,
+    externalLink,
+    publishedAt,
+    "mainImage": mainImage.asset->url,
+    "sourceLogo": sourceLogo.asset->url,
+    type
+  },
+  content {
+    hero {
+      image {
+        active,
+        "src": src.asset->url,
+        "alt": coalesce(alt, src.alt, "")
+      }
+    },
+    sections[] {
+      _type == "richText" => {
+        "type": "rich-text",
+        text
+      },
+      _type == "video" => {
+        "type": "video",
+        video {
+          "src": src.asset->url,
+          "preview": preview.asset->url
+        },
+        text {
+          active,
+          content
+        }
+      },
+      _type == "quote" => {
+        "type": "quote",
+        quote,
+        author
+      },
+      _type == "slider" => {
+        "type": "slider",
+        "slides": slides[].asset->url,
+        text {
+          active,
+          content
+        }
+      }
+    }
+  }
 }`;
