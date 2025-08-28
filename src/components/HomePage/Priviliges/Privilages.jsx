@@ -2,7 +2,7 @@
 import React, { useContext, useRef } from "react";
 import "./Privilages.scss";
 import { DataContext } from "@/lib/providers/DataProvider/context";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { sectionScrollAnim } from "@/lib/helpers/sectionScrollAnim";
 
 export default function Privilages() {

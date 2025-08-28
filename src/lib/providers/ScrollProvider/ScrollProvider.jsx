@@ -52,21 +52,21 @@ export const ScrollProvider = ({ children, scrollBar = false, wrapper }) => {
     const handleClick = (e) => {
       const scrollTrigger = e.target.closest("[data-scroll-anchor]");
       if (scrollTrigger) {
-        // Prevent default behavior and event propagation
-        e.preventDefault();
-        e.stopPropagation();
-
         const targetSection = scrollTrigger.getAttribute("data-scroll-anchor");
         const targetElement = document.querySelector(targetSection);
+        
         if (targetElement) {
-          scrollTo(targetElement);
+          // Use setTimeout to allow other click handlers to execute first
+          setTimeout(() => {
+            scrollTo(targetElement);
+          }, 100);
         }
       }
     };
 
     // Use capture phase to ensure we handle the event before other listeners
-    document.addEventListener("click", handleClick, true);
-    return () => document.removeEventListener("click", handleClick, true);
+    document.addEventListener("click", handleClick, false);
+    return () => document.removeEventListener("click", handleClick, false);
   }, [lenis]);
 
   const scrollTo = (target) => {
@@ -74,7 +74,7 @@ export const ScrollProvider = ({ children, scrollBar = false, wrapper }) => {
       lenis.scrollTo(target, {
         duration: 1.3,
         easing: (x) => easeOutExpo(x),
-        offset: -50,
+        offset: -60,
       });
     }
   };

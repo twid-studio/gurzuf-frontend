@@ -1,0 +1,175 @@
+.product-page {
+  .characteristics {
+    // margin-top: 6em;
+    
+    &__title {
+      &-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3em;
+        width: 50%;
+
+        margin-bottom: 3em;
+
+        @include forTablet {
+          width: 80%;
+        }
+
+        @include forMobile {
+          width: 90%;
+          margin-bottom: 2.5em;
+        }
+      }
+    }
+
+    .table {
+      background-color: $g-100;
+      padding: 3em 17em;
+
+      @include forTablet {
+        padding: 2.2em 7em;
+      }
+
+      @include forMobile {
+        padding: 1.8em .8em;
+      }
+
+      .top-table {
+        position: relative;
+        &__anchor {
+          position: absolute;
+          bottom: 40%;
+          left: 0;
+          width: 100%;
+        }
+      }
+
+      &-hiden {
+        overflow: hidden;
+
+        transition: height 1.5s $ease-in-out-expo;
+      }
+
+      .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 5em;
+        padding: 0.8em 0;
+        border-bottom: 0.1em solid rgba(255, 255, 255, 0.1);
+
+        @include forMobile {
+          flex-direction: column;
+          gap: 0.5em;
+          padding: 0.8em 0 0.6em;
+        }
+
+        .left {
+          padding-top: 0.3em;
+
+          display: flex;
+          flex-direction: column;
+          gap: 0.2em;
+
+          @include forMobile {
+            gap: 0.5em;
+          }
+        }
+
+        &__subtitle {
+          width: 80%;
+
+          @include forMobile {
+            width: 95%;
+          }
+        }
+
+        &__value {
+          padding: 0.3em 0.45em;
+          background-color: $blue-100;
+          text-wrap: nowrap;
+          height: fit-content;
+          width: fit-content;
+
+          @include forMobile {
+            text-wrap: wrap;
+          }
+        }
+      }
+
+      .multiline-row {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3em;
+        border-bottom: 0.1em solid rgba(255, 255, 255, 0.1);
+
+        @include forMobile {
+          gap: 1em;
+        }
+
+        .line {
+          display: flex;
+          justify-content: space-between;
+          gap: 5em;
+
+          @include forMobile {
+            flex-direction: column;
+            gap: 0.5em;
+          }
+
+          &--title {
+            padding-bottom: 1em;
+
+            @include forMobile {
+              padding-bottom: 0.2em;
+            }
+          }
+        }
+      }
+
+      &__button {
+        width: 100%;
+        background-color: $g-80;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0.8em;
+        gap: 0.3em;
+        padding: .7em 0;
+
+        transition: opacity 0.3s ease;
+
+        .arrow {
+          width: 1em;
+          height: 1.3em;
+
+            transition: rotate .3s $ease-out-expo;
+        }
+
+        @include hover {
+          opacity: 0.8;
+        }
+      }
+    }
+
+    .notes {
+      margin-top: 0.2em;
+      background-color: $g-100;
+      padding-top: 1em;
+      padding-bottom: 1em;
+
+      color: $g-70;
+
+      .list {
+        margin-top: 1em;
+        display: flex;
+        flex-direction: column;
+        gap: 0.2em;
+
+        @include forMobile {
+          
+          gap: 0.3em;
+        }
+      }
+    }
+  }
+}

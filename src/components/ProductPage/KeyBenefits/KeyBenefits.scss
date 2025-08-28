@@ -1,0 +1,107 @@
+.product-page {
+  .key-benefits {
+    position: relative;
+    z-index: 2;
+    margin-top: 5em;
+    padding-bottom: 8em;
+    overflow: hidden;
+
+    @include forMobile {
+      padding-bottom: 6em;
+    }
+
+    &__title {
+      &-wrapper {
+
+        display: flex;
+        flex-direction: column;
+        gap: 0.3em;
+        width: 50%;
+
+        @include forTablet {
+          width: 60%;
+        }
+
+        @include forMobile {
+          width: 100%;
+        }
+      }
+
+    }
+
+    .list {
+      margin-top: 5.3em;
+
+      position: relative;
+      // padding-left: 3em;
+
+      display: flex;
+      flex-direction: column;
+      gap: 1.3em;
+
+      width: 50%;
+
+      @include forTablet {
+        width: 60%;
+      }
+
+      @include forMobile {
+        width: 100%;
+        margin-top: 2.5em;
+      }
+
+      &__item {
+        display: flex;
+
+        gap: 0.8em;
+        padding: 0 1.3em 1.3em 0;
+        border-bottom: 0.1em solid rgba(255, 255, 255, 0.1);
+
+        @include forMobile {
+          &:nth-last-of-type(1) {
+            border-bottom: none;
+          }
+        }
+
+      
+        &-title {
+          margin-top: 0.15em;
+        }
+
+        &-icon {
+          width: 2em;
+          height: 2.3em;
+        }
+      }
+    }
+
+    &__image{
+      &-wrapper {
+        position: absolute;
+        width: VW(710);
+        height: VW(710);
+        top: -2em;
+        right: 0em;
+        z-index: -1;
+
+        @include forTablet {
+          width: VW(600, $tablet);
+          height: VW(600, $tablet);
+          top: 4em;
+          right: -15%;
+        }
+
+        @include forMobile {
+          width: 100%;
+          height: VW(400, $mobile);
+          position: relative;
+          top: 0;
+          right: 0;
+          scale: 1.1;
+          margin-top: 1.5em;
+          transform-origin: top center;
+        }
+      }
+    }
+  }
+}

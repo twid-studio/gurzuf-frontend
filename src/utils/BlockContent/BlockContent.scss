@@ -1,0 +1,58 @@
+.block-content {
+  .link, a {
+    text-decoration: underline;
+    transition: color 0.2s ease-in-out;
+
+    @include hover {
+      color: $blue-100;
+    }
+  }
+  .paragraph {
+    margin-bottom: 1.5em;
+    line-height: 1.6;
+    color: $g-90;
+
+    &.strong {
+      font-weight: 600;
+      color: $g-100;
+      margin-bottom: 1em;
+      margin-top: 2em;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    .bold {
+      font-weight: 600;
+      color: $g-100;
+    }
+  }
+
+  .bullet-list,
+  ul {
+    list-style: auto;
+    list-style-type: disc;
+    padding-left: VW(28);
+    margin: 1em 0 2em 1.5em;
+    padding: 0;
+    
+    display: flex;
+    flex-direction: column;
+    
+    @include forMobile {
+      margin: 1em 0 1.5em 1em;
+      padding-left: VW(10, $mobile);
+    }
+    
+    .list-item,
+    li {
+      line-height: 1.3;
+    }
+  }
+
+  .heading-2 {
+    margin-top: 2em;
+    margin-bottom: 1em;
+  }
+}

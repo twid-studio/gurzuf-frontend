@@ -16,18 +16,18 @@ export default function Hero() {
         <span className="super-text">{data?.title}</span>
         <p className="regular">{data?.text}</p>
       </div>
-      <div className="hero__image">
+      <div className="hero__image" data-only-mobile>
         <Image
           src="/assets/products/heavy-shot/frames/frame-00.webp"
           fill
           alt="Heavy Shot Hero Image"
         />
       </div>
-      <div className="characteristics">
-        {data?.characteristics.map((item, index) => (
-          <div className="characteristics__item" key={index}>
-            <h2 className="characteristics__item-title">{item.title}</h2>
-            <span className="characteristics__item-value regular">{item.text}</span>
+      <div className="characteristics-list">
+        {data?.characteristicsList.map((item, index) => (
+          <div className="characteristics-list__item" key={index}>
+            <h2 className="characteristics-list__item-title">{item.title}</h2>
+            <span className="characteristics-list__item-value regular" dangerouslySetInnerHTML={{ __html: item.text }} />
           </div>
         ))}
       </div>
