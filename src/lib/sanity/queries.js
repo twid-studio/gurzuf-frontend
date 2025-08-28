@@ -13,6 +13,7 @@ export const HOME_QUERY = `*[_type == "homePage"][0]{
     }
   },
   "about": {
+    "isVisible": about.isVisible,
     "logos": about.logos[]{
       "src": src.asset->url,
       "alt": alt
@@ -22,6 +23,7 @@ export const HOME_QUERY = `*[_type == "homePage"][0]{
     "list": about.list
   },
   "products": {
+    "isVisible": products.isVisible,
     "list": products.list[]{
       "name": name,
       "description": description,
@@ -38,6 +40,7 @@ export const HOME_QUERY = `*[_type == "homePage"][0]{
     }
   },
   "privilages": {
+    "isVisible": privilages.isVisible,
     "title": privilages.title,
     "list": privilages.list[]{
       "title": title,
@@ -45,6 +48,7 @@ export const HOME_QUERY = `*[_type == "homePage"][0]{
     }
   },
   "operations": {
+    "isVisible": operations.isVisible,
     "title": operations.title,
     "text": operations.text,
     "list": operations.list[]{
@@ -54,6 +58,7 @@ export const HOME_QUERY = `*[_type == "homePage"][0]{
     }
   },
   "quote": {
+    "isVisible": quote.isVisible,
     "text": quote.text,
     "author": {
       "name": quote.author.name,
@@ -67,6 +72,7 @@ export const HOME_QUERY = `*[_type == "homePage"][0]{
     }
   },
   "news": {
+    "isVisible": news.isVisible,
     "title": news.title,
     "list": news.list[]-> {
       "type": {
@@ -108,6 +114,7 @@ export const HOME_QUERY = `*[_type == "homePage"][0]{
     }
   },
   "reviews": {
+    "isVisible": reviews.isVisible,
     "title": reviews.title,
     "list": reviews.list[]{
       "text": text,
@@ -135,7 +142,7 @@ export const BLOG_LIST_QUERY = `{
   },
   "blogList": {
     "titleHotNews": *[_type == "blogsPage"][0].blogList.titleHotNews,
-    "list": *[_type == "blogPost" && isVisible == true] | order(preview.publishedAt desc) {
+    "list": *[_type == "blogPost" && isVisible == true] | order(_createdAt desc) {
       _id,
       "type": {
         "slug": preview.type,
