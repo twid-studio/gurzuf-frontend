@@ -14,7 +14,6 @@ import { sectionScrollAnim } from "@/lib/helpers/sectionScrollAnim";
 import { anim, WhereWeGoingAnim } from "@/lib/helpers/anim";
 
 export default function WhereWeGoing() {
-
   const images = Array.from(
     { length: 90 },
     (_, i) => `/assets/about/frames/${String(i + 1).padStart(5, "0")}.jpg`
@@ -195,8 +194,8 @@ export default function WhereWeGoing() {
             <motion.h2 {...anim(WhereWeGoingAnim.title)} className="title">
               Ми хочемо, щоб назва Gurzuf Defence асоціювалася не тільки з
               боротьбою, а з відновленням. Мріємо перенести головний офіс до
-              Гурзуфа, дивитися на Аю-Даг, а не на карти бойових дій. Це не
-              просто географія — це ціль.
+              міста Гурзуф, дивитися на гору Аю-Даг, а не на карти бойових дій.
+              Це не просто географія — це ціль.
             </motion.h2>
           )}
         </AnimatePresence>
