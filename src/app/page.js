@@ -5,6 +5,8 @@ import Contact from "@/utils/Contact/Contact";
 import { HOME_QUERY } from "@/lib/sanity/queries";
 import { client } from "@/lib/sanity/client";
 
+export const revalidate = 60;
+
 export default async function Home() {
   const dataSanity = await client.fetch(HOME_QUERY);
   

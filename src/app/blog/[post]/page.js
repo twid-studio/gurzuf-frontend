@@ -8,6 +8,8 @@ import PostPage from "@/components/PostPage/PostPage";
 import { client } from "@/lib/sanity/client";
 import { POST_QUERY } from "@/lib/sanity/queries";
 
+export const revalidate = 60;
+
 export default async function page({ params }) {
   const { post: slug } = params;
   
