@@ -28,13 +28,15 @@ export default function HeroHome() {
 
   const yTitle = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
+  const preparedTitle = data.title.split(" ");
+
   return (
     <section className="hero" ref={sectionRef} id="hero">
       <motion.div style={{ y: yTitle }} className="hero__content">
         <div className="title">
           <h1 className="sr-only">{`${data.title[0]} ${data.title[1]}`}</h1>
           <div className="title-line">
-            {data.title[0].split(" ").map((word, index) => (
+            {preparedTitle.slice(0, 2).map((word, index) => (
               <div className="title-wrapper" key={index}>
                 <p className="super-text">{word}</p>
                 <span className="background"></span>
@@ -48,7 +50,7 @@ export default function HeroHome() {
             ))}
           </div>
           <div className="title-line">
-            {data.title[1].split(" ").map((word, index) => (
+            {preparedTitle.slice(2).map((word, index) => (
               <div className="title-wrapper" key={index}>
                 <p className="super-text">{word}</p>
                 <span className="background"></span>

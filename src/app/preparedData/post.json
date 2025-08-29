@@ -1,0 +1,57 @@
+{
+  "hero": {
+    "title": "Українським військовим передали 206 ударних коптерів Heavy Shot",
+    "type": {
+      "slug": "military-speak",
+      "text": "Військові говорять"
+    },
+    "date": "2025-01-15T12:00:00Z",
+    "image": {
+      "active": true,
+      "src": "/assets/blog/post/postHero.jpg",
+      "alt": "Heavy Shot 3"
+    }
+  },
+  "sections": [
+    {
+      "type": "rich-text",
+      "text": "<h3>Міністерство цифрової трансформації України відзвітувало про передачу військовим нової партії з 206 важких ударних коптерів Heavy Shot.</h3><br /> Про це Міністерство <a href='https://militarnyi.com/uk/news/vijskovi-otrymaly-ponad-800-bpla-v-ramkah-proyektu-armiya-droniv/' target='_blank'>повідомило</a> у своїх соцмережах. <br /> Ударні коптери виробляються українською компанією Gurzuf Defence. "
+    },
+    {
+      "type": "rich-text",
+      "text": "<h1>Великий заголовок.</h1> <br /> Вони можуть нести до 30 кілограмів бомбового навантаження на відстань до 15 кілометрів. <br />Потужне бомбове навантаження та великий радіус дії роблять цей коптер небезпечним для піхоти, командних пунктів та легкоброньованої техніки як на “нулі” так і у тилу противника."
+    },
+    {
+      "type": "video",
+      "video": {
+        "src": "/assets/home/showreel-preview.mp4",
+        "preview": "/assets/blog/post/video-placeholder.png"
+      },
+      "text": {
+        "active": true,
+        "content": "Опис"
+      }
+    },
+    {
+      "type": "quote",
+      "quote": "Віримо, що “пташки” допоможуть на фронті та збережуть життя українським захисникам і захисницям",
+      "author": "Міністерство цифрової трансформації України"
+    },
+    {
+      "type": "slider",
+      "slides": [
+        "/assets/blog/post/slide-1.png",
+        "/assets/blog/post/slide-2.png",
+        "/assets/blog/post/slide-3.png"
+      ],
+      "text": {
+        "active": true,
+        "content": "Опис"
+      }
+    },
+    {
+      "type": "rich-text",
+      "text": "<h3>Заголовок поменше</h3> <br /> На фронт передали: 500 квадрокоптерів Mavic для аеророзвідки та коригування вогню української артилерії. 300 FPV-дронів Phoenix 03 Heavy для ураження пунктів спостереження, бліндажів та бронетехніки противника. <ul> <li>Якийсь пункт</li> <li>Якийсь пункт</li> <li>Якийсь пункт</li> <li>Якийсь пункт</li> </ul> "
+    }
+  ]
+}

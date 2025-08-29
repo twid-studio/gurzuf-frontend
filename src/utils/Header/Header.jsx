@@ -19,10 +19,10 @@ const links = [
     text: "Про нас",
     href: "/about",
   },
-  // {
-  //   text: "Блог",
-  //   href: "/blog",
-  // },
+  {
+    text: "Новини",
+    href: "/blog",
+  },
   {
     text: "Озброїти підрозділ",
     href: "#contact",

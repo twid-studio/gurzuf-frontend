@@ -48,13 +48,14 @@
         .item {
           position: relative;
           padding-bottom: VW(40);
+          width: 100%;
 
           @include forTablet {
-            width: 100%;
             padding-bottom: VW(40, $tablet);
           }
 
           @include forMobile {
+            width: auto;
             padding-bottom: VW(0, $mobile);
             padding-left: VW(40, $mobile);
           }

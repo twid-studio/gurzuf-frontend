@@ -33,11 +33,7 @@ export default function NewWhereWeGoing() {
     ["1em 1em 1em", "1em 0em 1em", "1em 0em 1em", "1em 1em 1em"]
   );
 
-  const scale = useTransform(
-    spring,
-    [0.1, 0.5],
-    [1, 1.2]
-  );
+  const scale = useTransform(spring, [0.1, 0.5], [1, 1.2]);
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     if (latest >= 0.5) {
@@ -56,10 +52,11 @@ export default function NewWhereWeGoing() {
     >
       <div className="sticky-container">
         <div className="background-wrapper">
-          <motion.div className={clsx("background", {
-            "background--active": textChange,
-          })} 
-          style={{ scale }}
+          <motion.div
+            className={clsx("background", {
+              "background--active": textChange,
+            })}
+            style={{ scale }}
           />
         </div>
 
@@ -72,8 +69,8 @@ export default function NewWhereWeGoing() {
             <motion.h2 {...anim(WhereWeGoingAnim.title)} className="title">
               Ми хочемо, щоб назва Gurzuf Defence асоціювалася не тільки з
               боротьбою, а з відновленням. Мріємо перенести головний офіс до
-              Гурзуфа, дивитися на Аю-Даг, а не на карти бойових дій. Це не
-              просто географія — це ціль.
+              міста Гурзуф, дивитися на гору Аю-Даг, а не на карти бойових дій.
+              Це не просто географія — це ціль.
             </motion.h2>
           )}
         </AnimatePresence>

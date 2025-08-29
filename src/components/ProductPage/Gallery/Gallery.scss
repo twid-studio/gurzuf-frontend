@@ -1,0 +1,226 @@
+.product-page {
+  .gallery {
+    position: relative;
+    z-index: 2;
+    margin-top: 5em;
+
+    &-wrapper {
+      padding: 1em 0 7em;
+      background-color: $g-80;
+
+      @include forMobile {
+        padding: .8em 0 ;
+      }
+    }
+
+    .slider {
+      margin-top: 3em;
+
+      @include forTablet {
+        margin-top: 5.2em;
+      }
+
+      &__content {
+        width: auto;
+        height: VW(400);
+        position: relative;
+        z-index: 3;
+
+        @include forTablet {
+          height: VW(400, $tablet);
+        }
+
+        @include forMobile {
+          height: VW(208, $mobile);
+        }
+
+        video,
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      &-item {
+        padding-top: 1em;
+        opacity: 0.6;
+        filter: brightness(0.8);
+        transition:
+          opacity 0.3s ease,
+          filter 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8em;
+
+        @include forMobile {
+          padding-top: 0.8em;
+          gap: 1em;
+          width: 95%;
+        }
+
+        .slider__text {
+          transform: translateY(-20%);
+          opacity: 0;
+          position: relative;
+          z-index: 1;
+
+          transition:
+            transform 0.5s $ease-in-out-expo,
+            opacity 0.5s ease;
+
+          width: 95%;
+
+          @include forMobile {
+            transform: none !important;
+          }
+        }
+
+        &--active {
+          opacity: 1;
+          filter: brightness(1);
+
+          .slider__text {
+            transform: translateY(0%);
+            opacity: 1;
+          }
+
+          .video-timeline {
+            top: 0;
+            scale: 1;
+          }
+        }
+
+        &.splide__slide--clone {
+          opacity: 0.6;
+          filter: brightness(0.8);
+          .slider__text {
+            transform: translateY(-20%);
+            opacity: 0;
+          }
+
+          .video-timeline {
+            top: 1em;
+            scale: 0.9;
+          }
+        }
+      }
+
+      .splide {
+        &__arrow {
+          display: none;
+        }
+
+        &__arrow--prev,
+        &__arrow--next {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 4;
+          width: 19em;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          @include forTablet {
+            width: 7em;
+          }
+
+          @include forMobile {
+            display: none;
+          }
+
+          svg {
+            display: none;
+          }
+        }
+
+        &__arrow--prev {
+          left: 0;
+        }
+
+        &__arrow--next {
+          right: 0;
+        }
+      }
+    }
+
+    .video-timeline {
+      position: absolute;
+      top: 1em;
+      left: 0;
+      width: 100%;
+      z-index: -1;
+      scale: 0.9;
+
+      transition:
+        top 1s $ease-out-expo,
+        scale 1s $ease-out-expo;
+
+      &__track {
+        width: 100%;
+        height: 0.25em;
+        background-color: rgba(255, 255, 255, 0.3);
+        overflow: hidden;
+      }
+
+      &__progress {
+        height: 100%;
+        background-color: $g-10;
+      }
+    }
+
+    &__arrows {
+      display: flex;
+      position: absolute;
+      top: 1.4em;
+      right: 1em;
+
+      @include forMobile {
+        position: relative;
+        top: 0;
+        right: auto;
+        margin: 3.5em 0 0 0.8em;
+      }
+
+      .arrow {
+        width: 1em;
+        height: 1em;
+        padding: 0.5em;
+        cursor: pointer;
+        background-color: $c-white;
+        fill: $c-black;
+        transition: fill 0.3s ease;
+
+        @include hover {
+          fill: $blue-100;
+        }
+
+        @include forTablet {
+          width: 1.2em;
+          height: 1.2em;
+          padding: 0.8em;
+        }
+
+        @include forMobile {
+          width: 1.2em;
+          height: 1.2em;
+          padding: 0.7em;
+        }
+
+        svg {
+          width: 100%;
+          height: 100%;
+          fill: inherit;
+        }
+
+        &--prev {
+          svg {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+  }
+}

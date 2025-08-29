@@ -1,12 +1,28 @@
 .product-page {
   .hero {
-    height: 100vh;
-    padding-top: 6em;
+    aspect-ratio: 16/10;
+    height: auto;
     position: relative;
     z-index: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @include forPortraitTablet {
+      height: auto;
+      aspect-ratio: 3/2;
+    }
+
+    @include forTablet {
+      height: auto;
+      aspect-ratio: 4/3;
+    }
+
+    @include forMobile {
+      height: auto;
+      aspect-ratio: 9/16;
+      // padding-top: 0;
+    }
 
     &__image {
       position: absolute;
@@ -15,8 +31,15 @@
       height: 100%;
       z-index: -1;
 
+      @include forTablet {
+        // height: VW(700, $tablet);
+        position: relative;
+        height: 80%;
+      }
+
       @include forMobile {
         position: relative;
+        height: VW(370, $mobile);
       }
     }
 
@@ -30,35 +53,65 @@
 
       padding: 0 23em;
 
+      @include forTablet {
+        padding: 0 10em;
+      }
+
       @include forMobile {
-        padding: 0 2em;
+        padding: 0 0.8em;
       }
     }
 
-    .characteristics {
-      margin: 0 2em;
-      /* Section Content */
-
-      /* Auto layout */
+    .characteristics-list {
+      margin: 0 0.8em;
       display: flex;
       flex-direction: row;
       align-items: flex-start;
-      padding: 2em 3em;
-      gap: 2em;
+      padding: 2em 2.55em;
+      gap: 2.55em;
 
       background: rgba(82, 82, 82, 0.6);
       backdrop-filter: blur(1.75em);
+
+      @include forTablet {
+        gap: 0.8em;
+        margin: 0 1em;
+        padding: 1.8em 0.8em;
+      }
+
+      @include forMobile {
+        margin: 0 0.8em;
+        padding: 1.5em 0.8em;
+        gap: 1.3em;
+        flex-direction: column;
+      }
 
       &__item {
         width: 100%;
         height: 100%;
         display: flex;
         flex-direction: column;
-        gap: 0.2em;
+        gap: 0.4em;
 
-        &:not(.characteristics__item:nth-last-of-type(1)) {
-          padding-right: 3em;
+        @include forMobile {
+          text-align: center;
+        }
+
+        &:not(:nth-last-of-type(1)) {
+          padding-right: 2.55em;
           border-right: 0.1em solid rgba(255, 255, 255, 0.1);
+
+          @include forTablet {
+            padding-right: 0.8em;
+            border-right: 0.1em solid rgba(255, 255, 255, 0.1);
+          }
+
+          @include forMobile {
+            padding-right: 0;
+            border-right: 0;
+            padding-bottom: 1.3em;
+            border-bottom: 0.1em solid rgba(255, 255, 255, 0.1);
+          }
         }
       }
     }
