@@ -8,9 +8,10 @@ import NotFound from '@/components/NotFound/NotFound'
 
 export default function page() {
   return (
-    <DataProvider data={data}>
-      <ProductPage />
-      <Contact />
-    </DataProvider>
+    // <DataProvider data={data}>
+    //   <ProductPage />
+    //   <Contact />
+    // </DataProvider>
+    <NotFound />
   )
 }
