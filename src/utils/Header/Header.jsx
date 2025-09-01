@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useContext } from "react";
 import { Logo, LongLogo } from "../Logo/Logo";
 
 import "./Header.scss";
@@ -9,36 +9,60 @@ import MenuWrapper from "./Menu/MenuWrapper";
 import { LinkAnim } from "../LinkAnim/LinkAnim";
 import { usePathname } from "next/navigation";
 import { Button } from "../Button/Button";
+import { LocaleContext } from "@/lib/providers/LocaleProvider/LocaleProvider";
 
-const links = [
-  // {
-  //   text: "Продукти",
-  //   href: "/products",
-  // },
-  {
-    text: "Про нас",
-    href: "/about",
-  },
-  {
-    text: "Новини",
-    href: "/blog",
-  },
-  {
-    text: "Озброїти підрозділ",
-    href: "#contact",
-  },
-];
+const links = {
+  ua: [
+    // {
+    //   text: "Продукти",
+    //   href: "/products",
+    // },
+    {
+      text: "Про нас",
+      href: "/about",
+    },
+    {
+      text: "Новини",
+      href: "/blog",
+    },
+    {
+      text: "Озброїти підрозділ",
+      href: "#contact",
+    },
+  ],
+  en: [
+    // {
+    //   text: "Products",
+    //   href: "/en/products",
+    // },
+    {
+      text: "About us",
+      href: "/en/about",
+    },
+    {
+      text: "News",
+      href: "/en/blog",
+    },
+    {
+      text: "Equip the unit",
+      href: "#contact",
+    },
+  ],
+};
 
 export default function Header() {
   const path = usePathname();
+  const { lang } = useContext(LocaleContext);
+  const linksData = links[lang] || links.ua;
+  const isHomePage = path === "/" || path === "/en";
 
   return (
     <>
       <header className="header">
         <Link
-          href={path === "/" ? "#hero" : "/"}
+          href={isHomePage ? "#hero" : "/"}
           className="logos-wrapper"
-          {...(path === "/" ? { "data-scroll-anchor": "#hero" } : {})}
+          {...(isHomePage ? { "data-scroll-anchor": "#hero" } : {})}
         >
           <Content
             url="/assets/gsf-logo.mp4"
@@ -52,11 +76,8 @@ export default function Header() {
           <LongLogo className="header__logo" data-only-desktop />
           <Logo className="header__logo" data-not-desktop />
         </Link>
-        <div
-          className="header__links"
-          data-only-desktop--flex
-        >
-          {links.map((link, index) => (
+        <div className="header__links" data-only-desktop--flex>
+          {linksData.map((link, index) => (
             // <Link key={index} href={link.href} className="header__link bold">
             //   {link.text}
             // </Link>
@@ -64,7 +85,7 @@ export default function Header() {
           ))}
         </div>
 
-        <MenuWrapper links={links} />
+        <MenuWrapper links={linksData} />
       </header>
     </>
   );

@@ -1,5 +1,4 @@
 import HomePage from "@/components/HomePage/HomePage";
-import data from "./preparedData/home.json";
 import { DataProvider } from "@/lib/providers/DataProvider/DataProvider";
 import Contact from "@/utils/Contact/Contact";
 import { HOME_QUERY } from "@/lib/sanity/queries";
@@ -9,9 +8,9 @@ export const revalidate = 60;
 
 export default async function Home() {
   const dataSanity = await client.fetch(HOME_QUERY, {
-    pageId: "homepage"
+    pageId: "homepageEn",
   });
-  
+
   return (
     <DataProvider data={dataSanity}>
       <HomePage />

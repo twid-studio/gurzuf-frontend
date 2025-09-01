@@ -4,10 +4,18 @@ import React from 'react'
 import data from '../preparedData/about.json'
 import AboutPage from '@/components/AboutPage/AboutPage'
 import JobContact from '@/utils/JobContact/JobContact'
+import { client } from '@/lib/sanity/client'
+import { ABOUT_QUERY } from '@/lib/sanity/queries'
 
-export default function page() {
+export const revalidate = 60;
+
+export default async function page() {
+  const dataSanity = await client.fetch(ABOUT_QUERY);
+
+  console.log('About data:', dataSanity);
+  
   return (
-    <DataProvider data={data}>
+    <DataProvider data={dataSanity}>
       <AboutPage />
       <JobContact />
     </DataProvider>

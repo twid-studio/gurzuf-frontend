@@ -16,14 +16,11 @@ export default function AboutPage() {
 
   return (
     <motion.main className="about" {...anim(PageAnim)}>
-      {/* <div style={{ height: "100vh" }}></div> */}
       <HeroAbout />
       <TextAbout />
       <WhoWeAre />
       <ImportantToUs />
       <NewWhereWeGoing />
-      {/* <WhereWeGoing /> */}
-      {/* <div style={{ height: "100vh", border: "1px solid red" }}></div> */}
     </motion.main>
   )
 }
