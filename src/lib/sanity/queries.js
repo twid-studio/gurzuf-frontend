@@ -250,3 +250,45 @@ export const POST_QUERY = (
     }
   }
 }`;
+
+export const ABOUT_QUERY = `*[_type == "aboutPage"][0]{
+  "hero": {
+    "title": hero.title,
+    "text": hero.text,
+    "background": hero.background.asset->url
+  },
+  "about": {
+    "text1": {
+      "part1": about.text1.part1,
+      "part2": about.text1.part2,
+      "link": {
+        "image": about.text1.link.image.asset->url,
+        "title": about.text1.link.title,
+        "text": about.text1.link.text,
+        "button": {
+          "active": about.text1.link.button.active,
+          "text": about.text1.link.button.text,
+          "link": about.text1.link.button.link
+        }
+      }
+    },
+    "text2": about.text2,
+    "text3": about.text3
+  },
+  "whoWeAre": {
+    "title": whoWeAre.title,
+    "list": whoWeAre.list
+  },
+  "importantToUs": {
+    "title": importantToUs.title,
+    "text": importantToUs.text,
+    "list": importantToUs.list[]{
+      "icon": icon.asset->url,
+      "text": text
+    }
+  },
+  "whereWeGoing": {
+    "title": whereWeGoing.title,
+    "text": whereWeGoing.text,
+  }
+}`;
