@@ -28,7 +28,10 @@ export default function HeroHome() {
 
   const yTitle = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
-  const preparedTitle = data.title.split(" ");
+  const preparedTitle = data.title.split(" | ");
+
+  const firstTitlePart = preparedTitle[0].split(" ");
+  const secondTitlePart = preparedTitle[1].split(" ");
 
   return (
     <section className="hero" ref={sectionRef} id="hero">
@@ -36,25 +39,20 @@ export default function HeroHome() {
         <div className="title">
           <h1 className="sr-only">{`${data.title[0]} ${data.title[1]}`}</h1>
           <div className="title-line">
-            {preparedTitle.slice(0, 2).map((word, index) => (
-              <div className="title-wrapper" key={index}>
-                <p className="super-text">{word}</p>
-                <span className="background"></span>
-                {index === 2 && (
-                  <div className="flag">
-                    <div className="flag-element flag-top"></div>
-                    <div className="flag-element flag-bottom"></div>
-                  </div>
-                )}
-              </div>
-            ))}
+            {firstTitlePart
+              .map((word, index) => (
+                <div className="title-wrapper" key={index}>
+                  <p className="super-text">{word}</p>
+                  <span className="background"></span>
+                </div>
+              ))}
           </div>
           <div className="title-line">
-            {preparedTitle.slice(2).map((word, index) => (
+            {secondTitlePart.map((word, index) => (
               <div className="title-wrapper" key={index}>
                 <p className="super-text">{word}</p>
                 <span className="background"></span>
-                {index === 2 && (
+                {secondTitlePart.length - 1 === index && (
                   <div className="flag">
                     <div className="flag-element flag-top"></div>
                     <div className="flag-element flag-bottom"></div>
