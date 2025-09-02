@@ -13,10 +13,10 @@ import { LocaleContext } from "@/lib/providers/LocaleProvider/LocaleProvider";
 
 const links = {
   ua: [
-    // {
-    //   text: "Продукти",
-    //   href: "/products",
-    // },
+    {
+      text: "Продукти",
+      href: "/products/heavy-shot",
+    },
     {
       text: "Про нас",
       href: "/about",
@@ -31,10 +31,10 @@ const links = {
     },
   ],
   en: [
-    // {
-    //   text: "Products",
-    //   href: "/en/products",
-    // },
+    {
+      text: "Products",
+      href: "/en/products/heavy-shot",
+    },
     {
       text: "About us",
       href: "/en/about",
