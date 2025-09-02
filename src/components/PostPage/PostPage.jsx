@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import PostHero from './Hero/PostHero'
 import PostSections from './PostSections/PostSections'
