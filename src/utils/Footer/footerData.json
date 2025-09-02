@@ -4,6 +4,10 @@
       "title": "Навігація",
       "items": [
         {
+          "text": "Продукти",
+          "href": "/products/heavy-shot"
+        },
+        {
           "text": "Про нас",
           "href": "/about"
         },

@@ -8,13 +8,12 @@ import { Content } from "../Content/Content";
 import MenuWrapper from "./Menu/MenuWrapper";
 import { LinkAnim } from "../LinkAnim/LinkAnim";
 import { usePathname } from "next/navigation";
-import { Button } from "../Button/Button";
 
 const links = [
-  // {
-  //   text: "Продукти",
-  //   href: "/products",
-  // },
+  {
+    text: "Продукти",
+    href: "/products/heavy-shot",
+  },
   {
     text: "Про нас",
     href: "/about",
