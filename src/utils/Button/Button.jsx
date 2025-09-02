@@ -14,7 +14,7 @@ export const Button = ({
   fullWidth = false,
   ...rest
 }) => {
-  const isAnchorLink = href.startsWith("#");
+  const isAnchorLink = href?.startsWith("#") || false;
 
   return (
     <Link
@@ -24,7 +24,7 @@ export const Button = ({
         [`button--${color}`]: color,
         ["button--full-width"]: fullWidth,
       })}
-      target={isAnchorLink ? undefined : getLinkTarget(href)}
+      target={getLinkTarget(href)}
       {...(isAnchorLink && { "data-scroll-anchor": href })}
       {...rest}
     >

@@ -1,12 +1,14 @@
 import React from 'react'
 import PostHero from './Hero/PostHero'
 import PostSections from './PostSections/PostSections'
+import { motion } from 'framer-motion'
+import { anim, PageAnim } from '@/lib/helpers/anim'
 
 export default function PostPage() {
   return (
-    <main className="post-page">
+    <motion.main className="post-page" {...anim(PageAnim)}>
       <PostHero />
       <PostSections />
-    </main>
+    </motion.main>
   )
 }
