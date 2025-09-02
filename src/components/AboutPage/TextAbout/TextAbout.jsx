@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Button } from "@/utils/Button/Button";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import clsx from "clsx";
+
 export default function TextAbout() {
   const { data: allData } = useContext(DataContext);
   const { about: data } = allData;

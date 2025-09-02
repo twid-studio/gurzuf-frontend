@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 
 import "./NewWhereWeGoing.scss";
 import {
@@ -12,8 +12,12 @@ import {
 } from "framer-motion";
 import { anim, WhereWeGoingAnim } from "@/lib/helpers/anim";
 import clsx from "clsx";
+import { DataContext } from "@/lib/providers/DataProvider/context";
 
 export default function NewWhereWeGoing() {
+  const { data: allData } = useContext(DataContext);
+  const { whereWeGoing: data } = allData;
+
   const [textChange, setTextChange] = useState(false);
   const sectionRef = useRef();
 
@@ -63,14 +67,11 @@ export default function NewWhereWeGoing() {
         <AnimatePresence mode="wait">
           {!textChange ? (
             <motion.h1 {...anim(WhereWeGoingAnim.title)} className="title">
-              Куди ми йдемо
+                {data?.title}
             </motion.h1>
           ) : (
             <motion.h2 {...anim(WhereWeGoingAnim.title)} className="title">
-              Ми хочемо, щоб назва Gurzuf Defence асоціювалася не тільки з
-              боротьбою, а з відновленням. Мріємо перенести головний офіс до
-              міста Гурзуф, дивитися на гору Аю-Даг, а не на карти бойових дій.
-              Це не просто географія — це ціль.
+                {data?.text}
             </motion.h2>
           )}
         </AnimatePresence>

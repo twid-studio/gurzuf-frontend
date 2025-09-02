@@ -3,10 +3,11 @@
 import React, { useContext, useEffect, useState } from "react";
 
 import Hero from "./Hero/Hero";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import HotNews from "./HotNews/HotNews";
 import { DataContext } from "@/lib/providers/DataProvider/context";
 import BlogList from "./BlogList/BlogList";
+import { anim, PageAnim } from "@/lib/helpers/anim";
 
 const filters = [
   {
@@ -86,7 +87,7 @@ export default function BlogPage() {
   }, [cachedBlogList, activeFilters]);
 
   return (
-    <main className="blog">
+    <motion.main className="blog" {...anim(PageAnim)}>
       <Hero 
         filtersData={availableFilters} 
         activeFilters={activeFilters} 
@@ -100,6 +101,6 @@ export default function BlogPage() {
       </AnimatePresence>
 
       <BlogList data={blogList} activeFilters={activeFilters} />
-    </main>
+    </motion.main>
   );
 }

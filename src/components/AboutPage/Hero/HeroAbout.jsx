@@ -1,10 +1,10 @@
-"use client"
-import { DataContext } from '@/lib/providers/DataProvider/context';
-import React, { useContext, useRef } from 'react'
+"use client";
+import { DataContext } from "@/lib/providers/DataProvider/context";
+import React, { useContext, useRef } from "react";
 
-import './HeroAbout.scss';
-import { Content } from '@/utils/Content/Content';
-import { useScroll, useTransform } from 'framer-motion';
+import "./HeroAbout.scss";
+import { Content } from "@/utils/Content/Content";
+import { useScroll, useTransform } from "framer-motion";
 
 export default function HeroAbout() {
   const { data } = useContext(DataContext);
@@ -12,11 +12,11 @@ export default function HeroAbout() {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ['start start', 'end start'],
+    offset: ["start start", "end start"],
     layoutEffect: true,
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ['-10%', '20%']);
+  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "20%"]);
 
   return (
     <section className="hero" ref={sectionRef}>
@@ -26,14 +26,16 @@ export default function HeroAbout() {
       </div>
 
       <div className="hero__background-wrapper">
-        <Content
-          className="hero__background"
-          url={data?.hero?.background}
-          alt="Hero background"
-          style={{ y }}
-          lazy={false}
-        />
+        {data?.hero?.background && (
+          <Content
+            className="hero__background"
+            url={data?.hero?.background}
+            alt="Hero background"
+            style={{ y }}
+            lazy={false}
+          />
+        )}
       </div>
     </section>
-  )
+  );
 }
