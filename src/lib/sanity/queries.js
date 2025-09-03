@@ -292,3 +292,69 @@ export const ABOUT_QUERY = `*[_type == "aboutPage"][0]{
     "text": whereWeGoing.text,
   }
 }`;
+
+export const PRODUCT_DETAILS_QUERY = `*[_type == "productDetailsPage" && slug.current == $slug][0]{
+  hero {
+    "title": title[$lang],
+    "text": text[$lang],
+    characteristicsList[] {
+      "title": title[$lang],
+      "text": text[$lang]
+    }
+  },
+  features {
+    isVisible,
+    "title": title[$lang],
+    list[] {
+      "title": title[$lang],
+      "text": text[$lang]
+    }
+  },
+  gallery {
+    isVisible,
+    "title": title[$lang],
+    list[] {
+      "content": content.asset->url
+    }
+  },
+  keyBenefits {
+    isVisible,
+    "title": title[$lang],
+    "text": text[$lang],
+    list[] {
+      "title": title[$lang],
+      "icon": icon.asset->url
+    },
+    "image": image.asset->url
+  },
+  characteristics {
+    isVisible,
+    "title": title[$lang],
+    "text": text[$lang],
+    table[] {
+      type,
+      "title": title[$lang],
+      "value": value[$lang],
+      "subtitle": subtitle[$lang],
+      lines[] {
+        "title": title[$lang],
+        "value": value[$lang]
+      }
+    },
+    notes {
+      active,
+      "title": title[$lang],
+      "list": list[][$lang]
+    }
+  },
+  equipment {
+    isVisible,
+    "title": equipment.title[$lang],
+    "text": equipment.text[$lang],
+    list[] {
+      "title": title[$lang],
+      "image": image.asset->url
+    }
+  },
+  "slug": slug.current
+}`;
