@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import HeroHome from "./Hero/HeroHome";
 import AboutHome from "./About/AboutHome";
 import ProductsHome from "./Products/ProductsHome";
@@ -16,9 +16,9 @@ const HomePage = () => {
   const { data } = useContext(DataContext);
 
   useEffect(() => {
-      document.documentElement.scrollTo(0, 0);
-    }, []);
-    
+    document.documentElement.scrollTo(0, 0);
+  }, []);
+
   return (
     <motion.main className="home" {...anim(PageAnim)}>
       <HeroHome />

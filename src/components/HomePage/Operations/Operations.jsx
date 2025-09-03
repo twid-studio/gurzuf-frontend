@@ -13,6 +13,12 @@ import { sectionScrollAnim } from "@/lib/helpers/sectionScrollAnim";
 export default function Operations() {
   const { data: allData } = useContext(DataContext);
   const { operations: data } = allData;
+  
+  // Return early if operations data is not available
+  if (!data || !data.list || data.list.length === 0) {
+    return null;
+  }
+
   const [activeItem, setActiveItem] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -86,7 +92,7 @@ export default function Operations() {
         // Auto-advance to next item when video ends
         if (progress >= 0.98) {
           // Slightly before end to ensure smooth transition
-          const nextIndex = (activeItem + 1) % data?.list.length;
+          const nextIndex = (activeItem + 1) % (data?.list?.length || 1);
           setActiveItem(nextIndex);
         }
       }
@@ -118,7 +124,7 @@ export default function Operations() {
         </div>
         <div className="operation-list">
           <div className="links">
-            {data?.list.map((item, index) => (
+            {data?.list?.map((item, index) => (
               <OperationLinkItem
                 key={index}
                 item={item}
@@ -127,10 +133,10 @@ export default function Operations() {
                 onClick={handleItemClick}
                 videoProgress={activeItem === index ? videoProgress : 0}
               />
-            ))}
+            )) || []}
           </div>
           <div className="operation-video">
-            {data?.list.map((item, index) => (
+            {data?.list?.map((item, index) => (
               <motion.div
                 className={clsx("operation-video__item", {
                   "operation-video__item--active": activeItem === index,
@@ -155,14 +161,14 @@ export default function Operations() {
                   Your browser does not support the video tag.
                 </video>
               </motion.div>
-            ))}
+            )) || []}
           </div>
           <div className="operation-list-button">
             <div
               className="operation-list-button__arrow operation-list-button__arrow--prev"
               onClick={() => {
                 const prevIndex =
-                  (activeItem - 1 + data?.list.length) % data?.list.length;
+                  (activeItem - 1 + (data?.list?.length || 1)) % (data?.list?.length || 1);
                 setActiveItem(prevIndex);
               }}
             >
@@ -177,7 +183,7 @@ export default function Operations() {
             <div
               className="operation-list-button__arrow"
               onClick={() => {
-                const nextIndex = (activeItem + 1) % data?.list.length;
+                const nextIndex = (activeItem + 1) % (data?.list?.length || 1);
                 setActiveItem(nextIndex);
               }}
             >

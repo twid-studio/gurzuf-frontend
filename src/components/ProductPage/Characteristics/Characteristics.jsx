@@ -82,11 +82,11 @@ export default function Characteristics() {
             </>
           )}
         </div>
-        {data?.notes.active && (
+        {data?.notes && data?.notes.active && (
           <div className="notes container">
             <p>{data?.notes?.title}</p>
             <div className="list">
-              {data?.notes?.list.map((note, index) => (
+              {data?.notes?.list && data?.notes?.list.map((note, index) => (
                 <div className="list__item" key={index}>
                   <p className="list__item-text">{note}</p>
                 </div>

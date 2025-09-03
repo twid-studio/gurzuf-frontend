@@ -5,10 +5,17 @@ import React from 'react'
 import data from '../../preparedData/heavy-shot.json'
 import Contact from '@/utils/Contact/Contact'
 import NotFound from '@/components/NotFound/NotFound'
+import { client } from '@/lib/sanity/client'
+import { PRODUCT_DETAILS_QUERY } from '@/lib/sanity/queries'
 
-export default function page() {
+export const revalidate = 60;
+
+export default async function page() {
+  const params = { slug: 'heavy-shot', lang: 'ua' };
+  const dataSanity =  await client.fetch(PRODUCT_DETAILS_QUERY, params);
+
   return (
-    <DataProvider data={data}>
+    <DataProvider data={dataSanity}>
       <ProductPage />
       <Contact />
     </DataProvider>
