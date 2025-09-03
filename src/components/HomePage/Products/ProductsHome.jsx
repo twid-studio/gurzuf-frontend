@@ -23,7 +23,7 @@ export default function ProductsHome() {
         {data?.list.map((product, i) => (
           <div
             className={clsx("item", {
-              "item--only-item": data?.list.length === 1,
+              "item--only-item": data?.list?.length === 1,
             })}
             key={`product-item-${i}`}
           >

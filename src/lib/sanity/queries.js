@@ -1,4 +1,4 @@
-export const HOME_QUERY = `*[_type == "homePage"][0]{
+export const HOME_QUERY = `*[_type == "homePage" && _id == $pageId][0]{
   "hero": {
     "background": hero.background.asset->url,
     "title": hero.title,

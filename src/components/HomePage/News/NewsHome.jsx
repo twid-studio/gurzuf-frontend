@@ -40,15 +40,15 @@ export default function NewsHome() {
   const handleSplideMove = (splide, newIndex) => {
     setCurrentSlide(newIndex);
     // Check if we're at the last possible slide
-    const isAtEnd = newIndex >= splide.length - splide.options.perPage;
+    const isAtEnd = newIndex >= splide?.length - splide.options.perPage;
     setIsLastSlide(isAtEnd);
   };
 
   const handleSplideMounted = (splide) => {
-    setSlideCount(splide.length);
+    setSlideCount(splide?.length);
     setCurrentSlide(splide.index);
     // Initial check for last slide
-    const isAtEnd = splide.index >= splide.length - splide.options.perPage;
+    const isAtEnd = splide.index >= splide?.length - splide.options.perPage;
     setIsLastSlide(isAtEnd);
   };
 
