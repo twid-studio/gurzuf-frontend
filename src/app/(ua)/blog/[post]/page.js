@@ -1,8 +1,8 @@
 import React from "react";
 import { DataProvider } from "@/lib/providers/DataProvider/DataProvider";
 
-import data from "../../preparedData/post.json";
-import data2 from "../../preparedData/post2.json";
+import data from "../../../preparedData/post.json";
+import data2 from "../../../preparedData/post2.json";
 import Contact from "@/utils/Contact/Contact";
 import PostPage from "@/components/PostPage/PostPage";
 import { client } from "@/lib/sanity/client";
