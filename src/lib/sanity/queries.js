@@ -140,9 +140,9 @@ export const HOME_QUERY = `
 `;
 
 export const PRIVACY_POLICY_QUERY = `*[_type == "privacyPolicyPage"][0]{
-  title,
-  changedDate,
-  blockContent
+  "title": coalesce(title[$lang], title.ua),
+  "changedDate": coalesce(changedDate[$lang], changedDate.ua),
+  "blockContent": coalesce(blockContentNew[$lang], blockContentNew.ua)
 }`;
 
 export const BLOG_LIST_QUERY = `
@@ -292,47 +292,49 @@ export const POST_QUERY = `
 } 
 `;
 
-export const ABOUT_QUERY = `*[_type == "aboutPage"][0]{
+export const ABOUT_QUERY = `
+*[_type == "aboutPage"][0]{
   "hero": {
-    "title": hero.title,
-    "text": hero.text,
+    "title": coalesce(hero.title[$lang], hero.title.ua),
+    "text": coalesce(hero.text[$lang], hero.text.ua),
     "background": hero.background.asset->url
   },
   "about": {
     "text1": {
-      "part1": about.text1.part1,
-      "part2": about.text1.part2,
+      "part1": coalesce(about.text1.part1[$lang], about.text1.part1.ua),
+      "part2": coalesce(about.text1.part2[$lang], about.text1.part2.ua),
       "link": {
         "image": about.text1.link.image.asset->url,
-        "title": about.text1.link.title,
-        "text": about.text1.link.text,
+        "title": coalesce(about.text1.link.title[$lang], about.text1.link.title.ua),
+        "text": coalesce(about.text1.link.text[$lang], about.text1.link.text.ua),
         "button": {
           "active": about.text1.link.button.active,
-          "text": about.text1.link.button.text,
+          "text": coalesce(about.text1.link.button.text[$lang], about.text1.link.button.text.ua),
           "link": about.text1.link.button.link
         }
       }
     },
-    "text2": about.text2,
-    "text3": about.text3
+    "text2": coalesce(about.text2[$lang], about.text2.ua),
+    "text3": coalesce(about.text3[$lang], about.text3.ua)
   },
   "whoWeAre": {
-    "title": whoWeAre.title,
-    "list": whoWeAre.list
+    "title": coalesce(whoWeAre.title[$lang], whoWeAre.title.ua),
+    "list": coalesce(whoWeAre.list[][$lang], whoWeAre.list.ua)
   },
   "importantToUs": {
-    "title": importantToUs.title,
-    "text": importantToUs.text,
+    "title": coalesce(importantToUs.title[$lang], importantToUs.title.ua),
+    "text": coalesce(importantToUs.text[$lang], importantToUs.text.ua),
     "list": importantToUs.list[]{
       "icon": icon.asset->url,
-      "text": text
+      "text": coalesce(text[$lang], text.ua)
     }
   },
   "whereWeGoing": {
-    "title": whereWeGoing.title,
-    "text": whereWeGoing.text,
+    "title": coalesce(whereWeGoing.title[$lang], whereWeGoing.title.ua),
+    "text": coalesce(whereWeGoing.text[$lang], whereWeGoing.text.ua),
   }
-}`;
+}
+`;
 
 export const PRODUCT_DETAILS_QUERY = `*[_type == "productDetailsPage" && slug.current == $slug][0]{
   hero {

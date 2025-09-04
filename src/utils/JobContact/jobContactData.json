@@ -1,42 +1,102 @@
 {
-  "top": {
-    "title": "Долучайся до команди, що наближає перемогу",
-    "text": "Якщо ти — військовий, інженер, волонтер або просто людина, яка хоче діяти, знайди свій спосіб допомогти. Ми завжди відкриті до співпраці, підтримки й партнерства."
+  "ua": {
+    "top": {
+      "title": "Долучайся до команди, що наближає перемогу",
+      "text": "Якщо ти — військовий, інженер, волонтер або просто людина, яка хоче діяти, знайди свій спосіб допомогти. Ми завжди відкриті до співпраці, підтримки й партнерства."
+    },
+    "form": {
+      "sucessText": {
+        "text": "Отримали, працюємо",
+        "subText": "Дякуємо, що хочете бути частиною змін. Ми переглянемо ваш запит і дамо знати, якщо зможемо рухатись разом.",
+        "buttonText": "Добре"
+      },
+      "name": {
+        "text": "Ім'я",
+        "requiredErrorText": "Це поле є обов'язковим",
+        "validationErrorText": "Ім'я повинно містити щонайменше 2 символи"
+      },
+      "surname": {
+        "text": "Прізвище",
+        "requiredErrorText": "Це поле є обов'язковим",
+        "validationErrorText": "Прізвище повинно містити щонайменше 2 символи"
+      },
+      "email": {
+        "text": "Email",
+        "requiredErrorText": "Це поле є обов'язковим",
+        "validationErrorText": "Невірний формат email"
+      },
+      "phone": {
+        "text": "Телефон",
+        "requiredErrorText": "Це поле є обов'язковим",
+        "validationErrorText": "Невірний формат телефону"
+      },
+      "position": {
+        "text": "Позиція",
+        "requiredErrorText": "Це поле є обов'язковим"
+      },
+      "cvFile": {
+        "text": "Завантажити CV (до 2MB)",
+        "requiredErrorText": "CV файл є обов'язковим",
+        "validationErrorText": "Підтримуються тільки файли PDF, DOC, DOCX",
+        "sizeErrorText": "Файл занадто великий (максимум 2MB)",
+        "buttonText": "Додати файл"
+      },
+      "message": {
+        "text": "Повідомлення"
+      },
+      "submitButton": {
+        "text": "Відправити заявку"
+      }
+    }
   },
-  "form": {
-    "sucessText": {
-      "text": "Отримали, працюємо",
-      "subText": "Дякуємо, що хочете бути частиною змін. Ми переглянемо ваш запит і дамо знати, якщо зможемо рухатись разом.",
-      "buttonText": "Добре"
+  "en": {
+    "top": {
+      "title": "Join the team bringing victory closer",
+      "text": "Whether you are military, engineer, volunteer, or simply someone who wants to make a difference, find your way to help. We are always open to collaboration, support, and partnership."
     },
-    "name": {
-      "text": "Ім'я",
-      "errorText": "Це поле є обов'язковим"
-    },
-    "surname": {
-      "text": "Прізвище",
-      "errorText": "Це поле є обов'язковим"
-    },
-    "email": {
-      "text": "Email",
-      "errorText": "Невірний формат email"
-    },
-    "phone": {
-      "text": "Телефон",
-      "errorText": "Невірний формат телефону"
-    },
-    "position": {
-      "text": "Позиція",
-      "errorText": "Це поле є обов'язковим"
-    },
-    "cvFile": {
-      "text": "Завантажити CV (до 2MB)",
-      "errorText": "Файл занадто великий (максимум 2MB)",
-      "buttonText": "Додати файл"
-    },
-    "message": {
-      "text": "Повідомлення",
-      "errorText": false
+    "form": {
+      "sucessText": {
+        "text": "Received, working on it",
+        "subText": "Thank you for stepping up to make a difference. We will review your application and get back to you as soon as possible.",
+        "buttonText": "OK"
+      },
+      "name": {
+        "text": "First name",
+        "requiredErrorText": "This field is required",
+        "validationErrorText": "Name must contain at least 2 characters"
+      },
+      "surname": {
+        "text": "Last name",
+        "requiredErrorText": "This field is required",
+        "validationErrorText": "Last name must contain at least 2 characters"
+      },
+      "email": {
+        "text": "Email",
+        "requiredErrorText": "This field is required",
+        "validationErrorText": "Invalid email format"
+      },
+      "phone": {
+        "text": "Phone number",
+        "requiredErrorText": "This field is required",
+        "validationErrorText": "Invalid phone format"
+      },
+      "position": {
+        "text": "Position",
+        "requiredErrorText": "This field is required"
+      },
+      "cvFile": {
+        "text": "Upload CV (up to 2 MB)",
+        "requiredErrorText": "CV file is required",
+        "validationErrorText": "Only PDF, DOC, DOCX files are supported",
+        "sizeErrorText": "File too large (maximum 2MB)",
+        "buttonText": "Add file"
+      },
+      "message": {
+        "text": "Message"
+      },
+      "submitButton": {
+        "text": "Send application"
+      }
     }
   }
 }

@@ -75,11 +75,11 @@
           },
           {
             "text": "About us",
-            "href": "/about"
+            "href": "/en/about"
           },
           {
             "text": "News",
-            "href": "/blog"
+            "href": "/en/blog"
           }
         ]
       },
@@ -119,7 +119,7 @@
         "items": [
           {
             "text": "Privacy Policy",
-            "href": "/legal/privacy-policy"
+            "href": "/en/legal/privacy-policy"
           }
         ],
         "madeBy": {

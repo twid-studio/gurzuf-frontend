@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
@@ -11,9 +11,13 @@ import clsx from "clsx";
 
 import "./JobContact.scss";
 import { anim, FormAnim } from "@/lib/helpers/anim";
+import { LocaleContext } from "@/lib/providers/LocaleProvider/LocaleProvider";
 
 export default function JobContact() {
-  const { top, form } = data;
+  const { lang } = useContext(LocaleContext);
+  const top = data[lang]?.top || data.ua.top;
+  const form = data[lang]?.form || data.ua.form;
+  
   return (
     <section className="contact container" id="contact">
       <div className="top">
@@ -31,18 +35,18 @@ const FormSection = ({ data }) => {
   const [filename, setFilename] = useState("");
   const [fileError, setFileError] = useState("");
 
-  const { sucessText, name, surname, email, phone, position, cvFile, message } =
+  const { sucessText, name, surname, email, phone, position, cvFile, message, submitButton } =
     data;
 
   // File validation helper function
   const validateFile = (file) => {
     if (!file) {
-      return "CV файл є обов'язковим";
+      return cvFile.requiredErrorText;
     }
 
     // Check file size (2MB limit)
     if (file.size > 2 * 1024 * 1024) {
-      return "Файл занадто великий (максимум 2MB)";
+      return cvFile.sizeErrorText;
     }
 
     // Check file type
@@ -62,7 +66,7 @@ const FormSection = ({ data }) => {
     const hasValidExtension = supportedExtensions.includes(fileExtension);
 
     if (!hasValidMimeType && !hasValidExtension) {
-      return "Підтримуються тільки файли PDF, DOC, DOCX";
+      return cvFile.validationErrorText;
     }
 
     return null; // No error
@@ -70,28 +74,28 @@ const FormSection = ({ data }) => {
 
   const validationSchema = Yup.object().shape({
     name: Yup.string()
-      .min(2, "Ім'я повинно містити щонайменше 2 символи")
-      .required("Це поле є обов'язковим"),
+      .min(2, name.validationErrorText)
+      .required(name.requiredErrorText),
     surname: Yup.string()
-      .min(2, "Прізвище повинно містити щонайменше 2 символи")
-      .required("Це поле є обов'язковим"),
+      .min(2, surname.validationErrorText)
+      .required(surname.requiredErrorText),
     email: Yup.string()
-      .email("Невірний формат email")
-      .required("Це поле є обов'язковим"),
+      .email(email.validationErrorText)
+      .required(email.requiredErrorText),
     phone: Yup.string()
-      .matches(/[1-10][\d]{0,15}$/, "Невірний формат телефону")
-      .required("Це поле є обов'язковим"),
-    position: Yup.string().required("Це поле є обов'язковим"),
+      .matches(/[1-10][\d]{0,15}$/, phone.validationErrorText)
+      .required(phone.requiredErrorText),
+    position: Yup.string().required(position.requiredErrorText),
     cvFile: Yup.mixed()
-      .required("CV файл є обов'язковим")
+      .required(cvFile.requiredErrorText)
       .test(
         "fileSize",
-        "Файл занадто великий (максимум 2MB)",
+        cvFile.sizeErrorText,
         (value) => value && value.size <= 2 * 1024 * 1024
       )
       .test(
         "fileFormat",
-        "Підтримуються тільки файли PDF, DOC, DOCX",
+        cvFile.validationErrorText,
         (value) => {
           if (!value) return false;
           const fileName = value.name.toLowerCase();
@@ -376,7 +380,7 @@ const FormSection = ({ data }) => {
                 })}
                 disabled={!isValid || !dirty}
               >
-                <h3>Відправити заявку</h3>
+                <h3>{submitButton?.text}</h3>
                 <div className="button__arrow">
                   <svg
                     viewBox="0 0 18 17"
