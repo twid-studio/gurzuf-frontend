@@ -143,6 +143,7 @@ export async function sendEmail(data) {
   }
 }
 
+
 export async function sendJobApplication(data) {
   try {
     const nameText = `${data.name ? `Name: ${data.name}` : 'No name provided'}`;

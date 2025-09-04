@@ -14,10 +14,6 @@ export default async function page() {
     lang: 'ua'
   });
 
-  console.log(dataSanity);
-
-  console.log('Sanity data:', dataSanity);
-  
   return (
     <DataProvider data={dataSanity}>
       <BlogPage />
