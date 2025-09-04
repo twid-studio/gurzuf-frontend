@@ -36,8 +36,9 @@ export const HOME_QUERY = `
       "button": {
         "text": coalesce(preview.buttonText[$lang], preview.buttonText.ua),
         "href": select(
-          // Use the product's slug for the button href
-          defined(slug.current) => "/products/" + slug.current,
+          defined(slug.current) => select(
+          $lang == "en" => "/en/products/" + slug.current,
+          "/products/" + slug.current),
           "#"
         )
       },
@@ -79,7 +80,7 @@ export const HOME_QUERY = `
     "button": {
       "active": quote.button.active,
       "text": coalesce(quote.button.text[$lang], quote.button.text.ua),
-      "href": quote.button.href
+      "href": select($lang == "en" => "/en" + quote.button.href, quote.button.href)
     }
   },
   
@@ -122,7 +123,7 @@ export const HOME_QUERY = `
     "button": {
       "active": news.button.active,
       "text": coalesce(news.button.text[$lang], news.button.text.ua),
-      "href": news.button.href
+      "href": select($lang == "en" => "/en" + news.button.href, news.button.href)
     }
   },
   
