@@ -145,27 +145,39 @@ export const PRIVACY_POLICY_QUERY = `*[_type == "privacyPolicyPage"][0]{
   blockContent
 }`;
 
-export const BLOG_LIST_QUERY = `{
+export const BLOG_LIST_QUERY = `
+{
   "hero": *[_type == "blogsPage"][0].hero {
-    title,
-    text,
-    filters[] {
-      title,
-      slug
-    }
+    "title": coalesce(title[$lang], title.en, title.ua),
+    "text": coalesce(text[$lang], text.en, text.ua),
   },
   "blogList": {
-    "titleHotNews": *[_type == "blogsPage"][0].blogList.titleHotNews,
+    "titleHotNews": coalesce(*[_type == "blogsPage"][0].blogList.titleHotNews[$lang], *[_type == "blogsPage"][0].blogList.titleHotNews.en, *[_type == "blogsPage"][0].blogList.titleHotNews.ua),
     "list": *[_type == "blogPost" && isVisible == true] | order(_createdAt desc) {
       _id,
       "type": {
         "slug": preview.type,
         "text": select(
-          preview.type == "news" => "Новини",
-          preview.type == "interview" => "Інтерв'ю",
-          preview.type == "special-project" => "Спецпроєкти",
-          preview.type == "military-speak" => "Військові говорять",
-          "Невідомий тип"
+          preview.type == "news" => select(
+            $lang == "en" => "News",
+            coalesce("Новини"[$lang], "Новини")
+          ),
+          preview.type == "interview" => select(
+            $lang == "en" => "Interview",
+            coalesce("Інтерв'ю"[$lang], "Інтерв'ю")
+          ),
+          preview.type == "special-project" => select(
+            $lang == "en" => "Special Projects",
+            coalesce("Спецпроєкти"[$lang], "Спецпроєкти")
+          ),
+          preview.type == "military-speak" => select(
+            $lang == "en" => "Military Speak",
+            coalesce("Військові говорять"[$lang], "Військові говорять")
+          ),
+          select(
+            $lang == "en" => "Unknown type",
+            coalesce("Невідомий тип"[$lang], "Невідомий тип")
+          )
         )
       },
       "link": select(
@@ -178,7 +190,7 @@ export const BLOG_LIST_QUERY = `{
           "href": preview.externalLink
         }
       ),
-      "title": preview.title,
+      "title": coalesce(preview.title[$lang], preview.title.en, preview.title.ua),
       "image": preview.mainImage.asset->url,
       "source": {
         "active": defined(preview.sourceLogo),
@@ -190,32 +202,46 @@ export const BLOG_LIST_QUERY = `{
 }
 `;
 
-export const POST_QUERY = (
-  slug
-) => `*[_type == "blogPost" && preview.slug.current == "${slug}"][0]{
+export const POST_QUERY = `
+*[_type == "blogPost" && preview.slug.current == $slug][0]{
   _id,
   isVisible,
   "hero": {
-    "title": preview.title,
+    "title": coalesce(preview.title[$lang], preview.title.ua),
     "type": {
       "slug": preview.type,
       "text": select(
-        preview.type == "news" => "Новини",
-        preview.type == "interview" => "Інтерв'ю",
-        preview.type == "special-project" => "Спецпроєкти",
-        preview.type == "military-speak" => "Військові говорять",
-        "Невідомий тип"
-      )
+          preview.type == "news" => select(
+            $lang == "en" => "News",
+            coalesce("Новини"[$lang], "Новини")
+          ),
+          preview.type == "interview" => select(
+            $lang == "en" => "Interview",
+            coalesce("Інтерв'ю"[$lang], "Інтерв'ю")
+          ),
+          preview.type == "special-project" => select(
+            $lang == "en" => "Special Projects",
+            coalesce("Спецпроєкти"[$lang], "Спецпроєкти")
+          ),
+          preview.type == "military-speak" => select(
+            $lang == "en" => "Military Speak",
+            coalesce("Військові говорять"[$lang], "Військові говорять")
+          ),
+          select(
+            $lang == "en" => "Unknown type",
+            coalesce("Невідомий тип"[$lang], "Невідомий тип")
+          )
+        )
     },
     "date": coalesce(preview.publishedAt, _createdAt),
     "image": {
       "active": defined(content.hero.image) && defined(content.hero.image.src),
       "src": content.hero.image.src.asset->url,
-      "alt": coalesce(content.hero.image.alt, content.hero.image.src.alt, "")
+      "alt": coalesce(content.hero.image.alt[$lang], content.hero.image.alt.ua, content.hero.image.src.alt, "")
     }
   },
   preview {
-    title,
+    "title": coalesce(title[$lang], title.ua),
     "slug": slug.current,
     linkType,
     externalLink,
@@ -229,13 +255,13 @@ export const POST_QUERY = (
       image {
         active,
         "src": src.asset->url,
-        "alt": coalesce(alt, src.alt, "")
+        "alt": coalesce(alt[$lang], alt.ua, src.alt, "")
       }
     },
     sections[] {
       _type == "richText" => {
         "type": "rich-text",
-        text
+        "text": coalesce(text[$lang], text.ua)
       },
       _type == "video" => {
         "type": "video",
@@ -245,25 +271,26 @@ export const POST_QUERY = (
         },
         text {
           active,
-          content
+          "content": coalesce(content[$lang], content.ua)
         }
       },
       _type == "quote" => {
         "type": "quote",
-        quote,
-        author
+        "quote": coalesce(quote[$lang], quote.ua),
+        "author": coalesce(author[$lang], author.ua)
       },
       _type == "slider" => {
         "type": "slider",
         "slides": slides[].asset->url,
         text {
           active,
-          content
+          "content": coalesce(content[$lang], content.ua)
         }
       }
     }
   }
-}`;
+} 
+`;
 
 export const ABOUT_QUERY = `*[_type == "aboutPage"][0]{
   "hero": {

@@ -11,13 +11,9 @@ export const revalidate = 60;
 
 export default async function page() {
   const dataSanity = await client.fetch(BLOG_LIST_QUERY, {
-    lang: 'ua'
+    lang: 'en'
   });
 
-  console.log(dataSanity);
-
-  console.log('Sanity data:', dataSanity);
-  
   return (
     <DataProvider data={dataSanity}>
       <BlogPage />

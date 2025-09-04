@@ -23,7 +23,7 @@ export default function HotNews({ data }) {
 
         <div className="list-right">
           {data?.list.slice(1, 3).map((item, index) => (
-            <SmallNewsItem item={item} key={index} />
+            <SmallNewsItem item={item} key={`hot-news-${index}`} />
           ))}
         </div>
       </div>

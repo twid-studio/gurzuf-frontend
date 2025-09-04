@@ -8,37 +8,63 @@ import HotNews from "./HotNews/HotNews";
 import { DataContext } from "@/lib/providers/DataProvider/context";
 import BlogList from "./BlogList/BlogList";
 import { anim, PageAnim } from "@/lib/helpers/anim";
+import { LocaleContext } from "@/lib/providers/LocaleProvider/LocaleProvider";
 
-const filters = [
-  {
-    title: "Всі",
-    slug: "all",
-  },
-  {
-    title: "Новини",
-    slug: "news",
-  },
-  {
-    title: "Інтервʼю",
-    slug: "interview",
-  },
-  {
-    title: "Спецпроєкти",
-    slug: "special-project",
-  },
-  {
-    title: "Військові говорять",
-    slug: "military-speak",
-  },
-];
+const filters = {
+  ua: [
+    {
+      title: "Всі",
+      slug: "all",
+    },
+    {
+      title: "Новини",
+      slug: "news",
+    },
+    {
+      title: "Інтервʼю",
+      slug: "interview",
+    },
+    {
+      title: "Спецпроєкти",
+      slug: "special-project",
+    },
+    {
+      title: "Військові говорять",
+      slug: "military-speak",
+    },
+  ],
+  en: [
+    {
+      title: "All",
+      slug: "all",
+    },
+    {
+      title: "News",
+      slug: "news",
+    },
+    {
+      title: "Interview",
+      slug: "interview",
+    },
+    {
+      title: "Special Projects",
+      slug: "special-project",
+    },
+    {
+      title: "Military Speak",
+      slug: "military-speak",
+    },
+  ],
+};
 
 export default function BlogPage() {
   const { data } = useContext(DataContext);
+  const { lang } = useContext(LocaleContext);
 
   const [activeFilters, setActiveFilters] = useState("all");
   const [blogList, setBlogList] = useState(data?.blogList);
   const [cachedBlogList, setCachedBlogList] = useState(null);
-  const [availableFilters, setAvailableFilters] = useState(filters);
+  const [availableFilters, setAvailableFilters] = useState(filters.ua);
 
   // Cache the original blog list when data is first loaded
   useEffect(() => {
@@ -58,7 +84,7 @@ export default function BlogPage() {
     );
 
     // Filter the filters array to only include types that have posts
-    const filteredFilters = filters.filter((filter) => {
+    const filteredFilters = filters[lang].filter((filter) => {
       // Always include "all" filter
       if (filter.slug === "all") return true;
       // Include filter only if there are posts of this type
@@ -66,7 +92,7 @@ export default function BlogPage() {
     });
 
     setAvailableFilters(filteredFilters);
-  }, [cachedBlogList]);
+  }, [cachedBlogList, lang]);
 
   // Handle filtering using cached data
   useEffect(() => {
@@ -84,14 +110,14 @@ export default function BlogPage() {
       };
       setBlogList(filteredList);
     }
-  }, [cachedBlogList, activeFilters]);
+  }, [cachedBlogList, activeFilters, lang]);
 
   return (
     <motion.main className="blog" {...anim(PageAnim)}>
-      <Hero 
-        filtersData={availableFilters} 
-        activeFilters={activeFilters} 
-        setActiveFilters={setActiveFilters} 
+      <Hero
+        filtersData={availableFilters}
+        activeFilters={activeFilters}
+        setActiveFilters={setActiveFilters}
       />
 
       <AnimatePresence mode="wait" initial={false}>

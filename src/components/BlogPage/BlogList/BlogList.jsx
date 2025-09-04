@@ -1,6 +1,6 @@
 "use client";
 import { BlogLink } from "@/utils/BlogLink/BlogLink";
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, useContext } from "react";
 import { Button } from "@/utils/Button/Button";
 
 import "./BlogList.scss";
@@ -8,8 +8,10 @@ import useIsDesktop from "@/lib/helpers/useIsDesktop";
 import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
 import { anim, fadeIn, PageAnim } from "@/lib/helpers/anim";
+import { LocaleContext } from "@/lib/providers/LocaleProvider/LocaleProvider";
 
 export default function BlogList({ data, activeFilters }) {
+  const { lang } = useContext(LocaleContext);
   const isDesktop = useIsDesktop();
   const itemsPerLoad = isDesktop ? 15 : 10;
 
@@ -71,7 +73,7 @@ export default function BlogList({ data, activeFilters }) {
             className="button button--black blog-list__load-more"
             onClick={handleLoadMore}
           >
-            <h3>Більше новин</h3>
+            <h3>{lang === "ua" ? "Більше новин" : "Load more"}</h3>
             <div className="button__arrow">
               <svg
                 viewBox="0 0 18 17"

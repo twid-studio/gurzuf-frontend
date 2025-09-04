@@ -8,8 +8,8 @@ import { Content } from "../Content/Content";
 import MenuWrapper from "./Menu/MenuWrapper";
 import { LinkAnim } from "../LinkAnim/LinkAnim";
 import { usePathname } from "next/navigation";
-import { Button } from "../Button/Button";
 import { LocaleContext } from "@/lib/providers/LocaleProvider/LocaleProvider";
+import { Button } from "../Button/Button";
 
 const links = {
   ua: [
@@ -55,12 +55,13 @@ export default function Header() {
   const { lang } = useContext(LocaleContext);
   const linksData = links[lang] || links.ua;
   const isHomePage = path === "/" || path === "/en";
+  const langSwitchLink = path.startsWith("/en") ? path.replace("/en", "") || "/" : `/en${path}`;
 
   return (
     <>
       <header className="header">
         <Link
-          href={isHomePage ? "#hero" : "/"}
+          href={isHomePage ? "#hero" : lang === "ua" ? "/" : "/en"}
           className="logos-wrapper"
           {...(isHomePage ? { "data-scroll-anchor": "#hero" } : {})}
         >
@@ -77,6 +78,11 @@ export default function Header() {
           <Logo className="header__logo" data-not-desktop />
         </Link>
         <div className="header__links" data-only-desktop--flex>
+          <Button
+            text={lang === "ua" ? "En" : "Ua"} 
+            href={langSwitchLink}
+            className="header__button"
+          />
           {linksData.map((link, index) => (
             // <Link key={index} href={link.href} className="header__link bold">
             //   {link.text}
