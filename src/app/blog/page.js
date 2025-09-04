@@ -11,10 +11,10 @@ import { BLOG_LIST_QUERY } from '@/lib/sanity/queries'
 export const revalidate = 60;
 
 export default async function page() {
-  const dataSanity = await client.fetch(BLOG_LIST_QUERY);
+  // const dataSanity = await client.fetch(BLOG_LIST_QUERY);
 
   return (
-    <DataProvider data={dataSanity}>
+    <DataProvider data={data}>
       <BlogPage />
       <Contact />
     </DataProvider>

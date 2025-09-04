@@ -1,560 +1,192 @@
 {
-  "hero": {
-    "title": "Блог Gurzuf Defence",
-    "text": "Історії з фронту, інженерні прориви, голоси військових.",
-    "filters": [
-      {
-        "title": "Всі",
-        "slug": "all"
-      },
-      {
-        "title": "Новини",
-        "slug": "news"
-      },
-      {
-        "title": "Інтервʼю",
-        "slug": "interview"
-      },
-      {
-        "title": "Спецпроєкти",
-        "slug": "special-project"
-      },
-      {
-        "title": "Військові говорять",
-        "slug": "military-speak"
-      }
-    ]
-  },
-  "blogList": {
-    "titleHotNews": "Гаряче",
-    "list": [
-      {
-        "type": {
-          "slug": "military-speak",
-          "text": "Військові говорять"
-        },
-        "link": {
-          "type": "slug",
-          "slug": "azov-special-forces"
-        },
-        "title": "ГАРЯЧІ - Азовські спецпризначенці зачищають міську забудову від окупантів. Архівні кадри Торецького напрямку",
-        "image": "/assets/blog/photo-2.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-2.jpg"
-        },
-        "date": "2025-01-15T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "interview",
-          "text": "Інтервʼю"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
-        },
-        "title": "ГАРЯЧІ - Інтервʼю з командиром Heavy Shot: як працює найточніша зброя у Вовчанську",
-        "image": "/assets/blog/photo-3.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-1.jpg"
-        },
-        "date": "2024-08-25T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "special-project",
-          "text": "Спецпроєкт"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
-        },
-        "title": "ГАРЯЧІ - Спецпроєкт: Воїни \"Хартії\" 13-ї бригади оперативного призначення влаштовують ворогові пекло",
-        "image": "/assets/blog/photo-1.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-3.jpg"
-        },
-        "date": "2025-10-05T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "news",
-          "text": "Новина"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
-        },
-        "title": "Останні новини з Торецького напрямку: успішна операція зачистки",
-        "image": "/assets/blog/photo-2.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-2.jpg"
-        },
-        "date": "2024-01-15T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "interview",
-          "text": "Інтервʼю"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
-        },
-        "title": "Розмова з ветераном: досвід Heavy Shot операцій у міських умовах",
-        "image": "/assets/blog/photo-3.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-1.jpg"
-        },
-        "date": "2025-08-25T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "special-project",
-          "text": "Спецпроєкт"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
-        },
-        "title": "Документальний проєкт: День з життя бійців Національної гвардії",
-        "image": "/assets/blog/photo-1.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-3.jpg"
-        },
-        "date": "2025-10-05T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "military-speak",
-          "text": "Військові говорять"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
-        },
-        "title": "Свідчення бійця: як Азовські спецпризначенці звільняють населені пункти",
-        "image": "/assets/blog/photo-2.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-2.jpg"
-        },
-        "date": "2025-01-15T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "news",
-          "text": "Новина"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
-        },
-        "title": "Новини з фронту: ефективність Heavy Shot у Вовчанську підтверджена",
-        "image": "/assets/blog/photo-3.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-1.jpg"
-        },
-        "date": "2025-08-25T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "interview",
-          "text": "Інтервʼю"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
-        },
-        "title": "Ексклюзивне інтервʼю: командир \"Хартії\" розповідає про тактику підрозділу",
-        "image": "/assets/blog/photo-1.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-3.jpg"
-        },
-        "date": "2025-10-05T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "special-project",
-          "text": "Спецпроєкт"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
-        },
-        "title": "Спецпроєкт: Інженерні рішення на передовій - як технології змінюють війну",
-        "image": "/assets/blog/photo-2.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-2.jpg"
-        },
-        "date": "2024-01-15T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "military-speak",
-          "text": "Військові говорять"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
-        },
-        "title": "Голоси з фронту: Heavy Shot оператори діляться досвідом бойових дій",
-        "image": "/assets/blog/photo-3.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-1.jpg"
-        },
-        "date": "2024-08-25T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "news",
-          "text": "Новина"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
-        },
-        "title": "Бойові зведення: успіхи 13-ї бригади у протидії російській агресії",
-        "image": "/assets/blog/photo-1.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-3.jpg"
-        },
-        "date": "2025-10-05T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "interview",
-          "text": "Інтервʼю"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
-        },
-        "title": "Розмова з героєм: історія азовського спецпризначенця з Торецького напрямку",
-        "image": "/assets/blog/photo-2.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-2.jpg"
-        },
-        "date": "2025-01-15T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "special-project",
-          "text": "Спецпроєкт"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
-        },
-        "title": "Мультимедійний проєкт: Вовчанськ - місто, що не здається",
-        "image": "/assets/blog/photo-3.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-1.jpg"
-        },
-        "date": "2025-08-25T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "military-speak",
-          "text": "Військові говорять"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
-        },
-        "title": "Особисті історії: воїни \"Хартії\" про мотивацію та братерство",
-        "image": "/assets/blog/photo-1.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-3.jpg"
-        },
-        "date": "2025-10-05T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "news",
-          "text": "Новина"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
-        },
-        "title": "Термінові новини: результати операцій спецпризначенців оприлюднено",
-        "image": "/assets/blog/photo-2.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-2.jpg"
-        },
-        "date": "2024-01-15T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "interview",
-          "text": "Інтервʼю"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
-        },
-        "title": "Глибоке інтервʼю: військовий інженер про інновації у Heavy Shot системах",
-        "image": "/assets/blog/photo-3.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-1.jpg"
-        },
-        "date": "2025-08-25T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "special-project",
-          "text": "Спецпроєкт"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
-        },
-        "title": "Великий спецпроєкт: Національна гвардія - щит України",
-        "image": "/assets/blog/photo-1.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-3.jpg"
-        },
-        "date": "2025-10-05T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "military-speak",
-          "text": "Військові говорять"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
-        },
-        "title": "Прямі свідчення: бійці розповідають про зачистку міських кварталів",
-        "image": "/assets/blog/photo-2.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-2.jpg"
-        },
-        "date": "2025-01-15T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "news",
-          "text": "Новина"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
-        },
-        "title": "Оперативні новини: Heavy Shot демонструє високу ефективність в Украйні",
-        "image": "/assets/blog/photo-3.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-1.jpg"
-        },
-        "date": "2024-08-25T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "interview",
-          "text": "Інтервʼю"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
-        },
-        "title": "Ексклюзив: заступник командира \"Хартії\" про стратегію та тактику",
-        "image": "/assets/blog/photo-1.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-3.jpg"
-        },
-        "date": "2025-10-05T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "special-project",
-          "text": "Спецпроєкт"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
-        },
-        "title": "Довгострокавий проєкт: Торецький напрямок - хроніка звільнення",
-        "image": "/assets/blog/photo-2.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-2.jpg"
-        },
-        "date": "2024-01-15T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "military-speak",
-          "text": "Військові говорять"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
-        },
-        "title": "Відверті розповіді: що говорять бійці про Heavy Shot у реальному бою",
-        "image": "/assets/blog/photo-3.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-1.jpg"
-        },
-        "date": "2025-08-25T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "news",
-          "text": "Новина"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
-        },
-        "title": "Свіжі новини: 13-а бригада отримала нові завдання на східному фронті",
-        "image": "/assets/blog/photo-1.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-3.jpg"
-        },
-        "date": "2025-10-05T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "interview",
-          "text": "Інтервʼю"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
-        },
-        "title": "Серія інтервʼю: азовські спецпризначенці про психологію бойових дій",
-        "image": "/assets/blog/photo-2.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-2.jpg"
-        },
-        "date": "2025-01-15T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "special-project",
-          "text": "Спецпроєкт"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
-        },
-        "title": "Інтерактивний спецпроєкт: Вовчанськ 360° - віртуальна екскурсія полем бою",
-        "image": "/assets/blog/photo-3.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-1.jpg"
-        },
-        "date": "2024-08-25T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "military-speak",
-          "text": "Військові говорять"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
-        },
-        "title": "Голоси героїв: воїни \"Хартії\" про товариство та відданість службі",
-        "image": "/assets/blog/photo-1.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-3.jpg"
-        },
-        "date": "2025-10-05T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "news",
-          "text": "Новина"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
-        },
-        "title": "Актуальні новини: спецоперації продовжуються у всіх активних секторах",
-        "image": "/assets/blog/photo-2.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-2.jpg"
-        },
-        "date": "2024-01-15T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "interview",
-          "text": "Інтервʼю"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
-        },
-        "title": "Детальне інтервʼю: військовий аналітик про ефективність Heavy Shot",
-        "image": "/assets/blog/photo-3.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-1.jpg"
-        },
-        "date": "2025-08-25T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "special-project",
-          "text": "Спецпроєкт"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
-        },
-        "title": "Масштабний проєкт: Національна гвардія - від створення до сьогодні",
-        "image": "/assets/blog/photo-1.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-3.jpg"
-        },
-        "date": "2025-10-05T12:00:00Z"
-      },
-      {
-        "type": {
-          "slug": "military-speak",
-          "text": "Військові говорять"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
-        },
-        "title": "Автентичні розповіді: спецпризначенці діляться реальним бойовим досвідом",
-        "image": "/assets/blog/photo-2.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-2.jpg"
-        },
-        "date": "2025-01-15T12:00:00Z"
-      }
-    ]
-  }
+    "blogList": {
+        "list": [
+            {
+                "_id": "e6251940-842c-4402-9daa-b9ffabc9cb30",
+                "date": null,
+                "image": "https://cdn.sanity.io/images/36epaiqm/production/73b7a510e72a4802733c60a92970b6aba983bdb7-459x258.png",
+                "link": {
+                    "href": "https://tsn.ua/ato/fedorov-pokazav-nadsuchasnyy-ukrayinskyy-dron-bomber-heavy-shot-de-yoho-chekaty-2900672.html",
+                    "type": "href"
+                },
+                "source": {
+                    "active": true,
+                    "image": "https://cdn.sanity.io/images/36epaiqm/production/c89aa43c93b36e4a1823dd871697ba6dc7a0aaa1-44x44.png"
+                },
+                "title": "Незабаром на фронті з’явиться новий потужний дрон-бомбардувальник Heavy Shot",
+                "type": {
+                    "slug": "news",
+                    "text": "Новини"
+                }
+            },
+            {
+                "_id": "bef24106-f95b-422d-b0c7-e25f6b67bd9a",
+                "date": null,
+                "image": "https://cdn.sanity.io/images/36epaiqm/production/2c44ef0a30da53ecd2032c3d90a54b8eee00fb65-459x258.webp",
+                "link": {
+                    "href": "https://www.youtube.com/watch?v=ay0JTyCw_O4",
+                    "type": "href"
+                },
+                "source": {
+                    "active": true,
+                    "image": "https://cdn.sanity.io/images/36epaiqm/production/ff56a44ee099a7aabafedce481c0ae89132dd181-176x176.webp"
+                },
+                "title": "Врятований завдяки дрону. Ця історія — не з фільму, це реальність і це 4 батальйон \"Сила Свободи”",
+                "type": {
+                    "slug": "military-speak",
+                    "text": "Військові говорять"
+                }
+            },
+            {
+                "_id": "bb1d4c8a-1033-4c0b-91fe-16387fcd9708",
+                "date": null,
+                "image": "https://cdn.sanity.io/images/36epaiqm/production/486e20e4a2375de46d4998f07c6b607f95d8ce80-459x258.webp",
+                "link": {
+                    "href": "https://www.instagram.com/reel/DHLpL7toHwQ/?igsh=MTl5NzEwenUxdjZydg==",
+                    "type": "href"
+                },
+                "source": {
+                    "active": true,
+                    "image": "https://cdn.sanity.io/images/36epaiqm/production/5e634f03ed8441c476bce96440b4e5ed66f1f37f-176x176.webp"
+                },
+                "title": "Екіпаж «Шкодника», який керує «Бабою Ягою», ударним дроном Heavy Shot, щоночі розносить ворожі укріплення",
+                "type": {
+                    "slug": "news",
+                    "text": "Новини"
+                }
+            },
+            {
+                "_id": "507609d9-f458-4a61-b5b0-debb11e80e10",
+                "date": null,
+                "image": "https://cdn.sanity.io/images/36epaiqm/production/0318b93705f59de041a974fd1f57dea8537434bb-459x258.webp",
+                "link": {
+                    "href": "https://youtu.be/PeP-2uzIFZs?si=QpDLedRowOJXVE3X",
+                    "type": "href"
+                },
+                "source": {
+                    "active": true,
+                    "image": "https://cdn.sanity.io/images/36epaiqm/production/5e634f03ed8441c476bce96440b4e5ed66f1f37f-176x176.webp"
+                },
+                "title": "«В окоп попали. В луночку, туди!» - нічне полювання дронарів 65 ОМБр",
+                "type": {
+                    "slug": "news",
+                    "text": "Новини"
+                }
+            },
+            {
+                "_id": "b4f1891a-82de-419e-bd18-b779151d1b76",
+                "date": null,
+                "image": "https://cdn.sanity.io/images/36epaiqm/production/ae9e012c5468cb49b24b44e6a6e594552533ec7e-459x258.webp",
+                "link": {
+                    "href": "https://youtu.be/AXQy9In3IIY?si=vZtY9zP4LDPbpwWq",
+                    "type": "href"
+                },
+                "source": {
+                    "active": true,
+                    "image": "https://cdn.sanity.io/images/36epaiqm/production/5b0da12d8ca40cd8da04b45f8b2ed68449a84900-176x176.webp"
+                },
+                "title": "Дистанційне мінування дроном \"БАБА ЯГА\"! Батальйон сил підтримки Бригади \"Рубіж”",
+                "type": {
+                    "slug": "military-speak",
+                    "text": "Військові говорять"
+                }
+            },
+            {
+                "_id": "0dc709e6-4dde-4a50-9cfe-ef2993d9bb3a",
+                "date": null,
+                "image": "https://cdn.sanity.io/images/36epaiqm/production/798eb678b29c1571173685f85e74305db9e536c2-459x258.webp",
+                "link": {
+                    "href": "https://youtu.be/oDPrbaeiKes?si=1ao2PPe-kHq6r-D4 ",
+                    "type": "href"
+                },
+                "source": {
+                    "active": true,
+                    "image": "https://cdn.sanity.io/images/36epaiqm/production/5c9958cea5816356dc0e620a474f4b985b609697-176x176.webp"
+                },
+                "title": "«Нищить техніку, позиції й живу силу»: ударний БПЛА показали військовослужбовці 117-ї бригади ТРО",
+                "type": {
+                    "slug": "news",
+                    "text": "Новини"
+                }
+            },
+            {
+                "_id": "d0c134ec-3407-47c3-b6f8-711c1d252b9b",
+                "date": null,
+                "image": "https://cdn.sanity.io/images/36epaiqm/production/d1c25f042d4184af2e9309f633da43a1345225c3-459x258.webp",
+                "link": {
+                    "href": "https://youtu.be/l05pO7bI5I4?si=4jfzTaW0k--Z-9tk ",
+                    "type": "href"
+                },
+                "source": {
+                    "active": true,
+                    "image": "https://cdn.sanity.io/images/36epaiqm/production/e32ad882bf3a5e4ab051b51e9435391817d432a8-176x176.webp"
+                },
+                "title": "Важкий БПЛА HEAVY SHOT громить росіян в ТОРЕЦЬКУ. Воює \"ЛЮТЬ\"",
+                "type": {
+                    "slug": "news",
+                    "text": "Новини"
+                }
+            },
+            {
+                "_id": "fe0660a8-ad91-452b-a676-32440a1eab5d",
+                "date": null,
+                "image": "https://cdn.sanity.io/images/36epaiqm/production/01befb70288b90955feeebbf1670bcc04a5d4214-459x258.webp",
+                "link": {
+                    "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76",
+                    "type": "href"
+                },
+                "source": {
+                    "active": true,
+                    "image": "https://cdn.sanity.io/images/36epaiqm/production/f5adc8170864e6c54794f89ba213976edaca8555-252x252.jpg"
+                },
+                "title": "Heavy Shot у Вовчанську. Ворогу нема де сховатись",
+                "type": {
+                    "slug": "military-speak",
+                    "text": "Військові говорять"
+                }
+            },
+            {
+                "_id": "f9edcd72-3f03-43bf-9bab-f80ca04c3776",
+                "date": null,
+                "image": "https://cdn.sanity.io/images/36epaiqm/production/df28a76ac4b8261dae8746cb1a844a0da9967050-460x258.webp",
+                "link": {
+                    "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY",
+                    "type": "href"
+                },
+                "source": {
+                    "active": true,
+                    "image": "https://cdn.sanity.io/images/36epaiqm/production/556f072250445e6dc2f7262c4ff23aea5fe8fd07-252x252.jpg"
+                },
+                "title": "Азовські спецпризначенці зачищають міську забудову від окупантів. Архівні кадри Торецького напрямку",
+                "type": {
+                    "slug": "military-speak",
+                    "text": "Військові говорять"
+                }
+            },
+            {
+                "_id": "532ac48f-d41b-4a8d-8b8d-05774489c4e9",
+                "date": null,
+                "image": "https://cdn.sanity.io/images/36epaiqm/production/33eef5635dd260e059dc565a8f156161855fe3fe-459x258.webp",
+                "link": {
+                    "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW",
+                    "type": "href"
+                },
+                "source": {
+                    "active": true,
+                    "image": "https://cdn.sanity.io/images/36epaiqm/production/eb1afb8178214fe0f9a51d1f4bcc3b3934a5a5a2-252x252.jpg"
+                },
+                "title": "Воїни “Хартії” 13-ї бригади оперативного призначення Національної гвардії України влаштовують ворогові пекло",
+                "type": {
+                    "slug": "news",
+                    "text": "Новини"
+                }
+            }
+        ],
+        "titleHotNews": "Гаряче"
+    },
+    "hero": {
+        "filters": null,
+        "text": "Історії з фронту, інженерні прориви, голоси військових.",
+        "title": "Блог Gurzuf Defence"
+    }
 }
