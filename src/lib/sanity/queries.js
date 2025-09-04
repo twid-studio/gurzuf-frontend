@@ -1,10 +1,11 @@
-export const HOME_QUERY = `*[_type == "homePage" && _id == $pageId][0]{
+export const HOME_QUERY = `
+*[_type == "homePage" && _id == "homepage"][0]{
   "hero": {
     "background": hero.background.asset->url,
-    "title": hero.title,
-    "text": hero.text,
+    "title": coalesce(hero.title[$lang], hero.title.ua),
+    "text": coalesce(hero.text[$lang], hero.text.ua),
     "button": {
-      "text": hero.button.text,
+      "text": coalesce(hero.button.text[$lang], hero.button.text.ua),
       "href": hero.button.href
     },
     "video": {
@@ -12,77 +13,88 @@ export const HOME_QUERY = `*[_type == "homePage" && _id == $pageId][0]{
       "preview": hero.video.preview.asset->url
     }
   },
+  
   "about": {
     "isVisible": about.isVisible,
     "logos": about.logos[]{
       "src": src.asset->url,
-      "alt": alt
+      "alt": coalesce(alt[$lang], alt.ua)
     },
-    "title": about.title,
-    "text": about.text,
-    "list": about.list
+    "title": coalesce(about.title[$lang], about.title.ua),
+    "text": coalesce(about.text[$lang], about.text.ua),
+    "list": coalesce(about.list[][$lang], about.list[][].ua)
   },
-  "products": {
+  
+"products": {
     "isVisible": products.isVisible,
-    "list": products.list[]{
-      "name": name,
-      "description": description,
+    "list": products.list[]->{
+      // Get only preview group and slug from productDetailsPage
+      "name": coalesce(preview.name[$lang], preview.name.ua),
+      "description": coalesce(preview.description[$lang], preview.description.ua),
       "slug": slug.current,
-      "image": image.asset->url,
+      "image": preview.image.asset->url,
       "button": {
-        "text": button.text,
-        "href": button.href
+        "text": coalesce(preview.buttonText[$lang], preview.buttonText.ua),
+        "href": select(
+          // Use the product's slug for the button href
+          defined(slug.current) => "/products/" + slug.current,
+          "#"
+        )
       },
-      "characteristics": characteristics[]{
-        "title": title,
-        "value": value
+      "characteristics": preview.characteristics[]{
+        "title": coalesce(title[$lang], title.ua),
+        "value": coalesce(value[$lang], value.ua)
       }
     }
   },
+    
   "privilages": {
     "isVisible": privilages.isVisible,
-    "title": privilages.title,
+    "title": coalesce(privilages.title[$lang], privilages.title.ua),
     "list": privilages.list[]{
-      "title": title,
-      "text": text
+      "title": coalesce(title[$lang], title.ua),
+      "text": coalesce(text[$lang], text.ua)
     }
   },
+  
   "operations": {
     "isVisible": operations.isVisible,
-    "title": operations.title,
-    "text": operations.text,
+    "title": coalesce(operations.title[$lang], operations.title.ua),
+    "text": coalesce(operations.text[$lang], operations.text.ua),
     "list": operations.list[]{
-      "text": text,
+      "text": coalesce(text[$lang], text.ua),
       "content": content.asset->url,
-      "characteristics": characteristics
+      "characteristics": coalesce(characteristics[$lang], characteristics.ua)
     }
   },
+  
   "quote": {
     "isVisible": quote.isVisible,
-    "text": quote.text,
+    "text": coalesce(quote.text[$lang], quote.text.ua),
     "author": {
-      "name": quote.author.name,
-      "position": quote.author.position,
+      "name": coalesce(quote.author.name[$lang], quote.author.name.ua),
+      "position": coalesce(quote.author.position[$lang], quote.author.position.ua),
       "image": quote.author.image.asset->url
     },
     "button": {
       "active": quote.button.active,
-      "text": quote.button.text,
+      "text": coalesce(quote.button.text[$lang], quote.button.text.ua),
       "href": quote.button.href
     }
   },
+  
   "news": {
     "isVisible": news.isVisible,
-    "title": news.title,
+    "title": coalesce(news.title[$lang], news.title.ua),
     "list": news.list[]-> {
       "type": {
         "slug": preview.type,
         "text": select(
-          preview.type == "news" => "Новини",
-          preview.type == "interview" => "Інтерв'ю",
-          preview.type == "special-project" => "Спецпроєкти",
-          preview.type == "military-speak" => "Військові говорять",
-          "Невідомий тип"
+          preview.type == "news" => coalesce("Новини"[$lang], "Новини"),
+          preview.type == "interview" => coalesce("Інтерв'ю"[$lang], "Інтерв'ю"),
+          preview.type == "special-project" => coalesce("Спецпроєкти"[$lang], "Спецпроєкти"),
+          preview.type == "military-speak" => coalesce("Військові говорять"[$lang], "Військові говорять"),
+          coalesce("Невідомий тип"[$lang], "Невідомий тип")
         )
       },
       "link": select(
@@ -99,7 +111,7 @@ export const HOME_QUERY = `*[_type == "homePage" && _id == $pageId][0]{
           "slug": preview.slug.current
         }
       ),
-      "title": preview.title,
+      "title": coalesce(preview.title[$lang], preview.title.ua),
       "image": preview.mainImage.asset->url,
       "source": {
         "active": defined(preview.sourceLogo),
@@ -109,21 +121,23 @@ export const HOME_QUERY = `*[_type == "homePage" && _id == $pageId][0]{
     },
     "button": {
       "active": news.button.active,
-      "text": news.button.text,
+      "text": coalesce(news.button.text[$lang], news.button.text.ua),
       "href": news.button.href
     }
   },
+  
   "reviews": {
     "isVisible": reviews.isVisible,
-    "title": reviews.title,
+    "title": coalesce(reviews.title[$lang], reviews.title.ua),
     "list": reviews.list[]{
-      "text": text,
+      "text": coalesce(text[$lang], text.ua),
       "author": {
-        "position": author.position
+        "position": coalesce(author.position[$lang], author.position.ua)
       }
     }
   }
-}`;
+}
+`;
 
 export const PRIVACY_POLICY_QUERY = `*[_type == "privacyPolicyPage"][0]{
   title,

@@ -1,76 +1,185 @@
 {
-  "hero": {
-    "background": "/assets/home/hero-bg.webp",
-    "title": ["Бойові дрони", "для перемоги України"],
-    "text": "Gurzuf Defence виробляє модульні ударні БПЛА, які точково б’ють техніку ворога й бережуть життя наших пілотів. Працюємо, доки не звільнимо всю країну — від Сумщини до Криму.",
-    "button": {
-      "text": "Озброїти підрозділ",
-      "href": "#contact"
-    },
-    "video": {
-      "src": "/assets/home/showreel.mp4",
-      "preview": "/assets/home/showreel-preview.mp4"
-    }
-  },
   "about": {
-    "logos": [
-      {
-        "src": "/assets/home/logos/logo-1.png",
-        "alt": "Logo 1"
-      },
-      {
-        "src": "/assets/home/logos/logo-2.png",
-        "alt": "Logo 2"
-      },
-      {
-        "src": "/assets/home/logos/logo-3.png",
-        "alt": "Logo 3"
-      },
-      {
-        "src": "/assets/home/logos/logo-4.png",
-        "alt": "Logo 4"
-      },
-      {
-        "src": "/assets/home/logos/logo-5.png",
-        "alt": "Logo 5"
-      },
-      {
-        "src": "/assets/home/logos/logo-6.png",
-        "alt": "Logo 6"
-      },
-      {
-        "src": "/assets/home/logos/logo-7.png",
-        "alt": "Logo 7"
-      },
-      {
-        "src": "/assets/home/logos/logo-8.png",
-        "alt": "Logo 8"
-      },
-      {
-        "src": "/assets/home/logos/logo-9.png",
-        "alt": "Logo 9"
-      }
-    ],
-    "title": "Нам довіряють найскладніші місії",
-    "text": "Від розвідки до рейдів за лінією фронту — дрони Gurzuf використовують підрозділи, які працюють там, де потрібна точність і витривалість техніки. Понад 20 бойових частин уже злітали з нашими безпілотниками, серед них:",
+    "isVisible": true,
     "list": [
       "Сили спеціальних операцій",
       "Десантно-штурмові війська",
       "Розвідувальні підрозділи",
       "Підрозділи ТРО",
       "Відомі добровольчі формування"
-    ]
+    ],
+    "logos": [
+      {
+        "alt": null,
+        "src": "https://cdn.sanity.io/images/36epaiqm/production/849d027b022e7fefb52087d50550ba9af46f2753-111x132.png"
+      },
+      {
+        "alt": null,
+        "src": "https://cdn.sanity.io/images/36epaiqm/production/46fa6a2b6520c53c005b7c94d4354a304ef2f1e5-133x132.png"
+      },
+      {
+        "alt": null,
+        "src": "https://cdn.sanity.io/images/36epaiqm/production/565e5dec48a3535e3e95e77b7b4a4b5b9a04e80a-94x132.png"
+      },
+      {
+        "alt": null,
+        "src": "https://cdn.sanity.io/images/36epaiqm/production/dc8de4b23846234433e511fc6d992a55f620e814-133x132.png"
+      },
+      {
+        "alt": null,
+        "src": "https://cdn.sanity.io/images/36epaiqm/production/206d0c31636dfcb50c7b717d09b3a42766efa68b-114x132.png"
+      },
+      {
+        "alt": null,
+        "src": "https://cdn.sanity.io/images/36epaiqm/production/65073120d3327e6f14bfc05538a26fcf93918c14-112x132.png"
+      },
+      {
+        "alt": null,
+        "src": "https://cdn.sanity.io/images/36epaiqm/production/11e931c9e88f75a5eb50fdd8c974ee52f83fadec-115x132.png"
+      },
+      {
+        "alt": null,
+        "src": "https://cdn.sanity.io/images/36epaiqm/production/f2af69c973bea948dbdf55856be031c4798ae393-118x132.png"
+      },
+      {
+        "alt": null,
+        "src": "https://cdn.sanity.io/images/36epaiqm/production/685a56ea028e5bcba6c1e403555375d6b65fc229-114x132.png"
+      }
+    ],
+    "text": "Від розвідки до рейдів за лінією фронту — безпілотні системи Gurzuf Defence використовують підрозділи, які працюють там, де потрібна точність і витривалість техніки. Понад 160 бойових частин користуються лінійкою продуктів сімейства Heavy Shot, серед них:",
+    "title": "Нам довіряють найскладніші місії"
   },
-  "products": {
+  "hero": {
+    "background": "https://cdn.sanity.io/images/36epaiqm/production/4d39bed604b4ee3307ef612694aa2981ac426e41-1440x820.webp",
+    "button": {
+      "href": "#contact",
+      "text": "Озброїти підрозділ"
+    },
+    "text": "Gurzuf Defence виробляє багатоцільові модульні безпілотні системи, які точково б’ють техніку ворога й бережуть життя наших захисників. Працюємо, доки не звільнимо всю країну — від Сумщини до Криму.",
+    "title": "Модульні безпілотні | системи",
+    "video": {
+      "preview": "https://cdn.sanity.io/files/36epaiqm/production/43a50f31f6d728b0701dc59fd7dd0ccb3d1155b9.mp4",
+      "src": "https://cdn.sanity.io/files/36epaiqm/production/610aa4e21d642a141c559bdeede8a54f70a20462.mp4"
+    }
+  },
+  "news": {
+    "button": {
+      "active": true,
+      "href": "/blog",
+      "text": "Більше новин"
+    },
+    "isVisible": true,
     "list": [
       {
-        "name": "Heavy Shot",
-        "description": "Ударний дрон нового покоління, який несе до 40 кг корисного вантажу й працює на відстані 20 км від оператора. Надійність, перевірена боєм.",
-        "slug": "heavy-shot",
-        "image": "/assets/home/products/heavy-shot.webp",
+        "date": null,
+        "image": "https://cdn.sanity.io/images/36epaiqm/production/73b7a510e72a4802733c60a92970b6aba983bdb7-459x258.png",
+        "link": {
+          "href": "https://tsn.ua/ato/fedorov-pokazav-nadsuchasnyy-ukrayinskyy-dron-bomber-heavy-shot-de-yoho-chekaty-2900672.html",
+          "type": "href"
+        },
+        "source": {
+          "active": true,
+          "image": "https://cdn.sanity.io/images/36epaiqm/production/c89aa43c93b36e4a1823dd871697ba6dc7a0aaa1-44x44.png"
+        },
+        "title": "Незабаром на фронті з’явиться новий потужний дрон-бомбардувальник Heavy Shot",
+        "type": {
+          "slug": "news",
+          "text": "Новини"
+        }
+      },
+      {
+        "date": null,
+        "image": "https://cdn.sanity.io/images/36epaiqm/production/2c44ef0a30da53ecd2032c3d90a54b8eee00fb65-459x258.webp",
+        "link": {
+          "href": "https://www.youtube.com/watch?v=ay0JTyCw_O4",
+          "type": "href"
+        },
+        "source": {
+          "active": true,
+          "image": "https://cdn.sanity.io/images/36epaiqm/production/ff56a44ee099a7aabafedce481c0ae89132dd181-176x176.webp"
+        },
+        "title": "Врятований завдяки дрону. Ця історія — не з фільму, це реальність і це 4 батальйон \"Сила Свободи”",
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        }
+      },
+      {
+        "date": null,
+        "image": "https://cdn.sanity.io/images/36epaiqm/production/01befb70288b90955feeebbf1670bcc04a5d4214-459x258.webp",
+        "link": {
+          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76",
+          "type": "href"
+        },
+        "source": {
+          "active": true,
+          "image": "https://cdn.sanity.io/images/36epaiqm/production/f5adc8170864e6c54794f89ba213976edaca8555-252x252.jpg"
+        },
+        "title": "Heavy Shot у Вовчанську. Ворогу нема де сховатись",
+        "type": {
+          "slug": "military-speak",
+          "text": "Військові говорять"
+        }
+      }
+    ],
+    "title": "Що нового на передовій Gurzuf Defence"
+  },
+  "operations": {
+    "isVisible": false,
+    "list": [
+      {
+        "characteristics": null,
+        "content": "https://cdn.sanity.io/files/36epaiqm/production/2db67eca81b019364fd79c180cad3025ea2cf0b2.mp4",
+        "text": "Розвідка перед ударом"
+      },
+      {
+        "characteristics": null,
+        "content": "https://cdn.sanity.io/files/36epaiqm/production/4d01ff82d41577739347817c55e3feb3a9908fbb.mp4",
+        "text": "Скидання бомб з точністю до метра"
+      },
+      {
+        "characteristics": null,
+        "content": "https://cdn.sanity.io/files/36epaiqm/production/9f1b32ef4be4739cfbd0fbcb41d57d79f5128fe8.mp4",
+        "text": "Мінування"
+      },
+      {
+        "characteristics": null,
+        "content": "https://cdn.sanity.io/files/36epaiqm/production/1e49da700511863f64fc5b6d45c1c7a01a73ca3d.mp4",
+        "text": "Виконання завдань в умовах стійкого подавлення зв’язку та відсутності GPS"
+      }
+    ],
+    "text": "Наші безпілотні системи адаптуються до будь-яких бойових завдань: від швидкої розвідки до точкових ударів далеко за лінією фронту. Працюємо на землі, над водою і в складному рельєфі.",
+    "title": "Типи операцій"
+  },
+  "privilages": {
+    "isVisible": true,
+    "list": [
+      {
+        "text": "Швидка заміна модулів дозволяє адаптувати дрон до конкретного типу боєприпасів, навісного обладнання чи задачі.",
+        "title": "Гнучка модульна архітектура"
+      },
+      {
+        "text": "Корпус і електроніка витримують вологу, пил, РЕБ-завади й пряму вогневу атаку. Найдовша серія місій одного виробу – 1500 бойових вильотів.",
+        "title": "Живучість під вогнем"
+      },
+      {
+        "text": "Супровід і консультації тривають і після передачі комплексу.",
+        "title": "Навчання і підтримка"
+      },
+      {
+        "text": "Оперативний ремонт і повне консультування —\nми поруч на всіх етапах бойового застосування.",
+        "title": "Польовий ремонт"
+      }
+    ],
+    "title": "Розгадали код ефективності"
+  },
+  "products": {
+    "isVisible": true,
+    "list": [
+      {
         "button": {
-          "text": "Дізнатися більше",
-          "href": "/products/heavy-shot"
+          "href": "/products/heavy-shot",
+          "text": "Дізнатися більше"
         },
         "characteristics": [
           {
@@ -78,148 +187,57 @@
             "value": "Від 10 до 40 кг"
           },
           {
-            "title": "До",
-            "value": "20 км радіус дії"
+            "title": "Радіус дії",
+            "value": "До 20 км"
           },
           {
             "title": "Оснащений",
             "value": "Високоякісна 2K камера"
           }
-        ]
-      }
-    ]
-  },
-  "privilages": {
-    "title": "Розгадали код ефективності",
-    "list": [
-      {
-        "title": "Гнучка модульна архітектура",
-        "text": "Швидка заміна модулів дозволяє адаптувати дрон до конкретного типу боєприпасів, навісного обладнання чи задачі."
-      },
-      {
-        "title": "Живучість під вогнем",
-        "text": "Корпус і електроніка витримують вологу, пил, РЕБ-завади й пряму вогневу атаку. Найдовше зафіксоване використання — 275 бойових вильотів на одному планері."
-      },
-      {
-        "title": "Навчання і підтримка",
-        "text": "Супровід і консультації тривають і після передачі комплексу."
-      },
-      {
-        "title": "Польовий ремонт",
-        "text": "Оперативний ремонт і повне консультування — <br />ми поруч на всіх етапах бойового застосування."
-      }
-    ]
-  },
-  "operations": {
-    "title": "Типи операцій",
-    "text": "Наші дрони адаптуються до будь-яких бойових завдань: від швидкої розвідки до точкових ударів далеко за лінією фронту. Працюємо на землі, над водою і в складному рельєфі.",
-    "list": [
-      {
-        "text": "Розвідка перед ударом",
-        "content": "/assets/home/operations/promo-vid-1.mp4",
-        "characteristics": false
-      },
-      {
-        "text": "Скидання бомб з точністю до метра",
-        "content": "/assets/home/operations/promo-vid-2.mp4",
-        "characteristics": false
-      },
-      {
-        "text": "Мінування",
-        "content": "/assets/home/operations/promo-vid-3.mp4"
-      },
-      {
-        "text": "Виконання завдань в умовах стійкого подавлення зв’язку та відсутності GPS",
-        "content": "/assets/home/operations/promo-vid-4.mp4"
+        ],
+        "description": "Багатоцільова безпілотна платформа нового покоління, яка здатна нести корисне навантаження до 40 кг на відстань 20 км від оператора. Надійність, перевірена боєм.",
+        "image": "https://cdn.sanity.io/images/36epaiqm/production/36c66b586d3cb120a56dd4ece88066517cada777-3840x2160.webp",
+        "name": "Heavy Shot",
+        "slug": "heavy-shot"
       }
     ]
   },
   "quote": {
-    "text": "Ми плануємо відзначати перемогу в офісі з видом на Аю-Даг. Та поки триває боротьба — робимо все, що від нас залежить, щоб наблизити цей день.",
     "author": {
+      "image": "https://cdn.sanity.io/images/36epaiqm/production/59690f4f217794ef140651bb71ca2c283c49b272-108x108.webp",
       "name": "Павло Фельдблюм",
-      "position": "співзасновник \"Gurzuf Defence\"",
-      "image": "/assets/home/quote/pavlo.webp"
+      "position": "співзасновник \"Gurzuf Defence\""
     },
     "button": {
       "active": true,
-      "text": "Про Gurzuf Defence",
-      "href": "/about"
-    }
-  },
-  "news": {
-    "title": "Що нового на передовій Gurzuf",
-    "list": [
-      {
-        "type": {
-          "slug": "news",
-          "text": "Новина"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtu.be/LK94taH25js?si=09sEn_9kUWluINnW"
-        },
-        "title": "Воїни “Хартії” 13-ї бригади оперативного призначення Національної гвардії України влаштовують ворогові пекло",
-        "image": "/assets/blog/photo-1.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-3.jpg"
-        }
-      },
-      {
-        "type": {
-          "slug": "military-speak",
-          "text": "Військові говорять"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtube.com/shorts/Ar3uxQzP4KQ?si=LqBlTsKiMDGD-DPY"
-        },
-        "title": "Азовські спецпризначенці зачищають міську забудову від окупантів. Архівні кадри Торецького напрямку",
-        "image": "/assets/blog/photo-2.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-2.jpg"
-        }
-      },
-      {
-        "type": {
-          "slug": "military-speak",
-          "text": "Військові говорять"
-        },
-        "link": {
-          "type": "href",
-          "href": "https://youtu.be/XbprYFjJNM0?si=h-9GPQZkIc2PMY76"
-        },
-        "title": "Heavy Shot у Вовчанську. Ворогу нема де сховатись",
-        "image": "/assets/blog/photo-3.webp",
-        "source": {
-          "active": true,
-          "image": "/assets/blog/logo-1.jpg"
-        }
-      }
-    ],
-    "button": {
-      "active": false,
-      "text": "Більше новин",
-      "href": "/news"
-    }
+      "href": "/about",
+      "text": "Про Gurzuf Defence"
+    },
+    "isVisible": true,
+    "text": "Ми плануємо відзначати перемогу в офісі з видом на Аю-Даг. Та поки триває боротьба — робимо все, що від нас залежить, щоб наблизити цей день."
   },
   "reviews": {
-    "title": "Що кажуть пілоти Gurzuf",
+    "isVisible": true,
     "list": [
       {
-        "text": "Цей дрон несе серйозне навантаження — за ніч ми піднімали до 100 кг БК. З новим боєкомплектом за 1–2 вильоти можна вибивати ворога навіть з бетонних укріплень.",
-        "author": false
+        "author": {
+          "position": null
+        },
+        "text": "Цей дрон несе серйозне навантаження — за ніч ми піднімали до 100 кг БК. З новим боєкомплектом за 1–2 вильоти можна вибивати ворога навіть з бетонних укріплень."
       },
       {
-        "text": "На нашому напрямку Heavy Shot — найкращий у логістиці: доставляв все — від генераторів до зброї, навіть евакуації проводили. У межах 9 км ще не було задачі, яку він не виконав.",
-        "author": false
+        "author": {
+          "position": null
+        },
+        "text": "На нашому напрямку Heavy Shot — найкращий у логістиці: доставляв все — від генераторів до зброї, навіть евакуації проводили. У межах 9 км ще не було задачі, яку він не виконав."
       },
       {
-        "text": "Heavy Shot показав себе як один із найпотужніших дронів для логістики, мінування та ударів.",
-        "author": false
+        "author": {
+          "position": null
+        },
+        "text": "Heavy Shot показав себе як один із найпотужніших дронів для логістики, мінування та ударів."
       }
-    ]
+    ],
+    "title": "Що кажуть пілоти Gurzuf Defence"
   }
 }
