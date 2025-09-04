@@ -295,64 +295,64 @@ export const ABOUT_QUERY = `*[_type == "aboutPage"][0]{
 
 export const PRODUCT_DETAILS_QUERY = `*[_type == "productDetailsPage" && slug.current == $slug][0]{
   hero {
-    "title": title[$lang],
-    "text": text[$lang],
+    "title": coalesce(title[$lang], title.ua),
+    "text": coalesce(text[$lang], text.ua),
     characteristicsList[] {
-      "title": title[$lang],
-      "text": text[$lang]
+      "title": coalesce(title[$lang], title.ua),
+      "text": coalesce(text[$lang], text.ua)
     }
   },
   features {
     isVisible,
-    "title": title[$lang],
+    "title": coalesce(title[$lang], title.ua),
     list[] {
-      "title": title[$lang],
-      "text": text[$lang]
+      "title": coalesce(title[$lang], title.ua),
+      "text": coalesce(text[$lang], text.ua)
     }
   },
   gallery {
     isVisible,
-    "title": title[$lang],
+    "title": coalesce(title[$lang], title.ua),
     list[] {
       "content": content.asset->url
     }
   },
   keyBenefits {
     isVisible,
-    "title": title[$lang],
-    "text": text[$lang],
+    "title": coalesce(title[$lang], title.ua),
+    "text": coalesce(text[$lang], text.ua),
     list[] {
-      "title": title[$lang],
+      "title": coalesce(title[$lang], title.ua),
       "icon": icon.asset->url
     },
     "image": image.asset->url
   },
   characteristics {
     isVisible,
-    "title": title[$lang],
-    "text": text[$lang],
+    "title": coalesce(title[$lang], title.ua),
+    "text": coalesce(text[$lang], text.ua),
     table[] {
       type,
-      "title": title[$lang],
-      "value": value[$lang],
-      "subtitle": subtitle[$lang],
+      "title": coalesce(title[$lang], title.ua),
+      "value": coalesce(value[$lang], value.ua),
+      "subtitle": coalesce(subtitle[$lang], subtitle.ua),
       lines[] {
-        "title": title[$lang],
-        "value": value[$lang]
+        "title": coalesce(title[$lang], title.ua),
+        "value": coalesce(value[$lang], value.ua)
       }
     },
     notes {
       active,
-      "title": title[$lang],
-      "list": list[][$lang]
+      "title": coalesce(title[$lang], title.ua),
+      "list": coalesce(list[][$lang], list[][].ua)
     }
   },
   equipment {
     isVisible,
-    "title": equipment.title[$lang],
-    "text": equipment.text[$lang],
+    "title": coalesce(equipment.title[$lang], equipment.title.ua),
+    "text": coalesce(equipment.text[$lang], equipment.text.ua),
     list[] {
-      "title": title[$lang],
+      "title": coalesce(title[$lang], title.ua),
       "image": image.asset->url
     }
   },
