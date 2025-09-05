@@ -6,7 +6,9 @@ import React from 'react'
 export const revalidate = 60;
 
 export default async function page() {
-  const dataSanity = await client.fetch(PRIVACY_POLICY_QUERY);
+  const dataSanity = await client.fetch(PRIVACY_POLICY_QUERY, {
+    lang: 'ua'
+  });
 
   return (
     <LegalPage 
