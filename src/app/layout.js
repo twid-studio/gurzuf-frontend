@@ -15,6 +15,7 @@ const inter = Inter({
 
 export const metadata = {
   title: "GURZUF DEFENCE",
+  description: "Gurzuf Defence виробляє багатоцільові модульні безпілотні системи, які точково б’ють техніку ворога й бережуть життя наших захисників. Працюємо, доки не звільнимо всю країну — від Сумщини до Криму.",
   openGraph: {
     title: "GURZUF DEFENCE",
     description: "",

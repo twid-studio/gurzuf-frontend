@@ -198,6 +198,7 @@ const FormSection = ({ data }) => {
                           errors.country && touched.country,
                         "select-input--placeholder": !field.value,
                       })}
+                      htmlFor="country"
                     >
                       <option value="" disabled>
                         {country.text}
@@ -240,6 +241,7 @@ const FormSection = ({ data }) => {
                         "select-input--error": errors.industry && touched.industry,
                         "select-input--placeholder": !field.value,
                       })}
+                      htmlFor="industry"
                     >
                       <option value="" disabled>
                         {industry.text}

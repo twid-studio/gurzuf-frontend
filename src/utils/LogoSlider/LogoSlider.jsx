@@ -13,7 +13,7 @@ export default function LogoSlider({ logos }) {
           {logos.map((currLogo, i) => (
             <img
               src={currLogo.src}
-              alt={currLogo.alt}
+              alt={currLogo.alt || `clients-logo--${i}`}
               className="logo"
               key={`clients-logo--${i}`}
             />

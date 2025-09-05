@@ -219,6 +219,7 @@ export const VideoPlayer = ({
               onTouchEnd={handleSeekMouseUp}
               onChange={handleSeekChange}
               className="video__thumb-progress--seek"
+              aria-label="Video progress slider"
             />
           </div>
           {/* <div className="video-volume">

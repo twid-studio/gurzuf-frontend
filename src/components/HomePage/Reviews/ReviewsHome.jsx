@@ -52,6 +52,7 @@ export default function ReviewsHome() {
             onClick={handlePrevClick}
             disabled={currentSlide === 0}
             type="button"
+            aria-label="Previous Slide"
           >
             <svg
               width="20"
@@ -71,6 +72,7 @@ export default function ReviewsHome() {
             onClick={handleNextClick}
             disabled={isLastSlide}
             type="button"
+            aria-label="Next Slide"
           >
             <svg
               width="20"
