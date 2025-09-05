@@ -126,9 +126,9 @@ export const HOME_QUERY = `*[_type == "homePage" && _id == $pageId][0]{
 }`;
 
 export const PRIVACY_POLICY_QUERY = `*[_type == "privacyPolicyPage"][0]{
-  title,
-  changedDate,
-  blockContent
+  "title": coalesce(title[$lang], title.ua),
+  "changedDate": coalesce(changedDate[$lang], changedDate.ua),
+  "blockContent": coalesce(blockContentNew[$lang], blockContentNew.ua)
 }`;
 
 export const BLOG_LIST_QUERY = `{
