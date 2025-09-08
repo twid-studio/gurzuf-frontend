@@ -91,13 +91,29 @@ export const HOME_QUERY = `
       "type": {
         "slug": preview.type,
         "text": select(
-          preview.type == "news" => coalesce("Новини"[$lang], "Новини"),
-          preview.type == "interview" => coalesce("Інтерв'ю"[$lang], "Інтерв'ю"),
-          preview.type == "special-project" => coalesce("Спецпроєкти"[$lang], "Спецпроєкти"),
-          preview.type == "military-speak" => coalesce("Військові говорять"[$lang], "Військові говорять"),
-          coalesce("Невідомий тип"[$lang], "Невідомий тип")
+          preview.type == "news" => select(
+            $lang == "en" => "News",
+            coalesce("Новини"[$lang], "Новини")
+          ),
+          preview.type == "interview" => select(
+            $lang == "en" => "Interview",
+            coalesce("Інтерв'ю"[$lang], "Інтерв'ю")
+          ),
+          preview.type == "special-project" => select(
+            $lang == "en" => "Special Projects",
+            coalesce("Спецпроєкти"[$lang], "Спецпроєкти")
+          ),
+          preview.type == "military-speak" => select(
+            $lang == "en" => "Military Speak",
+            coalesce("Військові говорять"[$lang], "Військові говорять")
+          ),
+          select(
+            $lang == "en" => "Unknown type",
+            coalesce("Невідомий тип"[$lang], "Невідомий тип")
+          )
         )
       },
+
       "link": select(
         preview.linkType == "internal" => {
           "type": "slug",
