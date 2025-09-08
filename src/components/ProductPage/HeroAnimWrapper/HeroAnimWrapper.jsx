@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Hero from "../Hero/Hero";
 import Features from "../Features/Features";
+import lottie from "lottie-web";
 
 import "./HeroAnimWrapper.scss";
 import {
@@ -12,6 +13,9 @@ import {
 import useIsMobile from "@/lib/helpers/useIsMobile";
 import useIsDesktop from "@/lib/helpers/useIsDesktop";
 
+// Import Lottie animation data
+import droneAnimationData from "./vid.mp4.lottie-1.json";
+
 export default function HeroAnimWrapper() {
   const sectionRef = useRef();
   const isMobile = useIsMobile();
@@ -20,7 +24,7 @@ export default function HeroAnimWrapper() {
   return (
     <div className="hero-anim-wrapper" ref={sectionRef}>
       {!isMobile && (
-        <DroneAnim 
+        <NewDroneAnim 
           key={`drone-${isDesktop ? 'desktop' : 'mobile'}`}
           sectionRef={sectionRef} 
         />
@@ -38,14 +42,14 @@ const DroneAnim = ({sectionRef}) => {
       `/assets/products/heavy-shot/frames/frame-${String(i).padStart(2, "0")}.webp`
   );
 
-  const [currentFrame, setCurrentFrame] = useState(0);
-  const [loadedImages, setLoadedImages] = useState([]);
+  const currentFrameRef = useRef(0);
+  const loadedImagesRef = useRef([]);
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
   const canvasRef = useRef();
 
   // Function to draw a specific frame on canvas
-  const drawFrame = (frameIndex, imageArray = loadedImages) => {
+  const drawFrame = (frameIndex, imageArray = loadedImagesRef.current) => {
     if (!canvasRef.current || !imageArray[frameIndex]) return;
 
     const canvas = canvasRef.current;
@@ -111,7 +115,7 @@ const DroneAnim = ({sectionRef}) => {
     const handleImageLoad = () => {
       loadedCount++;
       if (loadedCount === images.length) {
-        setLoadedImages(imageObjects);
+        loadedImagesRef.current = imageObjects;
         setImagesLoaded(true);
         // Draw the first frame immediately when all images are loaded
         requestAnimationFrame(() => {
@@ -156,16 +160,16 @@ const DroneAnim = ({sectionRef}) => {
   // Handle window resize to maintain canvas quality
   useEffect(() => {
     const handleResize = () => {
-      if (imagesLoaded && loadedImages[currentFrame]) {
+      if (imagesLoaded && loadedImagesRef.current[currentFrameRef.current]) {
         requestAnimationFrame(() => {
-          drawFrame(currentFrame);
+          drawFrame(currentFrameRef.current);
         });
       }
     };
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [imagesLoaded, loadedImages, currentFrame]);
+  }, [imagesLoaded]);
 
   const isDesktop = useIsDesktop();
 
@@ -184,32 +188,35 @@ const DroneAnim = ({sectionRef}) => {
 
   // Force scroll progress recalculation when screen size changes
   useEffect(() => {
-    if (imagesLoaded && loadedImages.length > 0) {
+    if (imagesLoaded && loadedImagesRef.current.length > 0) {
       // Small delay to ensure the scroll hook has updated
       const timeoutId = setTimeout(() => {
         requestAnimationFrame(() => {
-          drawFrame(currentFrame);
+          drawFrame(currentFrameRef.current);
         });
       }, 100);
 
       return () => clearTimeout(timeoutId);
     }
-  }, [isDesktop, imagesLoaded, loadedImages, currentFrame]);
+  }, [isDesktop, imagesLoaded]);
 
   // Handle scroll updates
   useMotionValueEvent(springScroll, "change", (latest) => {
-    if (!imagesLoaded || loadedImages.length === 0) return;
+    if (!imagesLoaded || loadedImagesRef.current.length === 0) return;
 
     // Calculate the current frame based on the scroll progress
-    const newFrame = Math.floor(latest * (loadedImages.length - 1));
+    const newFrame = Math.floor(latest * (loadedImagesRef.current.length - 1));
     const clampedFrame = Math.max(
       0,
-      Math.min(newFrame, loadedImages.length - 1)
+      Math.min(newFrame, loadedImagesRef.current.length - 1)
     );
 
-    if (clampedFrame !== currentFrame) {
-      setCurrentFrame(clampedFrame);
-      drawFrame(clampedFrame);
+    // Only update if frame actually changed
+    if (clampedFrame !== currentFrameRef.current) {
+      currentFrameRef.current = clampedFrame;
+      requestAnimationFrame(() => {
+        drawFrame(clampedFrame);
+      });
     }
   });
 
@@ -226,22 +233,97 @@ const DroneAnim = ({sectionRef}) => {
             display: "block"
           }}
         />
-        {!imagesLoaded && (
-          <div className="loading-placeholder" style={{ 
-            position: "absolute", 
-            top: 0, 
-            left: 0, 
-            width: "100%", 
-            height: "100%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: "#000",
-            opacity: 0.5
-          }}>
-            Loading drone animation...
-          </div>
-        )}
       </div>
   )
+}
+
+const NewDroneAnim = ({sectionRef}) => {
+  const lottieRef = useRef();
+  const animationRef = useRef();
+  const [animationLoaded, setAnimationLoaded] = useState(false);
+  const isDesktop = useIsDesktop();
+
+  // Initialize Lottie animation
+  useEffect(() => {
+    if (lottieRef.current && droneAnimationData) {
+      // Destroy previous animation if it exists
+      if (animationRef.current) {
+        animationRef.current.destroy();
+      }
+
+      animationRef.current = lottie.loadAnimation({
+        container: lottieRef.current,
+        renderer: 'svg',
+        loop: false,
+        autoplay: false,
+        animationData: droneAnimationData,
+      });
+
+      animationRef.current.addEventListener('DOMLoaded', () => {
+        setAnimationLoaded(true);
+      });
+
+      return () => {
+        if (animationRef.current) {
+          animationRef.current.destroy();
+        }
+      };
+    }
+  }, []);
+
+  // Create scroll configuration based on screen size
+  const scrollConfig = React.useMemo(() => ({
+    target: sectionRef,
+    offset: isDesktop ? ["start 25%", "end end"] : ["start 15%", "end center"],
+  }), [isDesktop, sectionRef]);
+
+  const { scrollYProgress } = useScroll(scrollConfig);
+
+  const springScroll = useSpring(scrollYProgress, {
+    stiffness: 1000,
+    damping: 200,
+  });
+
+  // Handle scroll updates to control Lottie animation
+  useMotionValueEvent(springScroll, "change", (latest) => {
+    if (!animationLoaded || !animationRef.current) return;
+
+    // Calculate the frame based on scroll progress
+    const totalFrames = animationRef.current.totalFrames;
+    const targetFrame = latest * (totalFrames - 1);
+    
+    // Go to the specific frame
+    animationRef.current.goToAndStop(targetFrame, true);
+  });
+
+  // Force animation recalculation when screen size changes
+  useEffect(() => {
+    if (animationLoaded && animationRef.current) {
+      // Small delay to ensure the scroll hook has updated
+      const timeoutId = setTimeout(() => {
+        const currentProgress = springScroll.get();
+        const totalFrames = animationRef.current.totalFrames;
+        const targetFrame = currentProgress * (totalFrames - 1);
+        animationRef.current.goToAndStop(targetFrame, true);
+      }, 100);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [isDesktop, animationLoaded, springScroll]);
+
+  return (
+    <div className="drone-wrapper">
+      <div 
+        ref={lottieRef} 
+        className="drone"
+        style={{
+          width: "100%",
+          height: "auto",
+          aspectRatio: "16 / 9",
+          objectFit: "cover",
+          display: "block"
+        }}
+      />
+    </div>
+  );
 }
