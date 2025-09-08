@@ -76,7 +76,8 @@
       "message": {
         "text": "Повідомлення",
         "requiredErrorText": false
-      }
+      },
+      "sendButtonText": "Відправити"
     }
   },
   "en": {
@@ -156,7 +157,8 @@
       "message": {
         "text": "Message",
         "requiredErrorText": false
-      }
+      },
+      "sendButtonText": "Send"
     }
   }
 }

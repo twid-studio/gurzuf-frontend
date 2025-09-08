@@ -6,16 +6,30 @@ import "./Characteristics.scss";
 import clsx from "clsx";
 import { motion } from "framer-motion";
 import { sectionScrollAnim } from "@/lib/helpers/sectionScrollAnim";
+import { LocaleContext } from "@/lib/providers/LocaleProvider/LocaleProvider";
 
 export default function Characteristics() {
   const [tableOpenned, setTableOpenned] = useState(false);
   const [tableHeight, setTableHeight] = useState(0)
+
+  const { lang } = useContext(LocaleContext);
 
   const { data: allData } = useContext(DataContext);
   const { characteristics: data } = allData;
 
   const tableRef = useRef();
   const hidenTableRef = useRef();
+
+  const buttonText = {
+    ua: {
+      open: "Розгорнути",
+      close: "Згорнути"
+    },
+    en: {
+      open: "Show more",
+      close: "Show less"
+    }
+  }
 
   const margin = sectionScrollAnim(tableRef);
 
@@ -65,7 +79,7 @@ export default function Characteristics() {
                 onClick={() => setTableOpenned(!tableOpenned)}
                 data-scroll-anchor={!tableOpenned ? "#top-table-anchor" : undefined}
               >
-                <h3>{tableOpenned ? "Згорнути" :"Розгорнути"}</h3>
+                <h3>{tableOpenned ? buttonText[lang].close : buttonText[lang].open}</h3>
                 <svg
                   className="arrow"
                   viewBox="0 0 16 28"

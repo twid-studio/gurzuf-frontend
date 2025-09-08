@@ -333,7 +333,7 @@ const FormSection = ({ data }) => {
                 })}
                 disabled={!isValid || !dirty}
               >
-                <h3>Відправити</h3>
+                <h3>{data?.sendButtonText}</h3>
                 <div className="button__arrow">
                   <svg
                     viewBox="0 0 18 17"
