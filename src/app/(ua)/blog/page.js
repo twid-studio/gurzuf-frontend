@@ -2,21 +2,21 @@ import ProductPage from '@/components/ProductPage/ProductPage'
 import { DataProvider } from '@/lib/providers/DataProvider/DataProvider'
 import React from 'react'
 
-import data from '../../preparedData/heavy-shot.json'
 import Contact from '@/utils/Contact/Contact'
-import NotFound from '@/components/NotFound/NotFound'
+import BlogPage from '@/components/BlogPage/BlogPage'
 import { client } from '@/lib/sanity/client'
-import { PRODUCT_DETAILS_QUERY } from '@/lib/sanity/queries'
+import { BLOG_LIST_QUERY } from '@/lib/sanity/queries'
 
 export const revalidate = 60;
 
 export default async function page() {
-  const params = { slug: 'heavy-shot', lang: 'ua' };
-  const dataSanity =  await client.fetch(PRODUCT_DETAILS_QUERY, params);
+  const dataSanity = await client.fetch(BLOG_LIST_QUERY, {
+    lang: 'ua'
+  });
 
   return (
     <DataProvider data={dataSanity}>
-      <ProductPage />
+      <BlogPage />
       <Contact />
     </DataProvider>
   )

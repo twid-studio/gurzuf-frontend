@@ -8,9 +8,10 @@ export const revalidate = 60;
 
 export default async function Home() {
   const dataSanity = await client.fetch(HOME_QUERY, {
-    pageId: "homepage"
+    pageId: "homepage",
+    lang: "en"
   });
-  
+
   return (
     <DataProvider data={dataSanity}>
       <HomePage />

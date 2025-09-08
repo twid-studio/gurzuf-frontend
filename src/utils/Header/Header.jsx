@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useContext } from "react";
 import { Logo, LongLogo } from "../Logo/Logo";
 
 import "./Header.scss";
@@ -8,36 +8,64 @@ import { Content } from "../Content/Content";
 import MenuWrapper from "./Menu/MenuWrapper";
 import { LinkAnim } from "../LinkAnim/LinkAnim";
 import { usePathname } from "next/navigation";
+import { LocaleContext } from "@/lib/providers/LocaleProvider/LocaleProvider";
+import { Button } from "../Button/Button";
 
-const links = [
-  {
-    text: "Продукти",
-    href: "/products/heavy-shot",
-  },
-  {
-    text: "Про нас",
-    href: "/about",
-  },
-  {
-    text: "Новини",
-    href: "/blog",
-  },
-  {
-    text: "Озброїти підрозділ",
-    href: "#contact",
-  },
-];
+const links = {
+  ua: [
+    {
+      text: "Продукти",
+      href: "/products/heavy-shot",
+    },
+    {
+      text: "Про нас",
+      href: "/about",
+    },
+    {
+      text: "Новини",
+      href: "/blog",
+    },
+    {
+      text: "Озброїти підрозділ",
+      href: "#contact",
+    },
+  ],
+  en: [
+    {
+      text: "Products",
+      href: "/en/products/heavy-shot",
+    },
+    {
+      text: "About us",
+      href: "/en/about",
+    },
+    {
+      text: "News",
+      href: "/en/blog",
+    },
+    {
+      text: "Equip the unit",
+      href: "#contact",
+    },
+  ],
+};
 
 export default function Header() {
   const path = usePathname();
+  const { lang } = useContext(LocaleContext);
+  const linksData = links[lang] || links.ua;
+  const isHomePage = path === "/" || path === "/en";
+  const langSwitchLink = path.startsWith("/en")
+    ? path.replace("/en", "") || "/"
+    : `/en${path}`;
 
   return (
     <>
       <header className="header">
         <Link
-          href={path === "/" ? "#hero" : "/"}
+          href={isHomePage ? "#hero" : lang === "ua" ? "/" : "/en"}
           className="logos-wrapper"
-          {...(path === "/" ? { "data-scroll-anchor": "#hero" } : {})}
+          {...(isHomePage ? { "data-scroll-anchor": "#hero" } : {})}
         >
           <Content
             url="/assets/gsf-logo.mp4"
@@ -51,11 +79,11 @@ export default function Header() {
           <LongLogo className="header__logo" data-only-desktop />
           <Logo className="header__logo" data-not-desktop />
         </Link>
-        <div
-          className="header__links"
-          data-only-desktop--flex
-        >
-          {links.map((link, index) => (
+        <div className="header__links" data-only-desktop--flex>
+          <Link href={langSwitchLink} className="header__button">
+            {lang === "ua" ? "En" : "Ua"}
+          </Link>
+          {linksData.map((link, index) => (
             // <Link key={index} href={link.href} className="header__link bold">
             //   {link.text}
             // </Link>
@@ -63,7 +91,7 @@ export default function Header() {
           ))}
         </div>
 
-        <MenuWrapper links={links} />
+        <MenuWrapper links={linksData} />
       </header>
     </>
   );

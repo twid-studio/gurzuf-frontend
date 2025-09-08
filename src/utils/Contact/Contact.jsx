@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
@@ -11,9 +11,13 @@ import clsx from "clsx";
 
 import "./Contact.scss";
 import { anim, FormAnim } from "@/lib/helpers/anim";
+import { LocaleContext } from "@/lib/providers/LocaleProvider/LocaleProvider";
 
 export default function Contact() {
-  const { top, form } = data;
+  const { lang } = useContext(LocaleContext);
+  const top = data[lang]?.top || data.ua.top;
+  const form = data[lang]?.form || data.ua.form;
+
   return (
     <section className="contact container" id="contact">
       <div className="top">
@@ -42,17 +46,17 @@ const FormSection = ({ data }) => {
 
   const validationSchema = Yup.object().shape({
     name: Yup.string()
-      .min(2, "Ім'я повинно містити щонайменше 2 символи")
-      .required("Це поле є обов'язковим"),
-    company: Yup.string().required("Це поле є обов'язковим"),
-    country: Yup.string().required("Оберіть країну"),
-    industry: Yup.string().required("Оберіть індустрію"),
+      .min(2, data.name?.validationErrorText)
+      .required(data.name?.requiredErrorText),
+    company: Yup.string().required(data.company?.requiredErrorText),
+    country: Yup.string().required(data.country?.requiredErrorText),
+    industry: Yup.string().required(data.industry?.requiredErrorText),
     email: Yup.string()
-      .email("Невірний формат email")
-      .required("Це поле є обов'язковим"),
+      .email(data.email?.validationErrorText)
+      .required(data.email?.requiredErrorText),
     phone: Yup.string()
-      .matches(/[1-10][\d]{0,15}$/, "Невірний формат телефону")
-      .required("Це поле є обов'язковим"),
+      .matches(/[1-10][\d]{0,15}$/, data.phone?.validationErrorText)
+      .required(data.phone?.requiredErrorText),
     message: Yup.string(),
   });
 

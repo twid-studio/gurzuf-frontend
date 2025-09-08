@@ -1,64 +1,131 @@
 {
-  "navigation": {
-    "pages": {
-      "title": "Навігація",
-      "items": [
-        {
-          "text": "Продукти",
-          "href": "/products/heavy-shot"
-        },
-        {
-          "text": "Про нас",
-          "href": "/about"
-        },
-        {
-          "text": "Новини",
-          "href": "/blog"
+  "ua": {
+    "navigation": {
+      "pages": {
+        "title": "Навігація",
+        "items": [
+          {
+            "text": "Продукти",
+            "href": "/products/heavy-shot"
+          },
+          {
+            "text": "Про нас",
+            "href": "/about"
+          },
+          {
+            "text": "Новини",
+            "href": "/blog"
+          }
+        ]
+      },
+      "contact": {
+        "title": "Звʼязатись з нами",
+        "items": [
+          {
+            "text": "+38 073 131 32 79",
+            "href": "tel:+380731313279"
+          },
+          {
+            "text": "heavyshot@gsf.com.ua",
+            "href": "mailto:heavyshot@gsf.com.ua"
+          }
+        ],
+        "socials": [
+          {
+            "icon": "/assets/socials/fb.svg",
+            "href": ""
+          },
+          {
+            "icon": "/assets/socials/instagram.svg",
+            "href": ""
+          },
+          {
+            "icon": "/assets/socials/linkedin.svg",
+            "href": ""
+          },
+          {
+            "icon": "/assets/socials/x.svg",
+            "href": ""
+          }
+        ]
+      },
+      "other": {
+        "title": "Інше",
+        "items": [
+          {
+            "text": "Політика конфіденційності",
+            "href": "/legal/privacy-policy"
+          }
+        ],
+        "madeBy": {
+          "text": "Створили twid",
+          "href": "https://twid.marketing"
         }
-      ]
-    },
-    "contact": {
-      "title": "Звʼязатись з нами",
-      "items": [
-        {
-          "text": "+38 073 131 32 79",
-          "href": "tel:+380731313279"
-        },
-        {
-          "text": "heavyshot@gsf.com.ua",
-          "href": "mailto:heavyshot@gsf.com.ua"
+      }
+    }
+  },
+  "en": {
+    "navigation": {
+      "pages": {
+        "title": "Navigation",
+        "items": [
+          {
+            "text": "Products",
+            "href": "/en/products/heavy-shot"
+          },
+          {
+            "text": "About us",
+            "href": "/en/about"
+          },
+          {
+            "text": "News",
+            "href": "/en/blog"
+          }
+        ]
+      },
+      "contact": {
+        "title": "Contact us",
+        "items": [
+          {
+            "text": "+38 073 131 32 79",
+            "href": "tel:+380731313279"
+          },
+          {
+            "text": "heavyshot@gsf.com.ua",
+            "href": "mailto:heavyshot@gsf.com.ua"
+          }
+        ],
+        "socials": [
+          {
+            "icon": "/assets/socials/fb.svg",
+            "href": ""
+          },
+          {
+            "icon": "/assets/socials/instagram.svg",
+            "href": ""
+          },
+          {
+            "icon": "/assets/socials/linkedin.svg",
+            "href": ""
+          },
+          {
+            "icon": "/assets/socials/x.svg",
+            "href": ""
+          }
+        ]
+      },
+      "other": {
+        "title": "Other",
+        "items": [
+          {
+            "text": "Privacy Policy",
+            "href": "/en/legal/privacy-policy"
+          }
+        ],
+        "madeBy": {
+          "text": "Made by twid",
+          "href": "https://twid.marketing"
         }
-      ],
-      "socials": [
-        {
-          "icon": "/assets/socials/fb.svg",
-          "href": ""
-        },
-        {
-          "icon": "/assets/socials/instagram.svg",
-          "href": ""
-        },
-        {
-          "icon": "/assets/socials/linkedin.svg",
-          "href": ""
-        },
-        {
-          "icon": "/assets/socials/x.svg",
-          "href": ""
-        }
-      ]
-    },
-    "other": {
-      "title": "Інше",
-      "items": [
-        {
-          "text": "Політика конфіденційності",
-          "href": "/legal/privacy-policy"
-        }
-      ],
-      "madeBy": {
-        "text": "Створили twid",
-        "href": "https://twid.marketing"
       }
     }
   }
