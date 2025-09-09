@@ -82,13 +82,13 @@
   },
   "en": {
     "top": {
-      "title": "Contact — Gurzuf Defence",
-      "text": "We have experience in real combat operations. We will advise how your unit can effectively use Gurzuf Defence modular unmanned systems for specific tasks."
+      "title": "Gurzuf Defence — Always in Touch.",
+      "text": "With proven experience in combat operations, we can advise your unit on how to deploy GSF modular unmanned aerial systems effectively for specific missions."
     },
     "form": {
       "sucessText": {
         "text": "Thank you!",
-        "subText": "We will contact you soon to discuss your request in more detail.",
+        "subText": "Your request has been received. Our team will get in touch with you shortly.",
         "buttonText": "Return to form"
       },
       "name": {
@@ -158,7 +158,7 @@
         "text": "Message",
         "requiredErrorText": false
       },
-      "sendButtonText": "Send"
+      "sendButtonText": "Submit"
     }
   }
 }
