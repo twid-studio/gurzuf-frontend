@@ -6,6 +6,8 @@ import Contact from '@/utils/Contact/Contact'
 import { client } from '@/lib/sanity/client'
 import { PRODUCT_DETAILS_QUERY } from '@/lib/sanity/queries'
 
+export const revalidate = 60;
+
 export default async function page() {
   const params = { slug: 'heavy-shot', lang: 'en' };
   const dataSanity =  await client.fetch(PRODUCT_DETAILS_QUERY, params);
