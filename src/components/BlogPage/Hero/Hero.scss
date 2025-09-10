@@ -21,7 +21,7 @@
 
   .filters {
     margin-top: 2.6em;
-    border-bottom: 0.2em solid $c-white;
+    // border-bottom: 0.2em solid $c-white;
 
     @include forMobile {
       overflow: scroll;

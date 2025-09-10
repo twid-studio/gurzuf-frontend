@@ -4,11 +4,13 @@ import { useScrollLenis } from "@/lib/providers/ScrollProvider/ScrollProvider";
 import { ScrollContext } from "@/lib/providers/ScrollProvider/context";
 
 import "./ScrollBar.scss";
+import { usePathname } from "next/navigation";
 
 export const ScrollBar = () => {
   const [rangeValue, setRangeValue] = useState(0);
   const [documentHeight, setDocumentHeight] = useState(0);
   const [isMounted, setIsMounted] = useState(false);
+  const path = usePathname();
 
   const { scrollYProgress } = useScroll();
   const scrollSpring = useSpring(scrollYProgress, {
@@ -25,7 +27,7 @@ export const ScrollBar = () => {
     setDocumentHeight(
       document.documentElement.scrollHeight - window.innerHeight
     );
-  }, []);
+  }, [path]);
 
   const handleRangeChange = (e) => {
     const value = e.target.value;
@@ -39,7 +41,7 @@ export const ScrollBar = () => {
       setRangeValue(v * 100);
     });
     return () => unsubscribe();
-  }, [scrollYProgress]);
+  }, [scrollYProgress, path]);
 
   return (
     <div className="progressBar" data-desktop-element>

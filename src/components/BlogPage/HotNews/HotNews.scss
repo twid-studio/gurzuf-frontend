@@ -1,10 +1,13 @@
 .blog {
   .hot-news {
     // padding-top: 1em;
+    border-top: 0.2em solid $c-white;
+    margin-bottom: 2.5em;
+
     overflow: hidden;
 
     .title {
-      padding-top: .38em;
+      padding-top: 0.38em;
     }
 
     .list {

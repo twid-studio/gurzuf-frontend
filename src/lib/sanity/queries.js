@@ -327,7 +327,7 @@ export const ABOUT_QUERY = `
         "button": {
           "active": about.text1.link.button.active,
           "text": coalesce(about.text1.link.button.text[$lang], about.text1.link.button.text.ua),
-          "link": about.text1.link.button.link
+          "link": select($lang == "en" => "/en" + about.text1.link.button.link, about.text1.link.button.link)
         }
       }
     },

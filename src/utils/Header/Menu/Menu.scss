@@ -1,32 +1,52 @@
-  .menu {
-    position: fixed;
-    top: VW(55, $mobile);
-    left: 0;
-    right: 0;
-    padding: VW(20, $mobile) VW(12, $mobile) VW(12, $mobile);
-    background-color: $g-30;
+.menu {
+  position: fixed;
+  top: VW(55, $mobile);
+  left: 0;
+  right: 0;
+  padding: VW(20, $mobile) VW(12, $mobile) VW(12, $mobile);
+  background-color: $g-30;
 
-    z-index: 9;
+  z-index: 9;
+
+  @include forTablet {
+    top: VW(50, $tablet);
+    padding: VW(20, $tablet) VW(16, $tablet);
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: VW(20, $mobile);
 
     @include forTablet {
-      top: VW(50, $tablet);
-      padding: VW(20, $tablet) VW(16, $tablet);
+      gap: VW(24, $tablet);
     }
 
-    .list {
+    .buttons {
       display: flex;
       flex-direction: column;
-      gap: VW(20, $mobile);
+      gap: 0.6em;
 
-      @include forTablet {
-        gap: VW(24, $tablet);
+      .lang-button {
+        background-color: rgba($g-70, 0.15);
+        color: $g-70;
+
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
+
+        @include hover {
+          background-color: rgba($g-70, 0.25);
+          color: $g-80;
+        }
       }
     }
-
-    &-background {
-      position: fixed;
-      inset: VW(55, $mobile) 0 0;
-      z-index: -10;
-      background-color: #52525280;
-    }
   }
+
+  &-background {
+    position: fixed;
+    inset: VW(55, $mobile) 0 0;
+    z-index: -10;
+    background-color: #52525280;
+  }
+}

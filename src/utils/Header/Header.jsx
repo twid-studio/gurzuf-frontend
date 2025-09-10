@@ -79,16 +79,14 @@ export default function Header() {
           <LongLogo className="header__logo" data-only-desktop />
           <Logo className="header__logo" data-not-desktop />
         </Link>
+        
         <div className="header__links" data-only-desktop--flex>
-          <Link href={langSwitchLink} className="header__button">
-            {lang === "ua" ? "En" : "Ua"}
-          </Link>
           {linksData.map((link, index) => (
-            // <Link key={index} href={link.href} className="header__link bold">
-            //   {link.text}
-            // </Link>
             <LinkAnim text={link.text} href={link.href} key={index} />
           ))}
+          <Link href={langSwitchLink} className="header__lang-button">
+            {lang === "ua" ? "En" : "Ua"}
+          </Link>
         </div>
 
         <MenuWrapper links={linksData} />
