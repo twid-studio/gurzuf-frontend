@@ -9,16 +9,12 @@ import { ABOUT_QUERY } from '@/lib/sanity/queries'
 export const revalidate = 60;
 
 export default async function page() {
-<<<<<<< HEAD:src/app/about/page.js
-  // const dataSanity = await client.fetch(ABOUT_QUERY);
-=======
   const dataSanity = await client.fetch(ABOUT_QUERY, {
     lang: 'en'
   });
->>>>>>> origin/preview:src/app/en/about/page.js
 
   return (
-    <DataProvider data={data}>
+    <DataProvider data={dataSanity}>
       <AboutPage />
       <JobContact />
     </DataProvider>
