@@ -80,8 +80,8 @@
         position: absolute;
         width: VW(710);
         height: VW(710);
-        top: -2em;
-        right: 0em;
+        top: 0;
+        right: 0;
         z-index: -1;
 
         @include forTablet {

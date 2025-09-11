@@ -1,77 +1,164 @@
 {
-  "top": {
-    "title": "На зв’язку — Gurzuf Defence",
-    "text": "У нас є досвід реальних бойових операцій. Підкажемо, як ваш підрозділ може ефективно використовувати модульні безпілотні системи Gurzuf Defence у конкретних завданнях."
+  "ua": {
+    "top": {
+      "title": "На зв’язку — Gurzuf Defence",
+      "text": "У нас є досвід реальних бойових операцій. Підкажемо, як ваш підрозділ може ефективно використовувати модульні безпілотні системи Gurzuf Defence у конкретних завданнях."
+    },
+    "form": {
+      "sucessText": {
+        "text": "Дякуємо!",
+        "subText": "Ми з вами звʼяжемось найближчим часом щоб обговорити ваш запит детальніше.",
+        "buttonText": "Повернутись до форми"
+      },
+      "name": {
+        "text": "Ім’я",
+        "requiredErrorText": "Це поле є обов'язковим",
+        "validationErrorText": "Ім'я повинно містити щонайменше 2 символи"
+      },
+      "company": {
+        "text": "Компаія",
+        "requiredErrorText": "Це поле є обов'язковим"
+      },
+      "country": {
+        "text": "Країна",
+        "requiredErrorText": "Оберіть країну",
+        "list": [
+          {
+            "text": "Україна",
+            "value": "ukraine"
+          },
+          {
+            "text": "США",
+            "value": "usa"
+          },
+          {
+            "text": "Канада",
+            "value": "canada"
+          },
+          {
+            "text": "Інше",
+            "value": "other"
+          }
+        ]
+      },
+      "industry": {
+        "text": "Індустрія",
+        "requiredErrorText": "Оберіть індустрію",
+        "list": [
+          {
+            "text": "Авіація",
+            "value": "aviation"
+          },
+          {
+            "text": "Будівництво",
+            "value": "construction"
+          },
+          {
+            "text": "Енергетика",
+            "value": "energy"
+          },
+          {
+            "text": "Інше",
+            "value": "other"
+          }
+        ]
+      },
+      "email": {
+        "text": "Email",
+        "requiredErrorText": "Це поле є обов'язковим",
+        "validationErrorText": "Невірний формат email"
+      },
+      "phone": {
+        "text": "Телефон",
+        "requiredErrorText": "Це поле є обов'язковим",
+        "validationErrorText": "Невірний формат телефону"
+      },
+      "message": {
+        "text": "Повідомлення",
+        "requiredErrorText": false
+      },
+      "sendButtonText": "Відправити"
+    }
   },
-  "form": {
-    "sucessText": {
-      "text": "Дякуємо!",
-      "subText": "Ми з вами звʼяжемось найближчим часом щоб обговорити ваш запит детальніше.",
-      "buttonText": "Повернутись до форми"
+  "en": {
+    "top": {
+      "title": "Gurzuf Defence — Always in Touch",
+      "text": "With proven experience in combat operations, we can advise your unit on how to deploy GSF modular unmanned aerial systems effectively for specific missions."
     },
-    "name": {
-      "text": "Ім’я",
-      "errorText": ""
-    },
-    "company": {
-      "text": "Компанія",
-      "errorText": ""
-    },
-    "country": {
-      "text": "Країна",
-      "errorText": "",
-      "list": [
-        {
-          "text": "Україна",
-          "value": "ukraine"
-        },
-        {
-          "text": "США",
-          "value": "usa"
-        },
-        {
-          "text": "Канада",
-          "value": "canada"
-        },
-        {
-          "text": "Інше",
-          "value": "other"
-        }
-      ]
-    },
-    "industry": {
-      "text": "Індустрія",
-      "errorText": "",
-      "list": [
-        {
-          "text": "Авіація",
-          "value": "aviation"
-        },
-        {
-          "text": "Будівництво",
-          "value": "construction"
-        },
-        {
-          "text": "Енергетика",
-          "value": "energy"
-        },
-        {
-          "text": "Інше",
-          "value": "other"
-        }
-      ]
-    },
-    "email": {
-      "text": "Email",
-      "errorText": "Невірно набрано"
-    },
-    "phone": {
-      "text": "Телефон",
-      "errorText": "Невірно набрано"
-    },
-    "message": {
-      "text": "Повідомлення",
-      "errorText": false
+    "form": {
+      "sucessText": {
+        "text": "Thank you!",
+        "subText": "Your request has been received. Our team will get in touch with you shortly.",
+        "buttonText": "Return to form"
+      },
+      "name": {
+        "text": "Name",
+        "requiredErrorText": "This field is required",
+        "validationErrorText": "Name must contain at least 2 characters"
+      },
+      "company": {
+        "text": "Company",
+        "requiredErrorText": "This field is required"
+      },
+      "country": {
+        "text": "Country",
+        "requiredErrorText": "Please select a country",
+        "list": [
+          {
+            "text": "Ukraine",
+            "value": "ukraine"
+          },
+          {
+            "text": "USA",
+            "value": "usa"
+          },
+          {
+            "text": "Canada",
+            "value": "canada"
+          },
+          {
+            "text": "Other",
+            "value": "other"
+          }
+        ]
+      },
+      "industry": {
+        "text": "Industry",
+        "requiredErrorText": "Please select an industry",
+        "list": [
+          {
+            "text": "Aviation",
+            "value": "aviation"
+          },
+          {
+            "text": "Construction",
+            "value": "construction"
+          },
+          {
+            "text": "Energy",
+            "value": "energy"
+          },
+          {
+            "text": "Other",
+            "value": "other"
+          }
+        ]
+      },
+      "email": {
+        "text": "Email",
+        "requiredErrorText": "This field is required",
+        "validationErrorText": "Invalid email format"
+      },
+      "phone": {
+        "text": "Phone",
+        "requiredErrorText": "This field is required",
+        "validationErrorText": "Invalid phone format"
+      },
+      "message": {
+        "text": "Message",
+        "requiredErrorText": false
+      },
+      "sendButtonText": "Submit"
     }
   }
 }

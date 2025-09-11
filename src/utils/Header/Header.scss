@@ -5,7 +5,7 @@
   left: 0;
   right: 0;
   z-index: 10;
-  padding: VW(16);
+  padding: 0 0 0 VW(16);
 
   display: flex;
   align-items: center;
@@ -64,6 +64,19 @@
     display: flex;
     align-items: center;
     gap: VW(16);
+  }
+
+  &__lang-button {
+    padding: VW(16);
+    background-color: rgba($g-70, .15);
+    color: $g-70;
+
+    transition: background-color .3s ease, color .3s ease;
+
+    @include hover {
+      background-color: rgba($g-70, .25);
+      color: $g-80;
+    }
   }
 
   &__menu-button {

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useContext, useRef } from "react";
 
 import "./Footer.scss";
 
@@ -10,11 +10,13 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import useIsMobile from "@/lib/helpers/useIsMobile";
 import { LinkAnim } from "../LinkAnim/LinkAnim";
+import { LocaleContext } from "@/lib/providers/LocaleProvider/LocaleProvider";
 
 export default function Footer() {
-  const pages = data.navigation.pages;
-  const contact = data.navigation.contact;
-  const other = data.navigation.other;
+  const { lang } = useContext(LocaleContext);
+  const pages = data[lang].navigation.pages;
+  const contact = data[lang].navigation.contact;
+  const other = data[lang].navigation.other;
 
   const isMobile = useIsMobile();
 

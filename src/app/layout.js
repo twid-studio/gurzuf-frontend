@@ -1,11 +1,10 @@
 import { Inter } from "next/font/google";
 import "@/styles/reset.scss";
-import {
-  ScrollProvider,
-} from "@/lib/providers/ScrollProvider/ScrollProvider";
+import { ScrollProvider } from "@/lib/providers/ScrollProvider/ScrollProvider";
 import Header from "@/utils/Header/Header";
 import Footer from "@/utils/Footer/Footer";
 import Contact from "@/utils/Contact/Contact";
+import { LocaleProvider } from "@/lib/providers/LocaleProvider/LocaleProvider";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic-ext"],
@@ -39,10 +38,12 @@ export default function RootLayout({ children }) {
     <html lang="ua" className="html">
       <body className={`${inter.variable} body`}>
         <ScrollProvider scrollBar></ScrollProvider>
-        <Header />
-        {children}
-        {/* <Contact /> */}
-        <Footer />
+        <LocaleProvider>
+          <Header />
+          {children}
+          {/* <Contact /> */}
+          <Footer />
+        </LocaleProvider>
       </body>
     </html>
   );

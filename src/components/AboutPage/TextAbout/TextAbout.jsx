@@ -20,8 +20,14 @@ export default function TextAbout() {
           <span>{data?.text1.part2}</span>
         </div>
       </div>
-      <div className="title bold" dangerouslySetInnerHTML={{ __html: data?.text2 }}/>
-      <div className="title bold" dangerouslySetInnerHTML={{ __html: data?.text3 }}/>
+      <div
+        className="title bold"
+        dangerouslySetInnerHTML={{ __html: data?.text2 }}
+      />
+      <div
+        className="title bold"
+        dangerouslySetInnerHTML={{ __html: data?.text3 }}
+      />
     </section>
   );
 }
@@ -40,9 +46,11 @@ const TextLink = ({ data }) => {
   // Detect touch device
   React.useEffect(() => {
     const checkTouchDevice = () => {
-      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+      setIsTouchDevice(
+        "ontouchstart" in window || navigator.maxTouchPoints > 0
+      );
     };
-    
+
     checkTouchDevice();
   }, []);
 
@@ -157,7 +165,7 @@ const TextLink = ({ data }) => {
         </div>
 
         {data?.button && data?.button.active && (
-        <Button text={data?.button.text} url={data?.button.link} fullWidth />
+          <Button text={data?.button.text} href={data?.button.link} fullWidth />
         )}
       </motion.div>
     </div>
