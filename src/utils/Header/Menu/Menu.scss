@@ -29,7 +29,7 @@
 
       .lang-button {
         background-color: rgba($g-70, 0.15);
-        color: $g-70;
+        color: $g-80;
 
         transition:
           background-color 0.3s ease,
@@ -37,7 +37,6 @@
 
         @include hover {
           background-color: rgba($g-70, 0.25);
-          color: $g-80;
         }
 
         .button__arrow {
