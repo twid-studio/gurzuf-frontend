@@ -39,6 +39,10 @@
           background-color: rgba($g-70, 0.25);
           color: $g-80;
         }
+
+        .button__arrow {
+          display: none;
+        }
       }
     }
   }

@@ -32,7 +32,7 @@ export default function Menu({ setIsMenuOpen, data }) {
           ))}
           <div className="buttons">
             <Button
-              text={lang === "ua" ? "En" : "Ua"}
+              text={lang === "ua" ? "EN" : "UA"}
               href={langSwitchLink}
               fullWidth
               onClick={() => setIsMenuOpen(false)}

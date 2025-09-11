@@ -85,7 +85,7 @@ export default function Header() {
             <LinkAnim text={link.text} href={link.href} key={index} />
           ))}
           <Link href={langSwitchLink} className="header__lang-button">
-            {lang === "ua" ? "En" : "Ua"}
+            {lang === "ua" ? "EN" : "UA"}
           </Link>
         </div>
 

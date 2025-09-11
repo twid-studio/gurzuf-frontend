@@ -8,6 +8,7 @@ import ImportantToUs from './ImportantToUs/ImportantToUs'
 import { motion } from 'framer-motion'
 import { anim, PageAnim } from '@/lib/helpers/anim'
 import NewWhereWeGoing from './NewWhereWeGoing/NewWhereWeGoing'
+import WhereWeGoing from './WhereWeGoing/WhereWeGoing'
 
 export default function AboutPage() {
   useEffect(() => {
