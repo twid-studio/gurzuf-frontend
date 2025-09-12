@@ -1,31 +1,35 @@
 const fallbackData = {
-  documentTitle: "RTRTS TMPLATE",
-  documentKeywords:
-    "nextjs, next.js, creative, creative development, framer-motion",
-  documentDescription:
+  pageTitle: "RTRTS TMPLATE",
+  keywords: ["nextjs", "next.js", "creative", "creative development", "framer-motion"],
+  metaDescription:
     "the ideal template for creative work, featuring stunning components and fluid functionality on nextjs.",
-  documentImage: "/assets/screenshot.png",
+  metaTitle: "RTRTS TMPLATE",
+  openGraphImage: "/assets/screenshot.png",
 };
 
-export async function generatePagesMetadata(endpoint) {
-  const preparedData = await fetch(endpoint, {
-    next: { revalidate: 120 },
-  }).then((response) => response.json());
+export async function generatePagesMetadata(seoData) {
+  const data = seoData || fallbackData;
 
-  const data = preparedData.seo || fallbackData;
+  const pageTitle = data.pageTitle || fallbackData.pageTitle;
+  const metaTitle = data.metaTitle || fallbackData.metaTitle;
+  const metaDescription = data.metaDescription || fallbackData.metaDescription;
+  const keywords = data.keywords || fallbackData.keywords;
+  const openGraphImage = data.openGraphImage || fallbackData.openGraphImage;
+
+  console.log("SEO DATA:", data);
+  
 
   return {
-    title: data.documentTitle,
-    keywords: data.documentKeywords,
-    description: data.documentDescription,
+    title: pageTitle,
+    keywords: Array.isArray(keywords) ? keywords.join(", ") : keywords,
+    description: metaDescription,
     openGraph: {
-      title: data.documentTitle,
-      keywords: data.documentKeywords,
-      description: data.documentDescription,
+      title: metaTitle,
+      description: metaDescription,
       url: "",
       images: [
         {
-          url: data.documentImage,
+          url: openGraphImage,
           width: 720,
           height: 405,
           alt: "OpenGraph",
