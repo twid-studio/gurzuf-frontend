@@ -1,10 +1,27 @@
 const fallbackData = {
-  pageTitle: "RTRTS TMPLATE",
-  keywords: ["nextjs", "next.js", "creative", "creative development", "framer-motion"],
+  keywords: [
+    "Gurzuf Defence",
+    "Gurzuf",
+    "Гурзуф",
+    "Гурзуф Дефенс",
+    "Gurzuf Drones",
+    "БПЛА",
+    "дрони",
+    "Україна",
+    "Ukraine",
+    "military drones",
+    "військові дрони",
+    "розвідка",
+    "ударні дрони",
+    "ударний дрон",
+    "розвідувальні дрони",
+  ],
   metaDescription:
-    "the ideal template for creative work, featuring stunning components and fluid functionality on nextjs.",
-  metaTitle: "RTRTS TMPLATE",
-  openGraphImage: "/assets/screenshot.png",
+    "Gurzuf Defence виробляє багатоцільові модульні безпілотні системи, які точково б’ють техніку ворога й бережуть життя наших захисників. Працюємо, доки не звільнимо всю країну — від Сумщини до Криму.",
+  metaTitle: "Блог Gurzuf Defence",
+  openGraphImage:
+    "https://cdn.sanity.io/images/36epaiqm/production/39ae896caf0d842e18cb61d1a0b5dd169f510a45-1200x630.webp",
+  pageTitle: "Блог Gurzuf Defence",
 };
 
 export async function generatePagesMetadata(seoData) {
@@ -15,9 +32,6 @@ export async function generatePagesMetadata(seoData) {
   const metaDescription = data.metaDescription || fallbackData.metaDescription;
   const keywords = data.keywords || fallbackData.keywords;
   const openGraphImage = data.openGraphImage || fallbackData.openGraphImage;
-
-  console.log("SEO DATA:", data);
-  
 
   return {
     title: pageTitle,
