@@ -112,6 +112,10 @@ export default function BlogPage() {
     }
   }, [cachedBlogList, activeFilters, lang]);
 
+  useEffect(() => {
+    document.documentElement.scrollTo(0, 0);
+  }, []);
+
   return (
     <motion.main className="blog" {...anim(PageAnim)}>
       <Hero
