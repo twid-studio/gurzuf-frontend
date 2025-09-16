@@ -6,10 +6,11 @@ import { motion } from 'framer-motion'
 import { anim, PageAnim } from '@/lib/helpers/anim'
 
 export default function PostPage() {
-    useEffect(() => {
-      document.documentElement.scrollTo(0, 0);
-    }, []);
-  
+
+  useEffect(() => {
+    document.documentElement.scrollTo(0, 0);
+  }, []);
+
   return (
     <motion.main className="post-page" {...anim(PageAnim)}>
       <PostHero />

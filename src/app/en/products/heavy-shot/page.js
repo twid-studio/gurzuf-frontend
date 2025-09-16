@@ -5,12 +5,23 @@ import React from 'react'
 import Contact from '@/utils/Contact/Contact'
 import { client } from '@/lib/sanity/client'
 import { PRODUCT_DETAILS_QUERY } from '@/lib/sanity/queries'
+import { generatePagesMetadata } from '@/lib/helpers/generatePagesMetadata'
 
 export const revalidate = 60;
 
-export default async function page() {
+// Shared data fetching function
+async function fetchProductData() {
   const params = { slug: 'heavy-shot', lang: 'en' };
-  const dataSanity =  await client.fetch(PRODUCT_DETAILS_QUERY, params);
+  return await client.fetch(PRODUCT_DETAILS_QUERY, params);
+}
+
+export async function generateMetadata() {
+  const dataSanity = await fetchProductData();
+  return generatePagesMetadata(dataSanity?.seo);
+}
+
+export default async function page() {
+  const dataSanity = await fetchProductData();
 
   return (
     <DataProvider data={dataSanity}>

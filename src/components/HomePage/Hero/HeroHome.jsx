@@ -37,7 +37,7 @@ export default function HeroHome() {
     <section className="hero" ref={sectionRef} id="hero">
       <motion.div style={{ y: yTitle }} className="hero__content">
         <div className="title">
-          <h1 className="sr-only">{`${data.title[0]} ${data.title[1]}`}</h1>
+          <h1 className="sr-only">{`${preparedTitle[0]} ${preparedTitle[1]}`}</h1>
           <div className="title-line">
             {firstTitlePart
               .map((word, index) => (

@@ -112,7 +112,7 @@ export default function BlogPage() {
     }
   }, [cachedBlogList, activeFilters, lang]);
 
-   useEffect(() => {
+  useEffect(() => {
     document.documentElement.scrollTo(0, 0);
   }, []);
 

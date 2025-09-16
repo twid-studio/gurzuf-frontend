@@ -5,6 +5,8 @@ import Header from "@/utils/Header/Header";
 import Footer from "@/utils/Footer/Footer";
 import Contact from "@/utils/Contact/Contact";
 import { LocaleProvider } from "@/lib/providers/LocaleProvider/LocaleProvider";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({
   subsets: ["latin", "cyrillic-ext"],
@@ -44,6 +46,8 @@ export default function RootLayout({ children }) {
           {/* <Contact /> */}
           <Footer />
         </LocaleProvider>
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );

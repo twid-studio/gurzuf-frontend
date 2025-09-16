@@ -12,7 +12,7 @@ export default async function Home() {
     pageId: "homepage",
     lang: "ua"
   });
-  
+
   return (
     <DataProvider data={dataSanity}>
       <HomePage />

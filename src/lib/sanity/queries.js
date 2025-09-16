@@ -1,3 +1,39 @@
+const SEO_VALUES = `
+"seo": {
+  "pageTitle": coalesce(
+    seo.pageTitle[$lang],
+    seo.pageTitle.ua,
+    *[_type == "defaultSeo"][0].seo.pageTitle[$lang],
+    *[_type == "defaultSeo"][0].seo.pageTitle.ua
+  ),
+  "metaTitle": coalesce(
+    seo.metaTitle[$lang],
+    seo.metaTitle.ua,
+    *[_type == "defaultSeo"][0].seo.metaTitle[$lang],
+    *[_type == "defaultSeo"][0].seo.metaTitle.ua
+  ),
+  "metaDescription": coalesce(
+    seo.metaDescription[$lang],
+    *[_type == "defaultSeo"][0].seo.metaDescription[$lang],
+  ),
+  "openGraphImage": coalesce(
+    seo.openGraphImage.asset->url,
+    *[_type == "defaultSeo"][0].seo.openGraphImage.asset->url
+  ),
+  "keywords": coalesce(
+    select(
+      $lang == "en" => seo.keywords.keywordsEn,
+      seo.keywords.keywordsUa
+    ),
+    select(
+      $lang == "en" => *[_type == "defaultSeo"][0].seo.keywords.keywordsEn,
+      *[_type == "defaultSeo"][0].seo.keywords.keywordsUa
+    ),
+    []
+  )
+}
+`;
+
 export const HOME_QUERY = `
 *[_type == "homePage" && _id == "homepage"][0]{
   "hero": {
@@ -152,7 +188,8 @@ export const HOME_QUERY = `
         "position": coalesce(author.position[$lang], author.position.ua)
       }
     }
-  }
+  },
+  ${SEO_VALUES}
 }
 `;
 
@@ -215,9 +252,41 @@ export const BLOG_LIST_QUERY = `
       },
       "date": preview.publishedAt
     }
-  }
+  },
+"seo": *[_type == "blogsPage"][0] {
+  "pageTitle": coalesce(
+    seo.pageTitle[$lang],
+    seo.pageTitle.ua,
+    *[_type == "defaultSeo"][0].seo.pageTitle[$lang],
+    *[_type == "defaultSeo"][0].seo.pageTitle.ua
+  ),
+  "metaTitle": coalesce(
+    seo.metaTitle[$lang],
+    seo.metaTitle.ua,
+    *[_type == "defaultSeo"][0].seo.metaTitle[$lang],
+    *[_type == "defaultSeo"][0].seo.metaTitle.ua
+  ),
+  "metaDescription": coalesce(
+    seo.metaDescription[$lang],
+    *[_type == "defaultSeo"][0].seo.metaDescription[$lang],
+  ),
+  "openGraphImage": coalesce(
+    seo.openGraphImage.asset->url,
+    *[_type == "defaultSeo"][0].seo.openGraphImage.asset->url
+  ),
+  "keywords": coalesce(
+    select(
+      $lang == "en" => seo.keywords.keywordsEn,
+      seo.keywords.keywordsUa
+    ),
+    select(
+      $lang == "en" => *[_type == "defaultSeo"][0].seo.keywords.keywordsEn,
+      *[_type == "defaultSeo"][0].seo.keywords.keywordsUa
+    ),
+    []
+  )
 }
-`;
+}`;
 
 export const POST_QUERY = `
 *[_type == "blogPost" && preview.slug.current == $slug][0]{
@@ -305,7 +374,8 @@ export const POST_QUERY = `
         }
       }
     }
-  }
+  },
+  ${SEO_VALUES}
 } 
 `;
 
@@ -349,7 +419,8 @@ export const ABOUT_QUERY = `
   "whereWeGoing": {
     "title": coalesce(whereWeGoing.title[$lang], whereWeGoing.title.ua),
     "text": coalesce(whereWeGoing.text[$lang], whereWeGoing.text.ua),
-  }
+  },
+  ${SEO_VALUES}
 }
 `;
 
@@ -416,5 +487,6 @@ export const PRODUCT_DETAILS_QUERY = `*[_type == "productDetailsPage" && slug.cu
       "image": image.asset->url
     }
   },
-  "slug": slug.current
+  "slug": slug.current,
+  ${SEO_VALUES}
 }`;
