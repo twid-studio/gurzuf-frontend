@@ -1,7 +1,7 @@
 import { client } from '@/lib/sanity/client';
 
 export default async function sitemap() {
-  const baseUrl = 'https://gurzufdefence.com';
+  const baseUrl = 'https://www.gurzufdefence.com.ua';
   
   // Static routes
   const staticRoutes = [

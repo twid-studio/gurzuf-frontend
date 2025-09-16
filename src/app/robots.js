@@ -9,6 +9,6 @@ export default function robots() {
         '/_next/',
       ],
     },
-    sitemap: 'https://gurzufdefence.com/sitemap.xml',
+    sitemap: 'https://www.gurzufdefence.com.ua/sitemap.xml',
   }
 }
