@@ -11,49 +11,13 @@ import { usePathname } from "next/navigation";
 import { LocaleContext } from "@/lib/providers/LocaleProvider/LocaleProvider";
 import { Button } from "../Button/Button";
 
-const links = {
-  ua: [
-    {
-      text: "Продукти",
-      href: "/products/heavy-shot",
-    },
-    {
-      text: "Про нас",
-      href: "/about",
-    },
-    {
-      text: "Новини",
-      href: "/blog",
-    },
-    {
-      text: "Озброїти підрозділ",
-      href: "#contact",
-    },
-  ],
-  en: [
-    {
-      text: "Products",
-      href: "/en/products/heavy-shot",
-    },
-    {
-      text: "About us",
-      href: "/en/about",
-    },
-    {
-      text: "News",
-      href: "/en/blog",
-    },
-    {
-      text: "Equip the unit",
-      href: "#contact",
-    },
-  ],
-};
 
-export default function Header() {
+export default function Header({ data }) {
   const path = usePathname();
   const { lang } = useContext(LocaleContext);
-  const linksData = links[lang] || links.ua;
+  // const linksData = links[lang] || links.ua;
+const linksData = data?.navList;
+
   const isHomePage = path === "/" || path === "/en";
   const langSwitchLink = path.startsWith("/en")
     ? path.replace("/en", "") || "/"

@@ -42,7 +42,6 @@ export default async function page({ params }) {
   return (
     <DataProvider data={postData}>
       <PostPage />
-      <Contact />
     </DataProvider>
   );
 }

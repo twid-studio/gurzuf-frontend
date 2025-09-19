@@ -6,7 +6,7 @@ import Footer from "@/utils/Footer/Footer";
 import Contact from "@/utils/Contact/Contact";
 import { LocaleProvider } from "@/lib/providers/LocaleProvider/LocaleProvider";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic-ext"],
@@ -16,9 +16,10 @@ const inter = Inter({
 
 export const metadata = {
   title: "GURZUF DEFENCE",
-  description: "Gurzuf Defence виробляє багатоцільові модульні безпілотні системи, які точково б’ють техніку ворога й бережуть життя наших захисників. Працюємо, доки не звільнимо всю країну — від Сумщини до Криму.",
+  description:
+    "Gurzuf Defence виробляє багатоцільові модульні безпілотні системи, які точково б’ють техніку ворога й бережуть життя наших захисників. Працюємо, доки не звільнимо всю країну — від Сумщини до Криму.",
   verification: {
-    google: 'google61c87a294197c48c',
+    google: "google61c87a294197c48c",
   },
   openGraph: {
     title: "GURZUF DEFENCE",
@@ -44,10 +45,10 @@ export default function RootLayout({ children }) {
       <body className={`${inter.variable} body`}>
         <ScrollProvider scrollBar></ScrollProvider>
         <LocaleProvider>
-          <Header />
+          {/* <Header /> */}
           {children}
           {/* <Contact /> */}
-          <Footer />
+          {/* <Footer /> */}
         </LocaleProvider>
         <SpeedInsights />
         <Analytics />

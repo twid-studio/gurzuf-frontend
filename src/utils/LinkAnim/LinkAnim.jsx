@@ -11,11 +11,11 @@ export const LinkAnim = ({
   color = "black",
   ...rest
 }) => {
-  const isAnchorLink = href.startsWith("#");
+  const isAnchorLink = href && href.startsWith("#");
   
   return (
     <Link
-      href={href}
+      href={href || "#"}
       className={`link-anim bold ${classes || ""} link-anim--${color}`}
       {...rest}
       target={isAnchorLink ? undefined : getLinkTarget(href)}

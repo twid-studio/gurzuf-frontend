@@ -26,7 +26,6 @@ export default async function Home() {
   return (
     <DataProvider data={dataSanity}>
       <HomePage />
-      <Contact />
     </DataProvider>
   );
 }

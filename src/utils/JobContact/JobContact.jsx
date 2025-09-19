@@ -13,10 +13,13 @@ import "./JobContact.scss";
 import { anim, FormAnim } from "@/lib/helpers/anim";
 import { LocaleContext } from "@/lib/providers/LocaleProvider/LocaleProvider";
 
-export default function JobContact() {
-  const { lang } = useContext(LocaleContext);
-  const top = data[lang]?.top || data.ua.top;
-  const form = data[lang]?.form || data.ua.form;
+export default function JobContact({ data }) {
+  // const { lang } = useContext(LocaleContext);
+  // const top = data[lang]?.top || data.ua.top;
+  // const form = data[lang]?.form || data.ua.form;
+
+  const top = data?.top;
+  const form = data?.form;
   
   return (
     <section className="contact container" id="contact">

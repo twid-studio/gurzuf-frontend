@@ -27,7 +27,7 @@ export default async function page() {
   return (
     <DataProvider data={dataSanity}>
       <AboutPage />
-      <JobContact />
+      {/* <JobContact /> */}
     </DataProvider>
   )
 }

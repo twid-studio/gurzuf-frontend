@@ -4,7 +4,7 @@ import React, { useContext, useRef } from "react";
 
 import "./Footer.scss";
 
-import data from "./footerData.json";
+// import dataFalback from "./footerData.json";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -12,11 +12,18 @@ import useIsMobile from "@/lib/helpers/useIsMobile";
 import { LinkAnim } from "../LinkAnim/LinkAnim";
 import { LocaleContext } from "@/lib/providers/LocaleProvider/LocaleProvider";
 
-export default function Footer() {
+export default function Footer({ data }) {
   const { lang } = useContext(LocaleContext);
-  const pages = data[lang].navigation.pages;
-  const contact = data[lang].navigation.contact;
-  const other = data[lang].navigation.other;
+  // Defensive fallbacks to prevent runtime errors when data or navigation is missing
+  const navigation = data?.navigation || {};
+  const pages = navigation.pages || { title: "", items: [] };
+  const contact = navigation.contact || { title: "", items: [] };
+  const other = navigation.other || { title: "", items: [], madeBy: { text: "", href: "#" } };
+
+  // If there is no usable navigation data at all, render nothing (or a minimal placeholder if desired)
+  if (!data || !data.navigation) {
+    return null; // Alternatively, return a skeleton / placeholder component
+  }
 
   const isMobile = useIsMobile();
 
@@ -71,12 +78,6 @@ export default function Footer() {
               />
             ))}
           </div>
-
-          <div className="socials" style={{ display: "none" }}>
-            {contact.socials.map((social, index) => (
-              <SocialsLink href={social.href} icon={social.icon} key={index} />
-            ))}
-          </div>
         </div>
         <div className="navigation">
           <p className="shadow">{other.title}</p>
@@ -92,16 +93,9 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* <Link
-            className="navigation__link navigation__link-made-by"
-            href={other.madeBy.href}
-          >
-            {other.madeBy.text}
-          </Link> */}
-
           <LinkAnim
-            text={other.madeBy.text}
-            href={other.madeBy.href}
+            text={other.madeBy?.text}
+            href={other.madeBy?.href}
             color="white"
             classes="navigation__link navigation__link-made-by"
           />
