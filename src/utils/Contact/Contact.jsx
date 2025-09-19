@@ -5,18 +5,16 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { sendEmail } from "@/app/actions";
 
-import data from "./contactData.json";
+// import data from "./contactData.json";
 import { AnimatePresence, motion } from "framer-motion";
 import clsx from "clsx";
 
 import "./Contact.scss";
 import { anim, FormAnim } from "@/lib/helpers/anim";
-import { LocaleContext } from "@/lib/providers/LocaleProvider/LocaleProvider";
 
-export default function Contact() {
-  const { lang } = useContext(LocaleContext);
-  const top = data[lang]?.top || data.ua.top;
-  const form = data[lang]?.form || data.ua.form;
+export default function Contact({ data }) {
+  const top = data?.top;
+  const form = data?.form;
 
   return (
     <section className="contact container" id="contact">
