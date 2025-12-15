@@ -48,7 +48,6 @@ export default function RootLayout({ children }) {
           {/* <Header /> */}
           {children}
           {/* <Contact /> */}
-          {/* <Footer /> */}
         </LocaleProvider>
         <SpeedInsights />
         <Analytics />
