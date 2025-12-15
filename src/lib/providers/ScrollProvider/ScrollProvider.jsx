@@ -3,16 +3,6 @@ import React, { useEffect, useState } from "react";
 import { ScrollContext } from "./context";
 import { ScrollBar } from "@/utils/ScrollBar/ScrollBar";
 
-function easeInOutExpo(x) {
-  return x === 0
-    ? 0
-    : x === 1
-    ? 1
-    : x < 0.5
-    ? Math.pow(2, 20 * x - 10) / 2
-    : (2 - Math.pow(2, -20 * x + 10)) / 2;
-}
-
 function easeOutExpo(x) {
   return x === 1 ? 1 : 1 - Math.pow(2, -10 * x);
 }
@@ -47,26 +37,60 @@ export const ScrollProvider = ({ children, scrollBar = false, wrapper }) => {
     }
   }, []);
 
+  // Scroll once on initial load if URL has hash / anchor
+  useEffect(() => {
+    if (!lenis || typeof window === "undefined") return;
+
+    // Use a flag on window to ensure this runs only once per full reload
+    if (window.__lenisAnchorScrolled__) return;
+
+    const { hash } = window.location;
+    if (!hash) return;
+
+    // Normalize hash to a selector (e.g. "#section" -> "#section")
+    const targetSelector = hash.startsWith("#") ? hash : `#${hash}`;
+
+    const handleInitialAnchorScroll = () => {
+      const targetElement = document.querySelector(targetSelector);
+      if (!targetElement) return;
+
+      window.__lenisAnchorScrolled__ = true;
+
+      // Delay a bit to ensure layout is ready
+      requestAnimationFrame(() => {
+        lenis.scrollTo(targetElement, {
+          duration: 1.3,
+          easing: (x) => easeOutExpo(x),
+          offset: -60,
+        });
+      });
+    };
+
+    // Run after a short timeout to wait for page/content hydration
+    const timeoutId = setTimeout(handleInitialAnchorScroll, 100);
+
+    return () => clearTimeout(timeoutId);
+  }, [lenis]);
+
   // Add click event listener for data-scroll-anchor elements
   useEffect(() => {
     const handleClick = (e) => {
       const scrollTrigger = e.target.closest("[data-scroll-anchor]");
       if (scrollTrigger) {
+        // e.preventDefault();
+        // e.stopPropagation();
+
         const targetSection = scrollTrigger.getAttribute("data-scroll-anchor");
         const targetElement = document.querySelector(targetSection);
-        
         if (targetElement) {
-          // Use setTimeout to allow other click handlers to execute first
-          setTimeout(() => {
-            scrollTo(targetElement);
-          }, 100);
+          scrollTo(targetElement);
         }
       }
     };
 
     // Use capture phase to ensure we handle the event before other listeners
-    document.addEventListener("click", handleClick, false);
-    return () => document.removeEventListener("click", handleClick, false);
+    document.addEventListener("click", handleClick, true);
+    return () => document.removeEventListener("click", handleClick, true);
   }, [lenis]);
 
   const scrollTo = (target) => {

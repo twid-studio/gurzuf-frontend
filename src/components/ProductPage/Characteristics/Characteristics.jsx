@@ -77,7 +77,7 @@ export default function Characteristics() {
               <button 
                 className="table__button" 
                 onClick={() => setTableOpenned(!tableOpenned)}
-                data-scroll-anchor={!tableOpenned ? "#top-table-anchor" : undefined}
+                data-scroll-anchor={tableOpenned ? "#top-table-anchor" : undefined}
               >
                 <h3>{tableOpenned ? buttonText[lang].close : buttonText[lang].open}</h3>
                 <svg
