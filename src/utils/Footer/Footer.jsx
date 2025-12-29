@@ -15,10 +15,18 @@ import { LocaleContext } from "@/lib/providers/LocaleProvider/LocaleProvider";
 export default function Footer({ data }) {
   const { lang } = useContext(LocaleContext);
   // Defensive fallbacks to prevent runtime errors when data or navigation is missing
+
+  console.log("Footer data:", data);
+
   const navigation = data?.navigation || {};
   const pages = navigation.pages || { title: "", items: [] };
   const contact = navigation.contact || { title: "", items: [] };
-  const other = navigation.other || { title: "", items: [], madeBy: { text: "", href: "#" } };
+  const other = navigation.other || {
+    title: "",
+    items: [],
+    madeBy: { text: "", href: "#" },
+  };
+  const socials = navigation.contact.socials || null;
 
   // If there is no usable navigation data at all, render nothing (or a minimal placeholder if desired)
   if (!data || !data.navigation) {
@@ -78,6 +86,18 @@ export default function Footer({ data }) {
               />
             ))}
           </div>
+
+          {socials && (
+            <div className="socials">
+              {socials.map((social, index) => (
+                <SocialsLink
+                  key={index}
+                  href={social.href}
+                  icon={social.icon}
+                />
+              ))}
+            </div>
+          )}
         </div>
         <div className="navigation">
           <p className="shadow">{other.title}</p>
