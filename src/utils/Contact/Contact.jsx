@@ -29,7 +29,7 @@ export default function Contact({ data }) {
 
 const FormSection = ({ data }) => {
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const {
     sucessText,
@@ -41,6 +41,8 @@ const FormSection = ({ data }) => {
     phone,
     message,
   } = data;
+
+  console.log(data);
 
   const validationSchema = Yup.object().shape({
     name: Yup.string()
@@ -55,7 +57,7 @@ const FormSection = ({ data }) => {
     phone: Yup.string()
       .matches(/[1-10][\d]{0,15}$/, data.phone?.validationErrorText)
       .required(data.phone?.requiredErrorText),
-    message: Yup.string(),
+    message: Yup.string().required(data.message?.requiredErrorText),
   });
 
   const initialValues = {
@@ -240,7 +242,8 @@ const FormSection = ({ data }) => {
                     <select
                       {...field}
                       className={clsx("select-input", {
-                        "select-input--error": errors.industry && touched.industry,
+                        "select-input--error":
+                          errors.industry && touched.industry,
                         "select-input--placeholder": !field.value,
                       })}
                       htmlFor="industry"
@@ -312,7 +315,7 @@ const FormSection = ({ data }) => {
             </div>
 
             <div className="form__row">
-              <div className="form__field form__field--full">
+              <div className="form__field form__field--full form__field--textarea">
                 <Field
                   name="message"
                   as="textarea"
@@ -321,6 +324,11 @@ const FormSection = ({ data }) => {
                     "textarea--error": errors.message && touched.message,
                   })}
                   rows="5"
+                />
+                <ErrorMessage
+                  name="message"
+                  component="div"
+                  className="input__error"
                 />
               </div>
             </div>

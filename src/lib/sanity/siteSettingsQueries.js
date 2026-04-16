@@ -130,8 +130,9 @@ export const JOB_CONTACT_SETTINGS_QUERY = `*[_type == "jobContactSettings"][0]{
       "buttonText": coalesce(cvFile.buttonText[$lang], cvFile.buttonText.ua)
     },
     "message": {
-      "text": coalesce(message.text[$lang], message.text.ua)
-    },
+      "text": coalesce(message.text[$lang], message.text.ua),
+      "requiredErrorText": coalesce(message.requiredErrorText[$lang], message.requiredErrorText.ua)
+      },
     "submitButton": {
       "text": coalesce(submitButton.text[$lang], submitButton.text.ua)
     }

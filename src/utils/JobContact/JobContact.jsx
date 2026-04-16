@@ -114,7 +114,7 @@ const FormSection = ({ data }) => {
           return hasValidMimeType || hasValidExtension;
         }
       ),
-    message: Yup.string(),
+    message: Yup.string().required(message.requiredErrorText),
   });
 
   const initialValues = {
@@ -362,7 +362,7 @@ const FormSection = ({ data }) => {
             </div>
 
             <div className="form__row">
-              <div className="form__field form__field--full">
+              <div className="form__field form__field--full form__field--textarea">
                 <Field
                   name="message"
                   as="textarea"
@@ -371,6 +371,11 @@ const FormSection = ({ data }) => {
                     "textarea--error": errors.message && touched.message,
                   })}
                   rows="5"
+                />
+                <ErrorMessage
+                  name="message"
+                  component="div"
+                  className="input__error"
                 />
               </div>
             </div>

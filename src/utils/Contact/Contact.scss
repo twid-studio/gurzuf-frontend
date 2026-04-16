@@ -29,7 +29,9 @@
     gap: 0.2em;
     opacity: 1;
     transform-origin: center;
-    transition: scale 0.7s $ease-out-expo, opacity 0.7s ease;
+    transition:
+      scale 0.7s $ease-out-expo,
+      opacity 0.7s ease;
 
     @include forTablet {
       gap: 0.3em;
@@ -110,7 +112,9 @@
 
         line-height: 1.2;
 
-        transition: background-color 0.3s ease, opacity 0.3s ease;
+        transition:
+          background-color 0.3s ease,
+          opacity 0.3s ease;
 
         @include forTablet {
           width: calc(100% - 3.3em);
@@ -182,12 +186,11 @@
             fill: $c-white;
           }
         }
-  
+
         option {
           color: $c-white;
         }
 
-        
         &--placeholder {
           color: $g-70 !important;
         }
@@ -210,7 +213,9 @@
           height: 1.4em;
           pointer-events: none;
           fill: $g-70;
-          transition: transform 0.7s $ease-in-out-expo, fill 0.3s ease;
+          transition:
+            transform 0.7s $ease-in-out-expo,
+            fill 0.3s ease;
           z-index: 3;
 
           @include forTablet {
@@ -247,6 +252,25 @@
         @include forMobile {
           height: calc(100% - 1.2em);
         }
+
+        &--error {
+          background-color: $red-10;
+          color: $red-80;
+
+          &::placeholder {
+            color: $red-80;
+          }
+        }
+      }
+
+      &--textarea {
+        .input__error {
+          top: 1em;
+
+          @include forMobile {
+            transform: none;
+          }
+        }
       }
     }
 
@@ -254,7 +278,9 @@
       width: 100%;
       display: flex;
       justify-content: center;
-      transition: opacity 0.3s ease, color 0.3s ease;
+      transition:
+        opacity 0.3s ease,
+        color 0.3s ease;
 
       @include forMobile {
         padding: 0.8em 0;
